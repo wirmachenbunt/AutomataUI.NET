@@ -35,6 +35,7 @@ namespace WindowsFormsSkia
 
             // handle the device screen density
             canvas.Scale(scale);
+            //canvas.Translate(1000, 0);
 
             // make sure the canvas is blank
             canvas.Clear(SKColors.Coral);
@@ -45,7 +46,7 @@ namespace WindowsFormsSkia
                 Color = SKColors.Black,
                 IsAntialias = true,
                 Style = SKPaintStyle.Fill,
-                TextAlign = SKTextAlign.Center,
+                TextAlign = SKTextAlign.Right,
                 Typeface = SKTypeface.FromFamilyName("CoText_Bd"),
                 TextSize = 24
             };
@@ -57,11 +58,28 @@ namespace WindowsFormsSkia
             {
                 Color = SKColors.Blue,
                 IsAntialias = true,
-                StrokeWidth = 15,
+                StrokeWidth = 3,
                 Style = SKPaintStyle.Stroke
 
             };
-            canvas.DrawCircle(50, 50, 30, paint); //arguments are x position, y position, radius, and paint
+            canvas.DrawCircle(50, 50, 30, paint2); //arguments are x position, y position, radius, and paint
+
+            using (SKPath path = new SKPath())
+            {
+                path.MoveTo(100,100);
+                path.CubicTo(100,200,
+                             200,300,
+                             400,100);
+
+                canvas.DrawPath(path, paint2);
+
+                if (path.Contains(100, 100))
+                {
+                    Console.WriteLine("path hit");
+                }
+                
+
+            }
 
 
         }
