@@ -67,9 +67,7 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Library\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="Editor\AutomataUserControl.cs">
       <SubType>UserControl</SubType>
@@ -77,6 +75,7 @@
     <Compile Include="Editor\AutomataUserControl.Designer.cs">
       <DependentUpon>AutomataUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Library\StatemachineObject.cs" />
     <Compile Include="VVVV\Main.cs">
       <SubType>UserControl</SubType>
     </Compile>

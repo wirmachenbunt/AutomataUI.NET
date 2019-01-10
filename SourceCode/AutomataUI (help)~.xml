@@ -1,0 +1,47 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50beta38.dtd" >
+   <PATCH nodename="C:\AutomataUI.NET\SourceCode\AutomataUI (help).v4p" systemname="AutomataUI (help)" filename="C:\AutomataUI.NET\SourceCode\AutomataUI (help).v4p">
+   <BOUNDS type="Window" left="6720" top="8955" width="9000" height="6000">
+   </BOUNDS>
+   <NODE systemname="Template (GUI)" filename="AutomataUI\bin\Debug\AutomataUI.dll" nodename="Template (GUI)" componentmode="InAWindow" id="0">
+   <BOUNDS type="Node" left="2970" top="2370" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2970" top="2370" width="3000" height="3000">
+   </BOUNDS>
+   <BOUNDS type="Window" left="4860" top="1110" width="22905" height="9675">
+   </BOUNDS>
+   </NODE>
+   <PACK Name="dx11" Version="1.3.1.1">
+   </PACK>
+   <PACK Name="dx11.particles" Version="1.0.6">
+   </PACK>
+   <PACK Name="addonpack" Version="38.0.0">
+   </PACK>
+   <NODE systemname="Renderer (TTY)" nodename="Renderer (TTY)" componentmode="InAWindow" id="1">
+   <BOUNDS type="Node" left="5325" top="2250" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5325" top="2250" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="15300" top="11910" width="6240" height="5085">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Timing (Debug)" nodename="Timing (Debug)" componentmode="Hidden" id="2">
+   <BOUNDS type="Node" left="5400" top="840" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="frames per second" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="3">
+   <BOUNDS type="Box" left="5220" top="1500" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5220" top="1500" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="2" srcpinname="frames per second" dstnodeid="3" dstpinname="Y Input Value">
+   </LINK>
+   </PATCH>
