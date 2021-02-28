@@ -24,6 +24,9 @@ namespace WindowsFormsSkia
             InitializeComponent();
         }
 
+        float mouseX;
+        float mouseY;
+
         private void skiaView_PaintSurface(object sender, SKPaintSurfaceEventArgs e)
         {
             // the the canvas and properties
@@ -62,7 +65,7 @@ namespace WindowsFormsSkia
                 Style = SKPaintStyle.Stroke
 
             };
-            canvas.DrawCircle(50, 50, 30, paint2); //arguments are x position, y position, radius, and paint
+            canvas.DrawCircle(mouseX, mouseY, 30, paint2); //arguments are x position, y position, radius, and paint
 
             using (SKPath path = new SKPath())
             {
@@ -72,8 +75,9 @@ namespace WindowsFormsSkia
                              400,100);
 
                 canvas.DrawPath(path, paint2);
+                
 
-                if (path.Contains(100, 100))
+                if (path.Contains(mouseX, mouseY))
                 {
                     Console.WriteLine("path hit");
                 }
@@ -82,7 +86,17 @@ namespace WindowsFormsSkia
             }
 
 
-        }
 
+        }
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            //Console.WriteLine("hallo");
+
+            mouseX = e.X;
+            mouseY = e.Y;
+
+            skiaView.Invalidate();
+
+        }
     }
 }

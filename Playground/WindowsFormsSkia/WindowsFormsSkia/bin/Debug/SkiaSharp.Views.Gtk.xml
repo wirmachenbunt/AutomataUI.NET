@@ -3,6 +3,101 @@
         <name>SkiaSharp.Views.Gtk</name>
     </assembly>
     <members>
+        <member name="T:SkiaSharp.Views.Gtk.GTKExtensions">
+            <summary>To be added.</summary>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.GTKExtensions.ToColor(SkiaSharp.SKColor)">
+            <param name="color">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.GTKExtensions.ToPixbuf(SkiaSharp.SKBitmap)">
+            <param name="skiaBitmap">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.GTKExtensions.ToPixbuf(SkiaSharp.SKImage)">
+            <param name="skiaImage">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.GTKExtensions.ToPixbuf(SkiaSharp.SKPixmap)">
+            <param name="pixmap">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.GTKExtensions.ToPixbuf(SkiaSharp.SKPicture,SkiaSharp.SKSizeI)">
+            <param name="picture">To be added.</param>
+            <param name="dimensions">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.GTKExtensions.ToPoint(SkiaSharp.SKPointI)">
+            <param name="point">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.GTKExtensions.ToRect(SkiaSharp.SKRectI)">
+            <param name="rect">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.GTKExtensions.ToSize(SkiaSharp.SKSizeI)">
+            <param name="size">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.GTKExtensions.ToSKBitmap(Gdk.Pixbuf)">
+            <param name="pixbuf">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.GTKExtensions.ToSKColor(Gdk.Color)">
+            <param name="color">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.GTKExtensions.ToSKImage(Gdk.Pixbuf)">
+            <param name="pixbuf">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.GTKExtensions.ToSKPixmap(Gdk.Pixbuf,SkiaSharp.SKPixmap)">
+            <param name="pixbuf">To be added.</param>
+            <param name="pixmap">To be added.</param>
+            <summary>To be added.</summary>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.GTKExtensions.ToSKPointI(Gdk.Point)">
+            <param name="point">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.GTKExtensions.ToSKRectI(Gdk.Rectangle)">
+            <param name="rect">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:SkiaSharp.Views.Gtk.GTKExtensions.ToSKSizeI(Gdk.Size)">
+            <param name="size">To be added.</param>
+            <summary>To be added.</summary>
+            <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
         <member name="T:SkiaSharp.Views.Gtk.SKWidget">
             <summary>A GTK# view that can be drawn on using SkiaSharp drawing commands.</summary>
             <remarks />

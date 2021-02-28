@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.IO;
 using SkiaSharp.Views.Desktop;
+using System.Windows.Forms;
+using System;
 
 namespace WindowsFormsSkia
 {
@@ -34,7 +36,7 @@ namespace WindowsFormsSkia
         private void InitializeComponent()
         {
             this.skiaView = new SkiaSharp.Views.Desktop.SKControl();
-            
+
             this.SuspendLayout();
             // 
             // skiaView
@@ -49,6 +51,8 @@ namespace WindowsFormsSkia
             // 
             // Form1
             // 
+            this.skiaView.MouseMove += Form1_MouseMove;
+           
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(774, 529);
@@ -57,7 +61,12 @@ namespace WindowsFormsSkia
             this.Text = "Form1";
             this.ResumeLayout(false);
 
+
+
         }
+
+    
+
 
         #endregion
 
