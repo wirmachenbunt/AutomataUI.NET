@@ -19,24 +19,23 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        float mouseX;
-        float mouseY;
-
         private void skiaView_PaintSurface(object sender, SKPaintGLSurfaceEventArgs e)
         {
             // the the canvas and properties
             var canvas = e.Surface.Canvas;
 
             // get the screen density for scaling
-            var scale = 1f;
-            //var scaledSize = new SKSize(e.Surface.Canvas. / scale, e.Info.Height / scale);
+
+
 
             // handle the device screen density
-            canvas.Scale(scale);
-            //canvas.Translate(1000, 0);
+            canvas.Scale(worldScale);
+            canvas.Translate(worldOffset);
+
 
             // make sure the canvas is blank
             canvas.Clear(SKColors.Coral);
+
 
             // draw some text
             var paint = new SKPaint
@@ -48,8 +47,8 @@ namespace WindowsFormsApp1
                 Typeface = SKTypeface.FromFamilyName("CoText_Bd"),
                 TextSize = 24
             };
-          //  var coord = new SKPoint(scaledSize.Width / 2, (scaledSize.Height + paint.TextSize) / 2);
-            //canvas.DrawText("SkiaSharp", coord, paint);
+            var coord = new SKPoint(100, 100);
+            canvas.DrawText("SkiaSharp", coord, paint);
 
 
             var paint2 = new SKPaint
@@ -60,7 +59,10 @@ namespace WindowsFormsApp1
                 Style = SKPaintStyle.Stroke
 
             };
-            canvas.DrawCircle(mouseX, mouseY, 30, paint2); //arguments are x position, y position, radius, and paint
+            //SKPoint circlePos = new SKPoint(
+            //    (PointToClient(MousePosition).X - worldOffset.X) / worldScale,
+            //    (PointToClient(MousePosition).Y - worldOffset.Y) / worldScale);
+            canvas.DrawCircle(new SKPoint(10, 10), 30, paint2); //arguments are x position, y position, radius, and paint
 
             using (SKPath path = new SKPath())
             {
@@ -72,26 +74,54 @@ namespace WindowsFormsApp1
                 canvas.DrawPath(path, paint2);
 
 
-                if (path.Contains(mouseX, mouseY))
+                if (path.Contains(PointToClient(MousePosition).X, PointToClient(MousePosition).Y))
                 {
-                    Console.WriteLine("path hit");
+                    // Console.WriteLine("path hit");
                 }
-
-
             }
-
         }
 
+        Point previousMousePosition;
+        SKPoint worldOffset;
+        float worldScale = 1;
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            //Console.WriteLine("hallo");
 
-            mouseX = e.X;
-            mouseY = e.Y;
+            // drag position
+            Point mousePos = MousePosition;
+            if (e.Button == MouseButtons.Left)
+            {
+                Console.WriteLine("left click");
+                worldOffset.X += (MousePosition.X - previousMousePosition.X) / worldScale;
+                worldOffset.Y += (MousePosition.Y - previousMousePosition.Y) / worldScale;
+            }
+
+            previousMousePosition = mousePos;
 
             skiaView.Invalidate();
 
         }
+        private void Form1_MouseWheel(object sender, MouseEventArgs e)
+        {
 
+            Point mousePos = MousePosition;
+           
+
+            if (e.Delta > 0)
+            {
+                worldScale *= 1.03f;
+            }
+
+            if (e.Delta < 0)
+            {
+                worldScale *= 0.97f;
+            }
+            worldOffset.X -= (MousePosition.X - previousMousePosition.X) / worldScale;
+            worldOffset.Y -= (MousePosition.Y - previousMousePosition.Y) / worldScale;
+            previousMousePosition = mousePos;
+
+            skiaView.Invalidate();
+            
+        }
     }
 }

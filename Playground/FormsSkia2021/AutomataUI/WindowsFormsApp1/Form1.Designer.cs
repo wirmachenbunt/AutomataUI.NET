@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Windows.Forms;
+
 namespace WindowsFormsApp1
 {
     partial class Form1
@@ -55,6 +58,7 @@ namespace WindowsFormsApp1
             // Form1
             // 
             this.skiaView.MouseMove += Form1_MouseMove;
+            this.skiaView.MouseWheel += Form1_MouseWheel;
 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -64,6 +68,8 @@ namespace WindowsFormsApp1
             this.Text = "Form1";
             this.ResumeLayout(false);
         }
+
+       
 
         #endregion
     }
