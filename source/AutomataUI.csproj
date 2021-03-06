@@ -85,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutomataModel.cs" />
     <Compile Include="Window.cs">
       <SubType>Form</SubType>
     </Compile>

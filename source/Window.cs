@@ -51,6 +51,7 @@ namespace AutomataUI
                 Style = SKPaintStyle.Stroke
 
             };
+            
           
             canvas.DrawCircle(new SKPoint(10, 10), 30, paint2); //arguments are x position, y position, radius, and paint
 
@@ -74,7 +75,7 @@ namespace AutomataUI
         SKPoint worldOffset;
         float worldScale = 1;
 
-        private void MouseMove(object sender, MouseEventArgs e)
+        private void DoMouseMove(object sender, MouseEventArgs e)
         {
             // drag position
             Point mousePos = MousePosition;
@@ -89,7 +90,7 @@ namespace AutomataUI
             skiaView.Invalidate();
         }
 
-        private void MouseWheel(object sender, MouseEventArgs e)
+        private void DoMouseWheel(object sender, MouseEventArgs e)
         {
             float worldScalePre = worldScale;
 
@@ -102,6 +103,8 @@ namespace AutomataUI
             {
                 worldScale *= 0.97f;
             }
+
+            
 
             SKPoint preZoomPos = new SKPoint(e.X / worldScalePre, e.Y / worldScalePre);
             SKPoint postZoomPos = new SKPoint(e.X / worldScale, e.Y / worldScale);
@@ -130,8 +133,8 @@ namespace AutomataUI
             // 
             // Form1
             // 
-            this.skiaView.MouseMove += MouseMove;
-            this.skiaView.MouseWheel += MouseWheel;
+            this.skiaView.MouseMove += DoMouseMove;
+            this.skiaView.MouseWheel += DoMouseWheel;
 
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
