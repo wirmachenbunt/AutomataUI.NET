@@ -12,15 +12,14 @@ using System.Windows.Forms;
 
 namespace AutomataUI
 {
-    class Drawing
+    class AutomataView
     {
-
         public SkiaSharp.Views.Desktop.SKGLControl skiaView;
         public SKPoint worldOffset;
         public float worldScale = 1;
 
         //Initialize
-        public Drawing()
+        public AutomataView()
         {
             skiaView = new SkiaSharp.Views.Desktop.SKGLControl();
             skiaView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -64,7 +63,6 @@ namespace AutomataUI
                 Style = SKPaintStyle.Stroke
 
             };
-
 
             canvas.DrawCircle(new SKPoint(10, 10), 30, paint2); //arguments are x position, y position, radius, and paint
 

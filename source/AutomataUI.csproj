@@ -86,8 +86,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutomataModel.cs" />
-    <Compile Include="Drawing.cs" />
-    <Compile Include="MouseKeyboard.cs" />
+    <Compile Include="AutomataView.cs" />
+    <Compile Include="Interaction.cs" />
     <Compile Include="Window.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -14,8 +14,9 @@ namespace AutomataUI
 {
     public class Window : Form
     {
-        Drawing drawing;
-        MouseKeyboard mouseKeyboard;
+        AutomataView drawing;
+        Interaction automataInteraction;
+        AutomataModel automataData;
         
         public Window()
         {
@@ -27,10 +28,10 @@ namespace AutomataUI
             this.SuspendLayout();
 
             // create skia drawing
-            drawing = new Drawing();
+            drawing = new AutomataView();
 
             // create mousekeyboard control for drawing
-            mouseKeyboard = new MouseKeyboard(drawing);
+            automataInteraction = new Interaction(drawing);
 
             AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;

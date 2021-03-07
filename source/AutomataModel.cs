@@ -7,11 +7,16 @@ using SkiaSharp;
 
 namespace AutomataUI
 {
-
     class AutomataModel
     {
         public List<State> states { get; set; }
         public List<Transition> transitions { get; set; }
+
+        public AutomataModel()
+        {
+            states = new List<State>();
+            transitions = new List<Transition>();
+        }
     }
 
     public abstract class UIelement //all UI Elements should be based upon this to make the hittest work
@@ -24,8 +29,6 @@ namespace AutomataUI
     {
         public string ID { get; set; }
 
-        public string Name { get; set; }
-
         public bool Active { get; set; }
 
         public int Duration { get; set; } //how many frames is the state locked
@@ -33,12 +36,12 @@ namespace AutomataUI
     }
     public class Transition : UIelement
     {
-        public State startState { get; set; }    
+        public State startState { get; set; }
 
         public State endState { get; set; }
-       
+
         public int Duration { get; set; }
-       
+
         public bool IsPingPong { get; set; }
 
     }
