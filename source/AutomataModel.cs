@@ -7,54 +7,43 @@ using SkiaSharp;
 
 namespace AutomataUI
 {
+
     class AutomataModel
     {
+        public List<State> states { get; set; }
+        public List<Transition> transitions { get; set; }
+    }
 
-        public class State
-        {
-            public string ID { get; set; }
+    public abstract class UIelement //all UI Elements should be based upon this to make the hittest work
+    {
+        public SKRect Bounds { get; set; }
+        public string Name { get; set; }
+    }
 
-            public string Name { get; set; }
+    public class State : UIelement
+    {
+        public string ID { get; set; }
 
-            public bool Active { get; set; }
+        public string Name { get; set; }
 
-            public int Frames { get; set; }//how many frames is the state locked
+        public bool Active { get; set; }
 
-            public SKRect Rectangle { get; set; }
-        }
-        public class Transition
-        {
-            public string Name
-            {
-                get;
-                set;
-            }
+        public int Duration { get; set; } //how many frames is the state locked
 
-            public State startState
-            {
-                get;
-                set;
-            }
+    }
+    public class Transition : UIelement
+    {
+        public State startState { get; set; }    
 
-            public State endState
-            {
-                get;
-                set;
-            }
-
-            public int Frames //how long does the transition take
-            {
-                get;
-                set;
-            }
-
-            public bool IsPingPong //how long does the transition take
-            {
-                get;
-                set;
-            }
-            public SKRect Rectangle { get; set; }
-        }
+        public State endState { get; set; }
+       
+        public int Duration { get; set; }
+       
+        public bool IsPingPong { get; set; }
 
     }
 }
+
+
+
+
