@@ -12,11 +12,16 @@ using System.Windows.Forms;
 
 namespace AutomataUI
 {
+
+/// <summary>
+/// Main window providing home for automata view rendering, data and control
+/// </summary>
+
     public class Window : Form
     {
-        AutomataView drawing;
-        Interaction automataInteraction;
-        AutomataModel automataData;
+        AutomataView View;
+        Interaction Interaction;
+        AutomataModel Model;
         
         public Window()
         {
@@ -28,15 +33,16 @@ namespace AutomataUI
             this.SuspendLayout();
 
             // create skia drawing
-            drawing = new AutomataView();
+            View = new AutomataView();
+            Model = new AutomataModel();
 
             // create mousekeyboard control for drawing
-            automataInteraction = new Interaction(drawing);
+            Interaction = new Interaction(View,Model);
 
             AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             ClientSize = new System.Drawing.Size(774, 529);
-            Controls.Add(drawing.skiaView);
+            Controls.Add(View.skiaView);
             Name = "AutomataUI";
             Text = "AutomataUI";
             ResumeLayout(false);

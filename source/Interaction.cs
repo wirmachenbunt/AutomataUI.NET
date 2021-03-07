@@ -15,23 +15,35 @@ namespace AutomataUI
     class Interaction
     {
         AutomataView AutomataView;
-        Point previousMousePosition;
+        SKPoint previousMousePosition;
+        AutomataModel AutomataData;
 
-        public Interaction(AutomataView ViewInput)
+        public Interaction(AutomataView ViewInput, AutomataModel ModelInput)
         {
             AutomataView = ViewInput; // reference to skia drawing
+            AutomataData = ModelInput; // reference to Automata Data
+
             ViewInput.skiaView.MouseMove += DoMouseMove;
             ViewInput.skiaView.MouseWheel += DoMouseWheel;
+            ViewInput.skiaView.MouseDoubleClick += DoDoubleClick;
         }
 
+        private void DoDoubleClick(object sender, MouseEventArgs e)
+        {
+
+            //if (path.Contains(PointToClient(MousePosition).X, PointToClient(MousePosition).Y))
+            //{
+            //    // Console.WriteLine("path hit");
+            //}
+        }
 
         private void DoMouseMove(object sender, MouseEventArgs e)
         {
             // drag position
-            Point mousePos = e.Location;
+            SKPoint mousePos = e.Location.ToSKPoint();
             if (e.Button == MouseButtons.Left)
             {
-                Console.WriteLine("left click");
+               // Console.WriteLine("left click");
                 AutomataView.worldOffset.X += (e.X - previousMousePosition.X) / AutomataView.worldScale;
                 AutomataView.worldOffset.Y += (e.Y - previousMousePosition.Y) / AutomataView.worldScale;
                 AutomataView.skiaView.Invalidate();

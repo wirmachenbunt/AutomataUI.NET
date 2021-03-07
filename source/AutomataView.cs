@@ -74,11 +74,6 @@ namespace AutomataUI
                              400, 100);
 
                 canvas.DrawPath(path, paint2);
-
-                //if (path.Contains(PointToClient(MousePosition).X, PointToClient(MousePosition).Y))
-                //{
-                //    // Console.WriteLine("path hit");
-                //}
             }
         }
     }
