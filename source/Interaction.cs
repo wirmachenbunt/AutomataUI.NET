@@ -54,6 +54,7 @@ namespace AutomataUI
         private void DoMouseWheel(object sender, MouseEventArgs e)
         {
             float worldScalePre = AutomataView.worldScale;
+            Console.WriteLine(e.Delta);
 
             if (e.Delta > 0)
             {
