@@ -17,12 +17,13 @@ namespace AutomataUI
         AutomataView AutomataView;
         SKPoint previousMousePosition;
         AutomataModel AutomataData;
+        Dialogs Dialogs;
 
-        public Interaction(AutomataView ViewInput, AutomataModel ModelInput)
+        public Interaction(AutomataView ViewInput, AutomataModel AutomataDataInput, Dialogs DialogInput)
         {
             AutomataView = ViewInput; // reference to skia drawing
-            AutomataData = ModelInput; // reference to Automata Data
-
+            AutomataData = AutomataDataInput; // reference to Automata Data
+            Dialogs = DialogInput;
             ViewInput.skiaView.MouseMove += DoMouseMove;
             ViewInput.skiaView.MouseWheel += DoMouseWheel;
             ViewInput.skiaView.MouseDoubleClick += DoDoubleClick;
@@ -30,28 +31,46 @@ namespace AutomataUI
 
         private void DoDoubleClick(object sender, MouseEventArgs e)
         {
+            int frames = 0;
+            string name = "new state";
+            int size = 20;
+
+            
+            Dialogs.TestMyForm();
+
+            //if (Dialogs.AddState(ref name, ref frames, "Add State") == DialogResult.OK)
+            //{
+            //    //AutomataData.AddState(name, frames, e.Location.ToSKPoint());
+            //}
 
             //if (path.Contains(PointToClient(MousePosition).X, PointToClient(MousePosition).Y))
             //{
             //    // Console.WriteLine("path hit");
             //}
         }
-
         private void DoMouseMove(object sender, MouseEventArgs e)
+        {
+            DragWorld(e);
+
+        }
+        private void DoMouseWheel(object sender, MouseEventArgs e)
+        {
+            ZoomWorld(e);
+        }
+        public void DragWorld(MouseEventArgs e)
         {
             // drag position
             SKPoint mousePos = e.Location.ToSKPoint();
             if (e.Button == MouseButtons.Left)
             {
-               // Console.WriteLine("left click");
+                // Console.WriteLine("left click");
                 AutomataView.worldOffset.X += (e.X - previousMousePosition.X) / AutomataView.worldScale;
                 AutomataView.worldOffset.Y += (e.Y - previousMousePosition.Y) / AutomataView.worldScale;
                 AutomataView.skiaView.Invalidate();
             }
             previousMousePosition = mousePos;
-
         }
-        private void DoMouseWheel(object sender, MouseEventArgs e)
+        public void ZoomWorld(MouseEventArgs e)
         {
             float worldScalePre = AutomataView.worldScale;
             Console.WriteLine(e.Delta);
@@ -74,5 +93,6 @@ namespace AutomataUI
 
             AutomataView.skiaView.Invalidate();
         }
+
     }
 }

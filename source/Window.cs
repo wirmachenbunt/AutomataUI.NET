@@ -22,6 +22,7 @@ namespace AutomataUI
         AutomataView View;
         Interaction Interaction;
         AutomataModel Model;
+        Dialogs Dialogs;
         
         public Window()
         {
@@ -35,9 +36,9 @@ namespace AutomataUI
             // create skia drawing
             View = new AutomataView();
             Model = new AutomataModel();
-
+            Dialogs = new Dialogs();
             // create mousekeyboard control for drawing
-            Interaction = new Interaction(View,Model);
+            Interaction = new Interaction(View,Model,Dialogs);
 
             AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;

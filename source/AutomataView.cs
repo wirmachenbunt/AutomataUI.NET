@@ -40,7 +40,7 @@ namespace AutomataUI
             canvas.Translate(worldOffset);
 
             // make sure the canvas is blank
-            canvas.Clear(SKColors.DarkGray);
+            canvas.Clear(SKColors.Orange);
 
             // draw some text
             var paint = new SKPaint
