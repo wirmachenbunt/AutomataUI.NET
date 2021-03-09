@@ -77,12 +77,12 @@ namespace AutomataUI
 
             if (e.Delta > 0)
             {
-                AutomataView.worldScale *= 1.03f;
+                AutomataView.worldScale *= 1.08f;
             }
 
             if (e.Delta < 0)
             {
-                AutomataView.worldScale *= 0.97f;
+                AutomataView.worldScale *= 0.92f;
             }
 
             SKPoint preZoomPos = new SKPoint(e.X / worldScalePre, e.Y / worldScalePre);
