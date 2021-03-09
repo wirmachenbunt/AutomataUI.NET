@@ -1,5 +1,6 @@
 ﻿using SkiaSharp;
 using SkiaSharp.Views.Desktop;
+using SkiaTextRenderer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,10 @@ namespace AutomataUI
         public SKPoint worldOffset;
         public float worldScale = 1;
 
+        //colors
+        SKPaint statePaint;
+        SKPaint textPaint;
+
         //Initialize
         public AutomataView()
         {
@@ -29,6 +34,37 @@ namespace AutomataUI
             skiaView.TabIndex = 0;
             skiaView.Text = "skControl1";
             skiaView.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintGLSurfaceEventArgs>(UpdateSkiaView);
+
+            SetupPaints();
+        }
+
+        public void SetupPaints()
+        {
+
+            statePaint = new SKPaint
+            {
+                IsAntialias = true,
+                Style = SKPaintStyle.Fill,
+                Color = SKColor.Parse("#00ffea")    
+            };
+
+            textPaint = new SKPaint
+            {
+                Color = SKColors.Black,
+                IsAntialias = true,
+                Style = SKPaintStyle.Fill,
+                TextAlign = SKTextAlign.Center,
+                Typeface = SKTypeface.FromFamilyName("CoText_Bd"),
+                TextSize = 24
+            };
+
+        }
+
+        public void DrawStates(SKCanvas canvas)
+        {
+            canvas.DrawCircle(0, 0, 50, statePaint);
+            canvas.DrawText("Init", new SKPoint(0,10), textPaint);
+
         }
 
         private void UpdateSkiaView(object sender, SKPaintGLSurfaceEventArgs e)
@@ -40,41 +76,44 @@ namespace AutomataUI
             canvas.Translate(worldOffset);
 
             // make sure the canvas is blank
-            canvas.Clear(SKColors.Orange);
+            canvas.Clear(SKColor.Parse("#141414"));
 
-            // draw some text
-            var paint = new SKPaint
-            {
-                Color = SKColors.Black,
-                IsAntialias = true,
-                Style = SKPaintStyle.Fill,
-                TextAlign = SKTextAlign.Right,
-                Typeface = SKTypeface.FromFamilyName("CoText_Bd"),
-                TextSize = 24
-            };
-            var coord = new SKPoint(100, 100);
-            canvas.DrawText("SkiaSharp", coord, paint);
+            DrawStates(canvas);
 
-            var paint2 = new SKPaint
-            {
-                Color = SKColors.Blue,
-                IsAntialias = true,
-                StrokeWidth = 3,
-                Style = SKPaintStyle.Stroke
+            //// draw some text
+            //var paint = new SKPaint
+            //{
+            //    Color = SKColors.Black,
+            //    IsAntialias = true,
+            //    Style = SKPaintStyle.Fill,
+            //    TextAlign = SKTextAlign.Right,
+            //    Typeface = SKTypeface.FromFamilyName("CoText_Bd"),
+            //    TextSize = 24
+            //};
+            //var coord = new SKPoint(100, 100);
+            //canvas.DrawText("SkiaSharp", coord, paint);
 
-            };
+            //SKPaint statePaint = new SKPaint
+            //{
+            //    Style = SKPaintStyle.Stroke,
+            //    Color = Color.Red.ToSKColor(),
+            //    StrokeWidth = 25
+            //};
+            //canvas.DrawCircle(0, 0 , 100, statePaint);
 
-            canvas.DrawCircle(new SKPoint(10, 10), 30, paint2); //arguments are x position, y position, radius, and paint
+            //statePaint.Style = SKPaintStyle.Fill;
+            //statePaint.Color = SKColors.Blue;
+            //canvas.DrawCircle(0,0, 100, statePaint);
 
-            using (SKPath path = new SKPath())
-            {
-                path.MoveTo(100, 100);
-                path.CubicTo(100, 200,
-                             200, 300,
-                             400, 100);
+            //using (SKPath path = new SKPath())
+            //{
+            //    path.MoveTo(100, 100);
+            //    path.CubicTo(100, 200,
+            //                 200, 300,
+            //                 400, 100);
 
-                canvas.DrawPath(path, paint2);
-            }
+            //    canvas.DrawPath(path, paint2);
+            //}
         }
     }
 }

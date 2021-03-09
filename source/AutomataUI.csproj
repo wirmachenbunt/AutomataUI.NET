@@ -59,6 +59,9 @@
     <Reference Include="SkiaSharp.Views.WPF, Version=2.80.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\SkiaSharp.Views.WPF.2.80.3-preview.40\lib\net462\SkiaSharp.Views.WPF.dll</HintPath>
     </Reference>
+    <Reference Include="SkiaTextRenderer, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SkiaTextRenderer.2.0.0\lib\netstandard2.0\SkiaTextRenderer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>

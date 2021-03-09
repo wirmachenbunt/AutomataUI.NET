@@ -61,7 +61,7 @@ namespace AutomataUI
         {
             // drag position
             SKPoint mousePos = e.Location.ToSKPoint();
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Right)
             {
                 // Console.WriteLine("left click");
                 AutomataView.worldOffset.X += (e.X - previousMousePosition.X) / AutomataView.worldScale;

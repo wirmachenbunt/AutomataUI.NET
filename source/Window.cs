@@ -26,20 +26,21 @@ namespace AutomataUI
         
         public Window()
         {
-            InitializeComponent();
+            InitializeAutomata();
         } 
          
-        private void InitializeComponent()
+        private void InitializeAutomata()
         {          
-            this.SuspendLayout();
-
-            // create skia drawing
+            //
+            // 
+            //
             View = new AutomataView();
-            Model = new AutomataModel();
-            Dialogs = new Dialogs();
+            Model = new AutomataModel(true); 
+            Dialogs = new Dialogs(); 
             // create mousekeyboard control for drawing
             Interaction = new Interaction(View,Model,Dialogs);
 
+            this.SuspendLayout();
             AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             ClientSize = new System.Drawing.Size(774, 529);

@@ -13,10 +13,16 @@ namespace AutomataUI
         public List<State> states { get; set; }
         public List<Transition> transitions { get; set; }
 
-        public AutomataModel()
+        public AutomataModel(bool init)
         {
             states = new List<State>();
+            
             transitions = new List<Transition>();
+
+            if (init)
+            {
+                AddState("Init", 0, new SKPoint(0, 0)); // add default state
+            }         
         }
 
         public void AddState(String name, int frames, SKPoint point)
