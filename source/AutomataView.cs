@@ -63,7 +63,17 @@ namespace AutomataUI
         public void DrawStates(SKCanvas canvas)
         {
             canvas.DrawCircle(0, 0, 50, statePaint);
-            canvas.DrawText("Init", new SKPoint(0,10), textPaint);
+            //canvas.DrawText("Init", new SKPoint(0,10), textPaint);
+           
+
+            var font = new SkiaTextRenderer.Font(SKTypeface.Default, 15);
+
+            var size = TextRendererSk.MeasureText("Scene", font);
+            TextRendererSk.DrawText(canvas,
+                                    "Idle",
+                                    font,
+                                    SKRect.Create(-40,-40, 80,80),
+                                    SKColors.Black, SkiaTextRenderer.TextFormatFlags.WordBreak | SkiaTextRenderer.TextFormatFlags.VerticalCenter | SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
 
         }
 
