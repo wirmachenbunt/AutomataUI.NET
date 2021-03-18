@@ -15,6 +15,8 @@ namespace AutomataUI
 {
     class AutomataView
     {
+        AutomataModel AutomataData;
+
         public SkiaSharp.Views.Desktop.SKGLControl skiaView;
         public SKPoint worldOffset;
         public float worldScale = 1;
@@ -24,8 +26,10 @@ namespace AutomataUI
         SKPaint textPaint;
 
         //Initialize
-        public AutomataView()
+        public AutomataView(AutomataModel AutomataDataInput)
         {
+            AutomataData = AutomataDataInput; // reference to parent class data
+
             skiaView = new SkiaSharp.Views.Desktop.SKGLControl();
             skiaView.Dock = System.Windows.Forms.DockStyle.Fill;
             skiaView.Location = new System.Drawing.Point(0, 0);
@@ -59,11 +63,10 @@ namespace AutomataUI
             };
 
         }
-
         public void DrawStates(SKCanvas canvas)
         {
             canvas.DrawCircle(0, 0, 50, statePaint);
-            //canvas.DrawText("Init", new SKPoint(0,10), textPaint);
+            
            
 
             var font = new SkiaTextRenderer.Font(SKTypeface.Default, 15);
@@ -76,7 +79,6 @@ namespace AutomataUI
                                     SKColors.Black, SkiaTextRenderer.TextFormatFlags.WordBreak | SkiaTextRenderer.TextFormatFlags.VerticalCenter | SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
 
         }
-
         private void UpdateSkiaView(object sender, SKPaintGLSurfaceEventArgs e)
         {
             var canvas = e.Surface.Canvas;

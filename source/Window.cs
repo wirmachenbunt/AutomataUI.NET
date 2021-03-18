@@ -19,10 +19,10 @@ namespace AutomataUI
 
     public class Window : Form
     {
-        AutomataView View;
-        Interaction Interaction;
-        AutomataModel Model;
-        Dialogs Dialogs;
+        AutomataView AutomataView; //UI Rendering
+        Interaction AutomataInteraction; //User Input Management
+        AutomataModel AutomataData; //contains Automata Structure and Methods
+        Dialogs AutomataDialogs; //Winforms Dialogs
         
         public Window()
         {
@@ -30,21 +30,19 @@ namespace AutomataUI
         } 
          
         private void InitializeAutomata()
-        {          
-            //
-            // 
-            //
-            View = new AutomataView();
-            Model = new AutomataModel(true); 
-            Dialogs = new Dialogs(); 
+        {
+           
+            AutomataData = new AutomataModel();
+            AutomataView = new AutomataView(AutomataData);
+            AutomataDialogs = new Dialogs();
             // create mousekeyboard control for drawing
-            Interaction = new Interaction(View,Model,Dialogs);
+            AutomataInteraction = new Interaction(AutomataView, AutomataData, AutomataDialogs);
 
             this.SuspendLayout();
             AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             ClientSize = new System.Drawing.Size(774, 529);
-            Controls.Add(View.skiaView);
+            Controls.Add(AutomataView.skiaView);
             Name = "AutomataUI";
             Text = "AutomataUI";
             ResumeLayout(false);

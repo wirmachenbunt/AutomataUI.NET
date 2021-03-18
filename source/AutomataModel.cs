@@ -13,21 +13,17 @@ namespace AutomataUI
         public List<State> states { get; set; }
         public List<Transition> transitions { get; set; }
 
-        public AutomataModel(bool init)
+        public AutomataModel()
         {
             states = new List<State>();
-            
             transitions = new List<Transition>();
-
-            if (init)
-            {
-                AddState("Init", 0, new SKPoint(0, 0)); // add default state
-            }         
+            AddState("Init", 0, new SKPoint(0, 0)); // add default state
         }
 
         public void AddState(String name, int frames, SKPoint point)
         {
-            SKRect bounds = new SKRect();
+            SKRect bounds = new SKRect(point.X-20,point.Y-20,point.X+20,point.Y+20);
+
             states.Add(new State()
             {
                 ID = RNGCharacterMask(),
@@ -68,9 +64,6 @@ namespace AutomataUI
             return char.ToUpper(s[0]) + s.Substring(1);
         }
     }
-
-
-
 
     public abstract class UIelement //all UI Elements should be based upon this to make the hittest work
     {
