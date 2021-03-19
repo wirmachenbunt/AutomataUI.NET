@@ -20,10 +20,14 @@ namespace AutomataUI
         public SkiaSharp.Views.Desktop.SKGLControl skiaView;
         public SKPoint worldOffset;
         public float worldScale = 1;
+        public SKPoint mousePos;
 
         //colors
-        SKPaint statePaint;
+        SKPaint stateInitPaint;
+        SKPaint stateDefaultPaint;
         SKPaint textPaint;
+
+        SkiaTextRenderer.Font font;
 
         //Initialize
         public AutomataView(AutomataModel AutomataDataInput)
@@ -40,21 +44,32 @@ namespace AutomataUI
             skiaView.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintGLSurfaceEventArgs>(UpdateSkiaView);
 
             SetupPaints();
+            font = new SkiaTextRenderer.Font(SKTypeface.Default, 15);
+
+         
+
         }
 
         public void SetupPaints()
         {
 
-            statePaint = new SKPaint
+            stateInitPaint = new SKPaint
             {
                 IsAntialias = true,
                 Style = SKPaintStyle.Fill,
-                Color = SKColor.Parse("#00ffea")    
+                Color = SKColor.Parse("#00ffea")
+            };
+
+            stateDefaultPaint = new SKPaint
+            {
+                IsAntialias = true,
+                Style = SKPaintStyle.Fill,
+                Color = SKColor.Parse("#323232")
             };
 
             textPaint = new SKPaint
             {
-                Color = SKColors.Black,
+                Color = SKColor.Parse("#adadad"),
                 IsAntialias = true,
                 Style = SKPaintStyle.Fill,
                 TextAlign = SKTextAlign.Center,
@@ -65,18 +80,41 @@ namespace AutomataUI
         }
         public void DrawStates(SKCanvas canvas)
         {
-            canvas.DrawCircle(0, 0, 50, statePaint);
-            
-           
 
-            var font = new SkiaTextRenderer.Font(SKTypeface.Default, 15);
+            if (AutomataData != null)
+            {
+                foreach (var item in AutomataData.states)
+                {
+                    canvas.DrawRect(item.Bounds, stateDefaultPaint);
 
-            var size = TextRendererSk.MeasureText("Scene", font);
-            TextRendererSk.DrawText(canvas,
-                                    "Idle",
-                                    font,
-                                    SKRect.Create(-40,-40, 80,80),
-                                    SKColors.Black, SkiaTextRenderer.TextFormatFlags.WordBreak | SkiaTextRenderer.TextFormatFlags.VerticalCenter | SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
+                    
+
+                    if (item.Name == "Init")
+                    {
+                        canvas.DrawCircle(item.Bounds.MidX, item.Bounds.MidY, 50, stateInitPaint);
+                    }
+                    else
+                    {
+                        canvas.DrawCircle(item.Bounds.MidX, item.Bounds.MidY, 50, stateInitPaint);
+                    }
+
+                    var size = TextRendererSk.MeasureText(item.Name, font);
+
+                    TextRendererSk.DrawText(canvas,
+                                            item.Name,
+                                            font,
+                                            SKRect.Create(-40, -40, 80, 80),
+                                            SKColor.Parse("#adadad"), 
+                                            SkiaTextRenderer.TextFormatFlags.WordBreak | 
+                                            SkiaTextRenderer.TextFormatFlags.VerticalCenter | 
+                                            SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
+                }
+            }
+
+
+
+
+
 
         }
         private void UpdateSkiaView(object sender, SKPaintGLSurfaceEventArgs e)
@@ -92,40 +130,16 @@ namespace AutomataUI
 
             DrawStates(canvas);
 
-            //// draw some text
-            //var paint = new SKPaint
-            //{
-            //    Color = SKColors.Black,
-            //    IsAntialias = true,
-            //    Style = SKPaintStyle.Fill,
-            //    TextAlign = SKTextAlign.Right,
-            //    Typeface = SKTypeface.FromFamilyName("CoText_Bd"),
-            //    TextSize = 24
-            //};
-            //var coord = new SKPoint(100, 100);
-            //canvas.DrawText("SkiaSharp", coord, paint);
 
-            //SKPaint statePaint = new SKPaint
-            //{
-            //    Style = SKPaintStyle.Stroke,
-            //    Color = Color.Red.ToSKColor(),
-            //    StrokeWidth = 25
-            //};
-            //canvas.DrawCircle(0, 0 , 100, statePaint);
+            //debug mouse method
+            canvas.DrawCircle(ToWorldSpace(mousePos,worldOffset,worldScale), 10, stateDefaultPaint);
 
-            //statePaint.Style = SKPaintStyle.Fill;
-            //statePaint.Color = SKColors.Blue;
-            //canvas.DrawCircle(0,0, 100, statePaint);
 
-            //using (SKPath path = new SKPath())
-            //{
-            //    path.MoveTo(100, 100);
-            //    path.CubicTo(100, 200,
-            //                 200, 300,
-            //                 400, 100);
+        }
 
-            //    canvas.DrawPath(path, paint2);
-            //}
+        private SKPoint ToWorldSpace (SKPoint position, SKPoint worldOffset,float worldScale)
+        {
+            return new SKPoint(position.X / worldScale, position.Y / worldScale) - worldOffset;
         }
     }
 }

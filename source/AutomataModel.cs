@@ -22,7 +22,9 @@ namespace AutomataUI
 
         public void AddState(String name, int frames, SKPoint point)
         {
-            SKRect bounds = new SKRect(point.X-20,point.Y-20,point.X+20,point.Y+20);
+            int size = 50;
+
+            SKRect bounds = new SKRect(point.X-size,point.Y-size,point.X+size,point.Y+size);
 
             states.Add(new State()
             {

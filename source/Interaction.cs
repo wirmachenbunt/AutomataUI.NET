@@ -52,6 +52,9 @@ namespace AutomataUI
         {
             DragWorld(e);
 
+            //debug mouse coords
+            AutomataView.mousePos = e.Location.ToSKPoint();
+            AutomataView.skiaView.Invalidate();
         }
         private void DoMouseWheel(object sender, MouseEventArgs e)
         {
