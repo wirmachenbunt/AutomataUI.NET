@@ -130,16 +130,8 @@ namespace AutomataUI
 
             DrawStates(canvas);
 
-
             //debug mouse method
-            canvas.DrawCircle(ToWorldSpace(mousePos,worldOffset,worldScale), 10, stateDefaultPaint);
-
-
-        }
-
-        private SKPoint ToWorldSpace (SKPoint position, SKPoint worldOffset,float worldScale)
-        {
-            return new SKPoint(position.X / worldScale, position.Y / worldScale) - worldOffset;
+            canvas.DrawCircle(Tools.ToWorldSpace(mousePos,worldOffset,worldScale), 10, stateDefaultPaint);
         }
     }
 }

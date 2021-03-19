@@ -52,6 +52,7 @@ namespace AutomataUI
         {
             DragWorld(e);
 
+            HitTest(e);
             //debug mouse coords
             AutomataView.mousePos = e.Location.ToSKPoint();
             AutomataView.skiaView.Invalidate();
@@ -60,6 +61,25 @@ namespace AutomataUI
         {
             ZoomWorld(e);
         }
+
+        private void HitTest(MouseEventArgs e)
+        {
+            
+            SKPoint worldMousePos = Tools.ToWorldSpace(e.Location.ToSKPoint(), AutomataView.worldOffset, AutomataView.worldScale);
+
+          
+            
+            foreach (var item in AutomataData.states)
+            {
+                if (item.Bounds.Contains(worldMousePos))
+                {
+                    Console.WriteLine(e.Location);
+                }
+            }
+
+        }
+
+
         public void DragWorld(MouseEventArgs e)
         {
             // drag position
@@ -76,14 +96,14 @@ namespace AutomataUI
         public void ZoomWorld(MouseEventArgs e)
         {
             float worldScalePre = AutomataView.worldScale;
-            Console.WriteLine(e.Delta);
+            Console.WriteLine(AutomataView.worldScale);
 
-            if (e.Delta > 0)
+            if (e.Delta > 0 && AutomataView.worldScale < 1.2f)
             {
                 AutomataView.worldScale *= 1.08f;
             }
 
-            if (e.Delta < 0)
+            if (e.Delta < 0 && AutomataView.worldScale > 0.2f)
             {
                 AutomataView.worldScale *= 0.92f;
             }
@@ -96,6 +116,7 @@ namespace AutomataUI
 
             AutomataView.skiaView.Invalidate();
         }
+       
 
     }
 }
