@@ -14,34 +14,37 @@ namespace AutomataUI
 {
     class Interaction
     {
-        AutomataView AutomataView;
-        SKPoint previousMousePosition;
+        AutomataView AutomataView;     
         AutomataModel AutomataData;
         Dialogs Dialogs;
+        Form parentForm;    
 
-        public Interaction(AutomataView ViewInput, AutomataModel AutomataDataInput, Dialogs DialogInput)
+        SKPoint previousMousePosition;
+
+        public Interaction(AutomataView ViewInput, AutomataModel AutomataDataInput, Dialogs DialogInput,Form FormInput)
         {
             AutomataView = ViewInput; // reference to skia drawing
             AutomataData = AutomataDataInput; // reference to Automata Data
             Dialogs = DialogInput;
+            parentForm = FormInput; // access parentform to change mouse cursor
             ViewInput.skiaView.MouseMove += DoMouseMove;
             ViewInput.skiaView.MouseWheel += DoMouseWheel;
             ViewInput.skiaView.MouseDoubleClick += DoDoubleClick;
         }
-
         private void DoDoubleClick(object sender, MouseEventArgs e)
         {
-            int frames = 0;
-            string name = "new state";
-            int size = 20;
 
+            string stateName = "empty";
+            int frames = 1;
+
+           // Dialogs.TestMyForm();
             
-            Dialogs.TestMyForm();
 
-            //if (Dialogs.AddState(ref name, ref frames, "Add State") == DialogResult.OK)
-            //{
-            //    //AutomataData.AddState(name, frames, e.Location.ToSKPoint());
-            //}
+            if (Dialogs.AddState(ref stateName, ref frames, "Add State") == DialogResult.OK)
+            {
+                // AutomataData.AddState(name, frames, e.Location.ToSKPoint());
+                Console.WriteLine("Add State");
+            }
 
             //if (path.Contains(PointToClient(MousePosition).X, PointToClient(MousePosition).Y))
             //{
@@ -52,7 +55,10 @@ namespace AutomataUI
         {
             DragWorld(e);
 
-            HitTest(e);
+            //HitTest(e);
+
+            var thing = HitTest(e);
+
             //debug mouse coords
             AutomataView.mousePos = e.Location.ToSKPoint();
             AutomataView.skiaView.Invalidate();
@@ -60,26 +66,34 @@ namespace AutomataUI
         private void DoMouseWheel(object sender, MouseEventArgs e)
         {
             ZoomWorld(e);
-        }
-
-        private void HitTest(MouseEventArgs e)
+        }   
+        private Object HitTest(MouseEventArgs e)
         {
-            
+            //transform mouse to world space for hit testing
             SKPoint worldMousePos = Tools.ToWorldSpace(e.Location.ToSKPoint(), AutomataView.worldOffset, AutomataView.worldScale);
-
-          
             
+            //who wants to be hit tested
+            List<UIelement> hitTestList = new List<UIelement>();
             foreach (var item in AutomataData.states)
             {
-                if (item.Bounds.Contains(worldMousePos))
-                {
-                    Console.WriteLine(e.Location);
-                }
+                hitTestList.Add(item);
             }
 
+            // actual hittest
+            var hooverObject = hitTestList.FirstOrDefault(x => x.Bounds.Contains(worldMousePos));
+
+            if (hooverObject is State)
+            {
+                Console.WriteLine("hit");
+                parentForm.Cursor = Cursors.Hand;
+            }
+            else
+            {
+                parentForm.Cursor = Cursors.Default;
+            }
+
+            return hooverObject;
         }
-
-
         public void DragWorld(MouseEventArgs e)
         {
             // drag position
@@ -116,7 +130,5 @@ namespace AutomataUI
 
             AutomataView.skiaView.Invalidate();
         }
-       
-
     }
 }

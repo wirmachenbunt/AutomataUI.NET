@@ -36,7 +36,7 @@ namespace AutomataUI
             AutomataView = new AutomataView(AutomataData);
             AutomataDialogs = new Dialogs();
             // create mousekeyboard control for drawing
-            AutomataInteraction = new Interaction(AutomataView, AutomataData, AutomataDialogs);
+            AutomataInteraction = new Interaction(AutomataView, AutomataData, AutomataDialogs,this);
 
             this.SuspendLayout();
             AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);

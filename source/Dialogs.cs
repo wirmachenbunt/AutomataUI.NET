@@ -12,15 +12,17 @@ namespace AutomataUI
     {
         Form inputBox;
         
-
         public Dialogs()
         {
             inputBox = new Form();
+            inputBox.Location = new Point(Cursor.Position.X, Cursor.Position.Y);
         }
 
         public void TestMyForm()
         {
+            
             inputBox.ShowDialog();
+            inputBox.Location = new Point(Cursor.Position.X, Cursor.Position.Y);
         }
 
         public static DialogResult AddState(ref string input, ref int frames, string DialogName)
