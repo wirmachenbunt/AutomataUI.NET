@@ -13,11 +13,20 @@ namespace AutomataUI
         public List<State> states { get; set; }
         public List<Transition> transitions { get; set; }
 
+        public World world;
+
         public AutomataModel()
         {
             states = new List<State>();
             transitions = new List<Transition>();
             AddState("Init", 0, new SKPoint(0, 0)); // add default state
+
+            //UI background aka desktop element
+            world = new World()
+            {
+                Bounds = new SKRect(-1000, -1000, 1000, 1000),
+                Name = "World"
+            };
         }
 
         public void AddState(String name, int frames, SKPoint point)
@@ -72,7 +81,6 @@ namespace AutomataUI
         public SKRect Bounds { get; set; }
         public string Name { get; set; }
     }
-
     public class State : UIelement
     {
         public string ID { get; set; }
@@ -91,6 +99,10 @@ namespace AutomataUI
         public int Duration { get; set; }
 
         public bool IsPingPong { get; set; }
+
+    }
+    public class World : UIelement
+    {
 
     }
 }

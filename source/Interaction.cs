@@ -74,17 +74,23 @@ namespace AutomataUI
             
             //who wants to be hit tested
             List<UIelement> hitTestList = new List<UIelement>();
+
+            //states UI element
             foreach (var item in AutomataData.states)
             {
                 hitTestList.Add(item);
             }
 
+            //background UI element
+            hitTestList.Add(AutomataData.world);
+
             // actual hittest
             var hooverObject = hitTestList.FirstOrDefault(x => x.Bounds.Contains(worldMousePos));
+            //Console.WriteLine(hooverObject);
 
             if (hooverObject is State)
             {
-                Console.WriteLine("hit");
+                
                 parentForm.Cursor = Cursors.Hand;
             }
             else
@@ -129,6 +135,14 @@ namespace AutomataUI
             AutomataView.worldOffset.Y = postZoomPos.Y - preZoomPos.Y + AutomataView.worldOffset.Y;
 
             AutomataView.skiaView.Invalidate();
+        }
+        public enum Statemachine
+        {
+            world,
+            state,
+            transition,
+            connect,
+            dragState
         }
     }
 }

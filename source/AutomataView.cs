@@ -26,6 +26,7 @@ namespace AutomataUI
         SKPaint stateInitPaint;
         SKPaint stateDefaultPaint;
         SKPaint textPaint;
+        SKPaint textBlackPaint;
 
         SkiaTextRenderer.Font font;
 
@@ -46,10 +47,9 @@ namespace AutomataUI
             SetupPaints();
             font = new SkiaTextRenderer.Font(SKTypeface.Default, 15);
 
-         
+
 
         }
-
         public void SetupPaints()
         {
 
@@ -77,6 +77,16 @@ namespace AutomataUI
                 TextSize = 24
             };
 
+            textBlackPaint = new SKPaint
+            {
+                Color = SKColors.Black,
+                IsAntialias = true,
+                Style = SKPaintStyle.Fill,
+                TextAlign = SKTextAlign.Center,
+                Typeface = SKTypeface.FromFamilyName("CoText_Bd"),
+                TextSize = 24
+            };
+
         }
         public void DrawStates(SKCanvas canvas)
         {
@@ -85,36 +95,21 @@ namespace AutomataUI
             {
                 foreach (var item in AutomataData.states)
                 {
+                    var size = TextRendererSk.MeasureText(item.Name, font);
                     canvas.DrawRect(item.Bounds, stateDefaultPaint);
-
-                    
 
                     if (item.Name == "Init")
                     {
                         canvas.DrawCircle(item.Bounds.MidX, item.Bounds.MidY, 50, stateInitPaint);
+                        DrawStateText(canvas, item, SKColors.Black);
                     }
                     else
                     {
                         canvas.DrawCircle(item.Bounds.MidX, item.Bounds.MidY, 50, stateInitPaint);
+                        DrawStateText(canvas, item, SKColors.White);
                     }
-
-                    var size = TextRendererSk.MeasureText(item.Name, font);
-
-                    TextRendererSk.DrawText(canvas,
-                                            item.Name,
-                                            font,
-                                            SKRect.Create(-40, -40, 80, 80),
-                                            SKColor.Parse("#adadad"), 
-                                            SkiaTextRenderer.TextFormatFlags.WordBreak | 
-                                            SkiaTextRenderer.TextFormatFlags.VerticalCenter | 
-                                            SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
                 }
             }
-
-
-
-
-
 
         }
         private void UpdateSkiaView(object sender, SKPaintGLSurfaceEventArgs e)
@@ -131,7 +126,20 @@ namespace AutomataUI
             DrawStates(canvas);
 
             //debug mouse method
-            canvas.DrawCircle(Tools.ToWorldSpace(mousePos,worldOffset,worldScale), 10, stateDefaultPaint);
+            canvas.DrawCircle(Tools.ToWorldSpace(mousePos, worldOffset, worldScale), 10, stateDefaultPaint);
         }
+
+        private void DrawStateText(SKCanvas canvas, State state,SKColor textColor)
+        {
+            TextRendererSk.DrawText(canvas,
+                                                        state.Name,
+                                                        font,
+                                                        SKRect.Create(-40, -40, 80, 80),
+                                                        textColor,
+                                                        SkiaTextRenderer.TextFormatFlags.WordBreak |
+                                                        SkiaTextRenderer.TextFormatFlags.VerticalCenter |
+                                                        SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
+        }
+
     }
 }
