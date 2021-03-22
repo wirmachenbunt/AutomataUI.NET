@@ -73,9 +73,10 @@ namespace AutomataUI
                 IsAntialias = true,
                 Style = SKPaintStyle.Fill,
                 TextAlign = SKTextAlign.Center,
-                Typeface = SKTypeface.FromFamilyName("CoText_Bd"),
-                TextSize = 24
-            };
+                Typeface = SKTypeface.FromFamilyName("Segoe UI"),
+                TextSize = 24,
+                IsStroke = false
+        };
 
             textBlackPaint = new SKPaint
             {
@@ -83,9 +84,10 @@ namespace AutomataUI
                 IsAntialias = true,
                 Style = SKPaintStyle.Fill,
                 TextAlign = SKTextAlign.Center,
-                Typeface = SKTypeface.FromFamilyName("CoText_Bd"),
-                TextSize = 24
-            };
+                Typeface = SKTypeface.FromFamilyName("Segoe UI"),
+                TextSize = 24,
+                IsStroke = false
+        };
 
         }
         public void DrawStates(SKCanvas canvas)
