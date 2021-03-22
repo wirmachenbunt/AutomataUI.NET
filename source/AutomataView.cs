@@ -96,17 +96,17 @@ namespace AutomataUI
                 foreach (var item in AutomataData.states)
                 {
                     var size = TextRendererSk.MeasureText(item.Name, font);
-                    canvas.DrawRect(item.Bounds, stateDefaultPaint);
+                   // canvas.DrawRect(item.Bounds, stateDefaultPaint);
 
                     if (item.Name == "Init")
                     {
                         canvas.DrawCircle(item.Bounds.MidX, item.Bounds.MidY, 50, stateInitPaint);
-                        DrawStateText(canvas, item, SKColors.Black);
+                        DrawStateText(canvas, item, SKColors.Black,new SKPoint(item.Bounds.MidX, item.Bounds.MidY));
                     }
                     else
                     {
-                        canvas.DrawCircle(item.Bounds.MidX, item.Bounds.MidY, 50, stateInitPaint);
-                        DrawStateText(canvas, item, SKColors.White);
+                        canvas.DrawCircle(item.Bounds.MidX, item.Bounds.MidY, 50, stateDefaultPaint);
+                        DrawStateText(canvas, item, SKColors.White, new SKPoint(item.Bounds.MidX, item.Bounds.MidY));
                     }
                 }
             }
@@ -129,12 +129,12 @@ namespace AutomataUI
             canvas.DrawCircle(Tools.ToWorldSpace(mousePos, worldOffset, worldScale), 10, stateDefaultPaint);
         }
 
-        private void DrawStateText(SKCanvas canvas, State state,SKColor textColor)
+        private void DrawStateText(SKCanvas canvas, State state,SKColor textColor,SKPoint pos)
         {
             TextRendererSk.DrawText(canvas,
                                                         state.Name,
                                                         font,
-                                                        SKRect.Create(-40, -40, 80, 80),
+                                                        SKRect.Create(pos.X-40, pos.Y-40,80,80),
                                                         textColor,
                                                         SkiaTextRenderer.TextFormatFlags.WordBreak |
                                                         SkiaTextRenderer.TextFormatFlags.VerticalCenter |

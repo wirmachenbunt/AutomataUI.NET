@@ -37,31 +37,25 @@ namespace AutomataUI
             string stateName = "empty";
             int frames = 1;
 
-           // Dialogs.TestMyForm();
-            
 
             if (Dialogs.AddState(ref stateName, ref frames, "Add State") == DialogResult.OK)
             {
-                // AutomataData.AddState(name, frames, e.Location.ToSKPoint());
-                Console.WriteLine("Add State");
+                AutomataData.AddState(stateName, frames, Tools.ToWorldSpace(e.Location.ToSKPoint(), AutomataView.worldOffset, AutomataView.worldScale));
+                AutomataView.skiaView.Invalidate();
+        
             }
-
-            //if (path.Contains(PointToClient(MousePosition).X, PointToClient(MousePosition).Y))
-            //{
-            //    // Console.WriteLine("path hit");
-            //}
         }
         private void DoMouseMove(object sender, MouseEventArgs e)
         {
             DragWorld(e);
 
-            //HitTest(e);
+
 
             var thing = HitTest(e);
 
             //debug mouse coords
-            AutomataView.mousePos = e.Location.ToSKPoint();
-            AutomataView.skiaView.Invalidate();
+            //AutomataView.mousePos = e.Location.ToSKPoint();
+            //AutomataView.skiaView.Invalidate();
         }
         private void DoMouseWheel(object sender, MouseEventArgs e)
         {
