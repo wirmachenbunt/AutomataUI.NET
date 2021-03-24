@@ -88,7 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutomataHelper.cs" />
+    <Compile Include="AutomataTools.cs" />
     <Compile Include="AutomataModel.cs" />
     <Compile Include="AutomataView.cs" />
     <Compile Include="Dialogs.cs" />

@@ -76,7 +76,7 @@ namespace AutomataUI
                 Typeface = SKTypeface.FromFamilyName("Segoe UI"),
                 TextSize = 24,
                 IsStroke = false
-        };
+            };
 
             textBlackPaint = new SKPaint
             {
@@ -87,7 +87,7 @@ namespace AutomataUI
                 Typeface = SKTypeface.FromFamilyName("Segoe UI"),
                 TextSize = 24,
                 IsStroke = false
-        };
+            };
 
         }
         public void DrawStates(SKCanvas canvas)
@@ -98,12 +98,12 @@ namespace AutomataUI
                 foreach (var item in AutomataData.states)
                 {
                     var size = TextRendererSk.MeasureText(item.Name, font);
-                   // canvas.DrawRect(item.Bounds, stateDefaultPaint);
+                    // canvas.DrawRect(item.Bounds, stateDefaultPaint);
 
                     if (item.Name == "Init")
                     {
                         canvas.DrawCircle(item.Bounds.MidX, item.Bounds.MidY, 50, stateInitPaint);
-                        DrawStateText(canvas, item, SKColors.Black,new SKPoint(item.Bounds.MidX, item.Bounds.MidY));
+                        DrawStateText(canvas, item, SKColors.Black, new SKPoint(item.Bounds.MidX, item.Bounds.MidY));
                     }
                     else
                     {
@@ -127,20 +127,59 @@ namespace AutomataUI
 
             DrawStates(canvas);
 
+            DrawTransition(canvas);
+
+            
+
             //debug mouse method
-            canvas.DrawCircle(Tools.ToWorldSpace(mousePos, worldOffset, worldScale), 10, stateDefaultPaint);
+            //canvas.DrawCircle(Tools.ToWorldSpace(mousePos, worldOffset, worldScale), 10, stateDefaultPaint);
         }
 
-        private void DrawStateText(SKCanvas canvas, State state,SKColor textColor,SKPoint pos)
+        private void DrawStateText(SKCanvas canvas, State state, SKColor textColor, SKPoint pos)
         {
             TextRendererSk.DrawText(canvas,
                                                         state.Name,
                                                         font,
-                                                        SKRect.Create(pos.X-40, pos.Y-40,80,80),
+                                                        SKRect.Create(pos.X - 40, pos.Y - 40, 80, 80),
                                                         textColor,
                                                         SkiaTextRenderer.TextFormatFlags.WordBreak |
                                                         SkiaTextRenderer.TextFormatFlags.VerticalCenter |
                                                         SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
+        }
+
+
+        int counter = 0;
+        private void DrawTransition(SKCanvas canvas)
+        {
+              /* https://varun.ca/polar-coords/ */
+            //var rot = new SKMatrix();
+            //SKMatrix.RotateDegrees(ref rot, 45.0f);
+            //path.Transform(rot);
+
+            var pathStroke2 = new SKPaint
+            {
+                IsAntialias = true,
+                Style = SKPaintStyle.StrokeAndFill,
+                Color = new SKColor(244, 0, 110, 200),
+                StrokeWidth = 5
+            };
+
+            var path2 = new SKPath { FillType = SKPathFillType.EvenOdd };
+            path2.MoveTo(0, 0);
+            path2.LineTo(0, 140);
+            path2.LineTo(140, 140);
+            path2.LineTo(0, 0);
+            path2.Close();
+
+            //var rot = new SKMatrix();
+            //SKMatrix.RotateDegrees(ref rot, 45.0f);
+
+            counter++;
+            var rot = SKMatrix.CreateRotationDegrees( counter);
+            path2.Transform(rot);
+
+            canvas.DrawPath(path2, pathStroke2);
+
         }
 
     }

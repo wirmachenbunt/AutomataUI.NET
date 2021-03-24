@@ -42,16 +42,33 @@ namespace AutomataUI
 
         private void DoDoubleClick(object sender, MouseEventArgs e)
         {
-
             string stateName = "empty";
             int frames = 1;
 
+            var item = HitTest(e); // do hit test
 
-            if (Dialogs.AddState(ref stateName, ref frames, "Add State") == DialogResult.OK)
+            // add new state
+            if (item is World)
             {
-                AutomataData.AddState(stateName, frames, Tools.ToWorldSpace(e.Location.ToSKPoint(), AutomataView.worldOffset, AutomataView.worldScale));
-                AutomataView.skiaView.Invalidate();
-        
+                if (Dialogs.StateDialog(ref stateName, ref frames, "Add State") == DialogResult.OK)
+                {
+                    AutomataData.AddState(stateName, frames, Tools.ToWorldSpace(e.Location.ToSKPoint(), AutomataView.worldOffset, AutomataView.worldScale));
+                    AutomataView.skiaView.Invalidate();
+                }
+            }
+
+            // edit state
+            if (item is State && (item as State).Name != "Init") //not safe in case someone names a state also Init
+            {
+                stateName = (item as State).Name;
+                frames = (item as State).Duration;
+
+                if (Dialogs.StateDialog(ref stateName, ref frames, "Edit State") == DialogResult.OK)
+                {
+                    (item as State).Name = stateName;
+                    (item as State).Duration = frames;
+                    AutomataView.skiaView.Invalidate();
+                }
             }
         }
 

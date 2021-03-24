@@ -25,7 +25,7 @@ namespace AutomataUI
             inputBox.Location = new Point(Cursor.Position.X, Cursor.Position.Y);
         }
 
-        public static DialogResult AddState(ref string input, ref int frames, string DialogName)
+        public static DialogResult StateDialog(ref string input, ref int frames, string DialogName)
         {
 
             System.Drawing.Size size = new System.Drawing.Size(200, 100);

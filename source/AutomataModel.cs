@@ -24,7 +24,7 @@ namespace AutomataUI
             //UI background aka desktop element
             world = new World()
             {
-                Bounds = new SKRect(-1000, -1000, 1000, 1000),
+                Bounds = new SKRect(-100000, -100000, 100000, 100000),
                 Name = "World"
             };
         }
@@ -43,6 +43,12 @@ namespace AutomataUI
                 Bounds = bounds
             });
         }
+
+        public void EditState(State state)
+        {
+
+        }
+
 
         public static string RNGCharacterMask()
         {
