@@ -20,7 +20,6 @@ namespace AutomataUI
         public SkiaSharp.Views.Desktop.SKGLControl skiaView;
         public SKPoint worldOffset;
         public float worldScale = 1;
-        public SKPoint mousePos;
 
         //colors
         SKPaint stateInitPaint;
@@ -127,9 +126,7 @@ namespace AutomataUI
 
             DrawStates(canvas);
 
-            DrawTransition(canvas);
-
-            
+            DrawTransitions(canvas);
 
             //debug mouse method
             //canvas.DrawCircle(Tools.ToWorldSpace(mousePos, worldOffset, worldScale), 10, stateDefaultPaint);
@@ -147,16 +144,9 @@ namespace AutomataUI
                                                         SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
         }
 
-
-        int counter = 0;
-        private void DrawTransition(SKCanvas canvas)
-        {
-              /* https://varun.ca/polar-coords/ */
-            //var rot = new SKMatrix();
-            //SKMatrix.RotateDegrees(ref rot, 45.0f);
-            //path.Transform(rot);
-
-            var pathStroke2 = new SKPaint
+        private void DrawTransitions(SKCanvas canvas)
+        {        
+            var transitionPaint = new SKPaint
             {
                 IsAntialias = true,
                 Style = SKPaintStyle.StrokeAndFill,
@@ -164,22 +154,49 @@ namespace AutomataUI
                 StrokeWidth = 5
             };
 
-            var path2 = new SKPath { FillType = SKPathFillType.EvenOdd };
-            path2.MoveTo(0, 0);
-            path2.LineTo(0, 140);
-            path2.LineTo(140, 140);
-            path2.LineTo(0, 0);
-            path2.Close();
+            if (AutomataData != null)
+            {
+                foreach (var item in AutomataData.transitions)
+                {
+                    var start = new SKPoint(item.StartState.Bounds.MidX, item.StartState.Bounds.MidY);
+                    var end = new SKPoint(item.EndState.Bounds.MidX, item.EndState.Bounds.MidY);
 
+                    canvas.DrawLine(start,end, transitionPaint);
+                }
+            }
+
+        }
+
+        private void DrawArrow()
+        {
+            /* https://varun.ca/polar-coords/ */
             //var rot = new SKMatrix();
             //SKMatrix.RotateDegrees(ref rot, 45.0f);
+            //path.Transform(rot);
 
-            counter++;
-            var rot = SKMatrix.CreateRotationDegrees( counter);
-            path2.Transform(rot);
+            //var pathStroke2 = new SKPaint
+            //{
+            //    IsAntialias = true,
+            //    Style = SKPaintStyle.StrokeAndFill,
+            //    Color = new SKColor(244, 0, 110, 200),
+            //    StrokeWidth = 5
+            //};
 
-            canvas.DrawPath(path2, pathStroke2);
+            //var path2 = new SKPath { FillType = SKPathFillType.EvenOdd };
+            //path2.MoveTo(0, 0);
+            //path2.LineTo(0, 140);
+            //path2.LineTo(140, 140);
+            //path2.LineTo(0, 0);
+            //path2.Close();
 
+            ////var rot = new SKMatrix();
+            ////SKMatrix.RotateDegrees(ref rot, 45.0f);
+
+            //counter++;
+            //var rot = SKMatrix.CreateRotationDegrees( counter);
+            //path2.Transform(rot);
+
+            //canvas.DrawPath(path2, pathStroke2);
         }
 
     }

@@ -35,7 +35,6 @@ namespace AutomataUI
         {
             float length = x * x + y * y + z * z;
 
-
             if (length > 0)
             {
                 length = (float)Math.Sqrt(length);

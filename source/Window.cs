@@ -39,9 +39,9 @@ namespace AutomataUI
             AutomataInteraction = new Interaction(AutomataView, AutomataData, AutomataDialogs,this);
 
             this.SuspendLayout();
-            AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
+            //AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            ClientSize = new System.Drawing.Size(774, 529);
+            ClientSize = new System.Drawing.Size(1000, 500);
             Controls.Add(AutomataView.skiaView);
             Name = "AutomataUI";
             Text = "AutomataUI";

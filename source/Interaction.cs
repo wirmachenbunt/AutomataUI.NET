@@ -75,6 +75,12 @@ namespace AutomataUI
         private void DoMouseDown(object sender,MouseEventArgs e)
         {
             selectedItem = HitTest(e);
+            if (selectedItem is State)
+            {
+                BringStateToFront(selectedItem as State, AutomataData.states);
+            }
+
+            AutomataView.skiaView.Invalidate();
         }
 
         private void DoMouseMove(object sender, MouseEventArgs e)
@@ -82,19 +88,14 @@ namespace AutomataUI
             SKPoint mouseDelta = e.Location.ToSKPoint() - previousMousePosition;
             var temp = HitTest(e);
 
-
             DragWorld(e,mouseDelta);
            
             if (selectedItem is State)
-            {          
+            {
+                BringStateToFront(selectedItem as State, AutomataData.states);
                 DragState(e, mouseDelta,selectedItem as State);
             }
 
-
-           
-            //debug mouse coords
-            //AutomataView.mousePos = e.Location.ToSKPoint();
-            //AutomataView.skiaView.Invalidate();
             previousMousePosition = e.Location.ToSKPoint(); //needed for mouseDelta
         }
         private void DoMouseWheel(object sender, MouseEventArgs e)
@@ -151,8 +152,7 @@ namespace AutomataUI
 
             if (e.Button == MouseButtons.Left && state != null)
             {
-                Console.WriteLine(state.Name);
-                Console.WriteLine(state.Bounds);
+              
 
                 state.Bounds = new SKRect(
                     state.Bounds.Left + mouseDelta.X / AutomataView.worldScale,
@@ -196,6 +196,14 @@ namespace AutomataUI
             transition,
             connect,
             dragState
+        } // do we need this ???
+        public void BringStateToFront(State selectedState, List<State> states)
+        {
+            //bring to front
+            var idx = states.IndexOf(selectedState);
+            var item = selectedState;
+            states.RemoveAt(idx);
+            states.Insert(states.Count,item);
         }
     }
 }

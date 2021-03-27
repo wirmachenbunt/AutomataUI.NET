@@ -20,6 +20,8 @@ namespace AutomataUI
             states = new List<State>();
             transitions = new List<Transition>();
             AddState("Init", 0, new SKPoint(0, 0)); // add default state
+            AddState("Start", 0, new SKPoint(500, 50));
+            AddTransition("toStart", 0, states[0], states[1]);
 
             //UI background aka desktop element
             world = new World()
@@ -41,6 +43,17 @@ namespace AutomataUI
                 Name = UppercaseFirst(name),
                 Duration = frames,
                 Bounds = bounds
+            });
+        }
+
+        public void AddTransition(String name, int frames, State startState, State endState)
+        {
+            transitions.Add(new Transition()
+            {
+                Name = UppercaseFirst(name),
+                Duration = frames,
+                StartState = startState,
+                EndState = endState
             });
         }
 
@@ -98,13 +111,13 @@ namespace AutomataUI
     }
     public class Transition : UIelement
     {
-        public State startState { get; set; }
+        public State StartState { get; set; }
 
-        public State endState { get; set; }
+        public State EndState { get; set; }
 
         public int Duration { get; set; }
 
-        public bool IsPingPong { get; set; }
+        //public bool IsPingPong { get; set; }
 
     }
     public class World : UIelement
