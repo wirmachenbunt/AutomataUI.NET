@@ -125,9 +125,13 @@ namespace AutomataUI
             // make sure the canvas is blank
             canvas.Clear(SKColor.Parse("#141414"));
 
-            DrawStates(canvas);
+           
 
             DrawTransitions(canvas);
+
+            DrawNewTransition(canvas);
+
+            DrawStates(canvas);
 
             //debug mouse method
             //canvas.DrawCircle(Tools.ToWorldSpace(mousePos, worldOffset, worldScale), 10, stateDefaultPaint);
@@ -176,8 +180,23 @@ namespace AutomataUI
 
         public void DrawNewTransition(SKCanvas canvas)
         {
-           
-            canvas.DrawRect(new SKRect(0, 0, 100, 100), stateDefaultPaint);
+            if (startTransitionState != null)
+            {
+
+                var transitionPaint = new SKPaint
+                {
+                    IsAntialias = true,
+                    Style = SKPaintStyle.StrokeAndFill,
+                    Color = new SKColor(244, 0, 110, 200),
+                    StrokeWidth = 5
+                };
+
+                SKPoint start = new SKPoint(startTransitionState.Bounds.MidX,startTransitionState.Bounds.MidY);
+                //do the drawing
+                canvas.DrawLine(start,Tools.ToWorldSpace(mousePosition,worldOffset,worldScale), transitionPaint);
+            }
+
+            
         }
 
         private void DrawArrow(SKCanvas canvas, SKPoint pos, float angle)
