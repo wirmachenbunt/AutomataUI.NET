@@ -29,6 +29,9 @@ namespace AutomataUI
 
         SkiaTextRenderer.Font font;
 
+        public State startTransitionState;
+        public SKPoint mousePosition;
+
         //Initialize
         public AutomataView(AutomataModel AutomataDataInput)
         {
@@ -45,8 +48,6 @@ namespace AutomataUI
 
             SetupPaints();
             font = new SkiaTextRenderer.Font(SKTypeface.Default, 15);
-
-
 
         }
         public void SetupPaints()
@@ -171,6 +172,12 @@ namespace AutomataUI
             }
 
             
+        }
+
+        public void DrawNewTransition(SKCanvas canvas)
+        {
+           
+            canvas.DrawRect(new SKRect(0, 0, 100, 100), stateDefaultPaint);
         }
 
         private void DrawArrow(SKCanvas canvas, SKPoint pos, float angle)

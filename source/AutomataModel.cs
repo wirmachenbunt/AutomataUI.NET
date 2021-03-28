@@ -14,7 +14,6 @@ namespace AutomataUI
         public List<Transition> transitions { get; set; }
 
         public World world;
-
         public AutomataModel()
         {
             states = new List<State>();
@@ -61,7 +60,6 @@ namespace AutomataUI
         {
 
         }
-
 
         public static string RNGCharacterMask()
         {

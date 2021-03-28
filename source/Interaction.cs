@@ -14,15 +14,16 @@ namespace AutomataUI
 {
     class Interaction
     {
-        AutomataView AutomataView;     
+        AutomataView AutomataView;
         AutomataModel AutomataData;
         Dialogs Dialogs;
         Form parentForm;
-        Object selectedItem;
+        Object selectedItem; //hittest
+
 
         SKPoint previousMousePosition; //for mousedelta
 
-        public Interaction(AutomataView ViewInput, AutomataModel AutomataDataInput, Dialogs DialogInput,Form FormInput)
+        public Interaction(AutomataView ViewInput, AutomataModel AutomataDataInput, Dialogs DialogInput, Form FormInput)
         {
             AutomataView = ViewInput; // reference to skia drawing
             AutomataData = AutomataDataInput; // reference to Automata Data
@@ -72,12 +73,31 @@ namespace AutomataUI
             }
         }
 
-        private void DoMouseDown(object sender,MouseEventArgs e)
+        private void DoMouseDown(object sender, MouseEventArgs e)
         {
+            AutomataView.startTransitionState = null;
+
+            //global hittest
             selectedItem = HitTest(e);
+
+            //bring state to front
             if (selectedItem is State)
             {
-                BringStateToFront(selectedItem as State, AutomataData.states);
+                BringStateToFront((State)selectedItem, AutomataData.states);
+            }
+
+            //add transition
+            if (selectedItem is State)
+            {
+                if (e.Button == MouseButtons.Right)
+                {
+                    AutomataView.startTransitionState = (State)selectedItem;
+                }
+
+                if (e.Button == MouseButtons.Left)
+                {
+                    //create transition
+                }
             }
 
             AutomataView.skiaView.Invalidate();
@@ -85,28 +105,38 @@ namespace AutomataUI
 
         private void DoMouseMove(object sender, MouseEventArgs e)
         {
+            // mousedelta for all sorts of dragging
             SKPoint mouseDelta = e.Location.ToSKPoint() - previousMousePosition;
-            var temp = HitTest(e);
+            
+            //do a hittest
+            HitTest(e);
 
-            DragWorld(e,mouseDelta);
-           
-            if (selectedItem is State)
+            //drag the editor world
+            DragWorld(e, mouseDelta,selectedItem);
+            
+            //drag State 
+            DragState(e, mouseDelta, selectedItem);
+
+            if (AutomataView.startTransitionState != null)
             {
-                BringStateToFront(selectedItem as State, AutomataData.states);
-                DragState(e, mouseDelta,selectedItem as State);
+                Console.WriteLine("do things");
+                
+                AutomataView.skiaView.Invalidate();
             }
 
-            previousMousePosition = e.Location.ToSKPoint(); //needed for mouseDelta
+            //Mouse stuff like mouse delta and pos 2 view
+            previousMousePosition = e.Location.ToSKPoint(); 
+            AutomataView.mousePosition = e.Location.ToSKPoint();
         }
         private void DoMouseWheel(object sender, MouseEventArgs e)
         {
             ZoomWorld(e);
-        }   
+        }
         private Object HitTest(MouseEventArgs e)
         {
             //transform mouse to world space for hit testing
             SKPoint worldMousePos = Tools.ToWorldSpace(e.Location.ToSKPoint(), AutomataView.worldOffset, AutomataView.worldScale);
-            
+
             //who wants to be hit tested
             List<UIelement> hitTestList = new List<UIelement>();
 
@@ -121,11 +151,11 @@ namespace AutomataUI
 
             // actual hittest
             var hooverObject = hitTestList.FirstOrDefault(x => x.Bounds.Contains(worldMousePos));
-            //Console.WriteLine(hooverObject);
+
 
             if (hooverObject is State)
             {
-                
+
                 parentForm.Cursor = Cursors.Hand;
             }
             else
@@ -135,24 +165,22 @@ namespace AutomataUI
 
             return hooverObject;
         }
-        public void DragWorld(MouseEventArgs e, SKPoint mouseDelta)
+        public void DragWorld(MouseEventArgs e, SKPoint mouseDelta, Object selectedItem)
         {
             // drag position      
-            if (e.Button == MouseButtons.Right)
-            {
-                // Console.WriteLine("left click");
+            if (e.Button == MouseButtons.Right && selectedItem is World)
+            {            
                 AutomataView.worldOffset.X += (mouseDelta.X) / AutomataView.worldScale;
                 AutomataView.worldOffset.Y += (mouseDelta.Y) / AutomataView.worldScale;
                 AutomataView.skiaView.Invalidate();
             }
-           
-        }
-        public void DragState(MouseEventArgs e,SKPoint mouseDelta, State state)
-        {
 
-            if (e.Button == MouseButtons.Left && state != null)
+        }
+        public void DragState(MouseEventArgs e, SKPoint mouseDelta, Object selectedState)
+        {
+            if (selectedState != null && selectedState is State && e.Button == MouseButtons.Left)
             {
-              
+                var state = (State)selectedState;
 
                 state.Bounds = new SKRect(
                     state.Bounds.Left + mouseDelta.X / AutomataView.worldScale,
@@ -160,11 +188,8 @@ namespace AutomataUI
                     state.Bounds.Right + mouseDelta.X / AutomataView.worldScale,
                     state.Bounds.Bottom + mouseDelta.Y / AutomataView.worldScale);
 
-                //AutomataView.worldOffset.X += (e.X - previousMousePosition.X) / AutomataView.worldScale;
-                //AutomataView.worldOffset.Y += (e.Y - previousMousePosition.Y) / AutomataView.worldScale;
                 AutomataView.skiaView.Invalidate();
             }
-
         }
         public void ZoomWorld(MouseEventArgs e)
         {
@@ -197,13 +222,16 @@ namespace AutomataUI
             connect,
             dragState
         } // do we need this ???
-        public void BringStateToFront(State selectedState, List<State> states)
+        public void BringStateToFront(Object selectedState, List<State> states)
         {
-            //bring to front
-            var idx = states.IndexOf(selectedState);
-            var item = selectedState;
-            states.RemoveAt(idx);
-            states.Insert(states.Count,item);
+            if (selectedState != null && selectedState is State)
+            {
+                //bring to front
+                var idx = states.IndexOf((State)selectedState);
+                var item = (State)selectedState;
+                states.RemoveAt(idx);
+                states.Insert(states.Count, item);
+            }
         }
     }
 }
