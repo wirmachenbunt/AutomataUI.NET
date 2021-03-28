@@ -161,10 +161,12 @@ namespace AutomataUI
                     var start = new SKPoint(item.StartState.Bounds.MidX, item.StartState.Bounds.MidY);
                     var end = new SKPoint(item.EndState.Bounds.MidX, item.EndState.Bounds.MidY);
 
-                    Tools.EdgePoints edgepoints = Tools.GetEdgePoints(start, end, 55, 55, 0.0f);
+                    // get transitions points with gap, center of transition and angle for arrow
+                    Tools.EdgePoints edgepoints = Tools.GetEdgePoints(start, end, 55, 0);
 
-                    canvas.DrawLine(edgepoints.A,edgepoints.B, transitionPaint);
-                    DrawArrow(canvas, new SKPoint(edgepoints.A.X,edgepoints.A.Y), 0);
+                    //do the drawing
+                    canvas.DrawLine(edgepoints.A,edgepoints.B, transitionPaint);                  
+                    DrawArrow(canvas, new SKPoint(edgepoints.A.X,edgepoints.A.Y), edgepoints.Angle);
                 }
             }
 
@@ -178,7 +180,7 @@ namespace AutomataUI
             {
                 IsAntialias = true,
                 Style = SKPaintStyle.StrokeAndFill,
-                Color = new SKColor(244, 0, 110, 200),
+                Color = SKColors.Red,
                 StrokeWidth = 5
             };
 
@@ -189,7 +191,7 @@ namespace AutomataUI
             path2.LineTo(0, 0);
             path2.Close();
             
-            path2.Transform(SKMatrix.CreateRotationDegrees(90));
+            path2.Transform(SKMatrix.CreateRotationDegrees(360-angle));
             path2.Transform(SKMatrix.CreateTranslation(pos.X,pos.Y));
             canvas.DrawPath(path2, pathStroke2);
         }
