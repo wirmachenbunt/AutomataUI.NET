@@ -161,7 +161,9 @@ namespace AutomataUI
                     var start = new SKPoint(item.StartState.Bounds.MidX, item.StartState.Bounds.MidY);
                     var end = new SKPoint(item.EndState.Bounds.MidX, item.EndState.Bounds.MidY);
 
-                    canvas.DrawLine(start,end, transitionPaint);
+                    Tools.EdgePoints edgepoints = Tools.GetEdgePoints(start, end, 40, 40, 0.0f);
+
+                    canvas.DrawLine(edgepoints.A,edgepoints.B, transitionPaint);
                 }
             }
 
