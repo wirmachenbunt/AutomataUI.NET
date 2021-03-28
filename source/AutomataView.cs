@@ -161,44 +161,37 @@ namespace AutomataUI
                     var start = new SKPoint(item.StartState.Bounds.MidX, item.StartState.Bounds.MidY);
                     var end = new SKPoint(item.EndState.Bounds.MidX, item.EndState.Bounds.MidY);
 
-                    Tools.EdgePoints edgepoints = Tools.GetEdgePoints(start, end, 50, 50, 0.0f);
+                    Tools.EdgePoints edgepoints = Tools.GetEdgePoints(start, end, 55, 55, 0.0f);
 
                     canvas.DrawLine(edgepoints.A,edgepoints.B, transitionPaint);
+                    DrawArrow(canvas, new SKPoint(edgepoints.A.X,edgepoints.A.Y), 0);
                 }
             }
 
+            
         }
 
-        private void DrawArrow()
+        private void DrawArrow(SKCanvas canvas, SKPoint pos, float angle)
         {
-            /* https://varun.ca/polar-coords/ */
-            //var rot = new SKMatrix();
-            //SKMatrix.RotateDegrees(ref rot, 45.0f);
-            //path.Transform(rot);
 
-            //var pathStroke2 = new SKPaint
-            //{
-            //    IsAntialias = true,
-            //    Style = SKPaintStyle.StrokeAndFill,
-            //    Color = new SKColor(244, 0, 110, 200),
-            //    StrokeWidth = 5
-            //};
+            var pathStroke2 = new SKPaint
+            {
+                IsAntialias = true,
+                Style = SKPaintStyle.StrokeAndFill,
+                Color = new SKColor(244, 0, 110, 200),
+                StrokeWidth = 5
+            };
 
-            //var path2 = new SKPath { FillType = SKPathFillType.EvenOdd };
-            //path2.MoveTo(0, 0);
-            //path2.LineTo(0, 140);
-            //path2.LineTo(140, 140);
-            //path2.LineTo(0, 0);
-            //path2.Close();
-
-            ////var rot = new SKMatrix();
-            ////SKMatrix.RotateDegrees(ref rot, 45.0f);
-
-            //counter++;
-            //var rot = SKMatrix.CreateRotationDegrees( counter);
-            //path2.Transform(rot);
-
-            //canvas.DrawPath(path2, pathStroke2);
+            var path2 = new SKPath { FillType = SKPathFillType.EvenOdd };
+            path2.MoveTo(0, 0);
+            path2.LineTo(5, 10);
+            path2.LineTo(-5, 10);
+            path2.LineTo(0, 0);
+            path2.Close();
+            
+            path2.Transform(SKMatrix.CreateRotationDegrees(90));
+            path2.Transform(SKMatrix.CreateTranslation(pos.X,pos.Y));
+            canvas.DrawPath(path2, pathStroke2);
         }
 
     }
