@@ -75,10 +75,15 @@ namespace AutomataUI
 
         private void DoMouseDown(object sender, MouseEventArgs e)
         {
-            AutomataView.startTransitionState = null;
-
             //global hittest
             selectedItem = HitTest(e);
+
+            //reset things
+            if (e.Button == MouseButtons.Left && selectedItem is World)
+            {
+                AutomataView.startTransitionState = null;
+                AutomataView.endTransitionState = null;
+            }  
 
             //bring state to front
             if (selectedItem is State)
@@ -94,9 +99,26 @@ namespace AutomataUI
                     AutomataView.startTransitionState = (State)selectedItem;
                 }
 
-                if (e.Button == MouseButtons.Left)
+                //create Transition
+                if (e.Button == MouseButtons.Left &&
+                    AutomataView.startTransitionState != null &&
+                    AutomataView.endTransitionState != null &&
+                    AutomataView.startTransitionState != AutomataView.endTransitionState)
                 {
-                    //create transition
+                    
+                    string transName = "new transition";
+                    int frames = 1;
+
+                    if (Dialogs.StateDialog(ref transName, ref frames, "New Transition") == DialogResult.OK)
+                    {
+                        Console.WriteLine("Make new transition");
+                        AutomataData.AddTransition(transName, frames, AutomataView.startTransitionState, AutomataView.endTransitionState);
+
+                        AutomataView.startTransitionState = null;
+                        AutomataView.endTransitionState = null;
+
+                        AutomataView.skiaView.Invalidate();
+                    }
                 }
             }
 
@@ -109,18 +131,25 @@ namespace AutomataUI
             SKPoint mouseDelta = e.Location.ToSKPoint() - previousMousePosition;
             
             //do a hittest
-            HitTest(e);
+            var selecteditem = HitTest(e);
 
             //drag the editor world
             DragWorld(e, mouseDelta,selectedItem);
             
             //drag State 
             DragState(e, mouseDelta, selectedItem);
-
+      
+            //add transition snappy line
             if (AutomataView.startTransitionState != null)
             {
-                Console.WriteLine("do things");
+                //find target state for new transition
+                if (selecteditem is State && selecteditem != AutomataView.startTransitionState)
+                {
+                    AutomataView.endTransitionState = (State)selecteditem;
+                }
+                else AutomataView.endTransitionState = null;
                 
+                //do redraw when we try to make a new transition
                 AutomataView.skiaView.Invalidate();
             }
 

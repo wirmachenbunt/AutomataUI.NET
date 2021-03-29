@@ -29,7 +29,10 @@ namespace AutomataUI
 
         SkiaTextRenderer.Font font;
 
+        //needed for new transitions
         public State startTransitionState;
+        public State endTransitionState;
+
         public SKPoint mousePosition;
 
         //Initialize
@@ -148,7 +151,6 @@ namespace AutomataUI
                                                         SkiaTextRenderer.TextFormatFlags.VerticalCenter |
                                                         SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
         }
-
         private void DrawTransitions(SKCanvas canvas)
         {        
             var transitionPaint = new SKPaint
@@ -171,13 +173,12 @@ namespace AutomataUI
 
                     //do the drawing
                     canvas.DrawLine(edgepoints.A,edgepoints.B, transitionPaint);                  
-                    DrawArrow(canvas, new SKPoint(edgepoints.A.X,edgepoints.A.Y), edgepoints.Angle);
+                    DrawArrow(canvas, new SKPoint(edgepoints.B.X,edgepoints.B.Y), edgepoints.Angle);
                 }
             }
 
             
         }
-
         public void DrawNewTransition(SKCanvas canvas)
         {
             if (startTransitionState != null)
@@ -192,8 +193,18 @@ namespace AutomataUI
                 };
 
                 SKPoint start = new SKPoint(startTransitionState.Bounds.MidX,startTransitionState.Bounds.MidY);
+                SKPoint target;
+                if (endTransitionState != null)
+                {
+                    target = new SKPoint(endTransitionState.Bounds.MidX, endTransitionState.Bounds.MidY);
+                }
+                else
+                {
+                    target = Tools.ToWorldSpace(mousePosition, worldOffset, worldScale);
+                }
+                
                 //do the drawing
-                canvas.DrawLine(start,Tools.ToWorldSpace(mousePosition,worldOffset,worldScale), transitionPaint);
+                canvas.DrawLine(start,target, transitionPaint);
             }
 
             
@@ -217,7 +228,7 @@ namespace AutomataUI
             path2.LineTo(0, 0);
             path2.Close();
             
-            path2.Transform(SKMatrix.CreateRotationDegrees(360-angle));
+            path2.Transform(SKMatrix.CreateRotationDegrees(360-angle+180));
             path2.Transform(SKMatrix.CreateTranslation(pos.X,pos.Y));
             canvas.DrawPath(path2, pathStroke2);
         }

@@ -29,7 +29,6 @@ namespace AutomataUI
                 Name = "World"
             };
         }
-
         public void AddState(String name, int frames, SKPoint point)
         {
             int size = 50;
@@ -44,7 +43,6 @@ namespace AutomataUI
                 Bounds = bounds
             });
         }
-
         public void AddTransition(String name, int frames, State startState, State endState)
         {
             transitions.Add(new Transition()

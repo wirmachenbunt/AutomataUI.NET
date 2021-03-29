@@ -91,7 +91,7 @@ namespace AutomataUI
         }
 
         
-        public static DialogResult ShowTransitionDialog(ref string input, ref int frames, ref bool pingpong, string DialogName, float dpi)
+        public static DialogResult TransitionDialog(ref string input, ref int frames, string DialogName)
         {
             System.Drawing.Size size = new System.Drawing.Size(200, 130);
 
@@ -126,13 +126,11 @@ namespace AutomataUI
             framesLabel.Text = "Duration(f)";
             inputBox.Controls.Add(framesLabel);
 
-            System.Windows.Forms.CheckBox isPingPong = new System.Windows.Forms.CheckBox();
-            isPingPong.Location = new System.Drawing.Point(70, 70);
-            isPingPong.Text = "PingPong";
-            isPingPong.Checked = pingpong; // getting the bool from the transition object
-            inputBox.Controls.Add(isPingPong);
-
-
+            //System.Windows.Forms.CheckBox isPingPong = new System.Windows.Forms.CheckBox();
+            //isPingPong.Location = new System.Drawing.Point(70, 70);
+            //isPingPong.Text = "PingPong";
+            //isPingPong.Checked = pingpong; // getting the bool from the transition object
+            //inputBox.Controls.Add(isPingPong);
 
             Button okButton = new Button();
             okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -153,13 +151,13 @@ namespace AutomataUI
             inputBox.AcceptButton = okButton;
             inputBox.CancelButton = cancelButton;
 
-            inputBox.Scale(dpi);
+            //inputBox.Scale(dpi);
 
             DialogResult result = inputBox.ShowDialog();
             if (textBox.Text.Length > 0) input = textBox.Text;
             else input = "empty";
             frames = Convert.ToInt16(timeUpDown.Value);
-            pingpong = isPingPong.Checked;
+            //pingpong = isPingPong.Checked;
             return result;
         }
     }
