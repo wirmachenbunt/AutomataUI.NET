@@ -157,8 +157,8 @@ namespace AutomataUI
             {
                 IsAntialias = true,
                 Style = SKPaintStyle.StrokeAndFill,
-                Color = new SKColor(244, 0, 110, 200),
-                StrokeWidth = 5
+                Color = SKColors.Cyan,
+                StrokeWidth = 3
             };
 
             if (AutomataData != null)
@@ -173,7 +173,7 @@ namespace AutomataUI
 
                     //do the drawing
                     canvas.DrawLine(edgepoints.A,edgepoints.B, transitionPaint);                  
-                    DrawArrow(canvas, new SKPoint(edgepoints.B.X,edgepoints.B.Y), edgepoints.Angle);
+                    DrawArrow(canvas, new SKPoint(edgepoints.B.X,edgepoints.B.Y), edgepoints.Angle,SKColors.Cyan);
                 }
             }
 
@@ -183,49 +183,50 @@ namespace AutomataUI
         {
             if (startTransitionState != null)
             {
-
                 var transitionPaint = new SKPaint
                 {
                     IsAntialias = true,
                     Style = SKPaintStyle.StrokeAndFill,
-                    Color = new SKColor(244, 0, 110, 200),
+                    Color = SKColors.Red,
                     StrokeWidth = 5
                 };
 
                 SKPoint start = new SKPoint(startTransitionState.Bounds.MidX,startTransitionState.Bounds.MidY);
-                SKPoint target;
-                if (endTransitionState != null)
-                {
-                    target = new SKPoint(endTransitionState.Bounds.MidX, endTransitionState.Bounds.MidY);
+                SKPoint end = Tools.ToWorldSpace(mousePosition, worldOffset, worldScale);
+                Tools.EdgePoints edgepoints = Tools.GetEdgePoints(start, end, 55, 0);
+
+                if (endTransitionState == null)
+                {         
+                    canvas.DrawLine(edgepoints.A, end, transitionPaint);
+                    DrawArrow(canvas, new SKPoint(end.X, end.Y), edgepoints.Angle, SKColors.Red);
                 }
                 else
                 {
-                    target = Tools.ToWorldSpace(mousePosition, worldOffset, worldScale);
+                    edgepoints = Tools.GetEdgePoints(start, new SKPoint(endTransitionState.Bounds.MidX, endTransitionState.Bounds.MidY), 55, 0);
+                   
+                    //do the drawing
+                    canvas.DrawLine(edgepoints.A, edgepoints.B, transitionPaint);
+                    DrawArrow(canvas, new SKPoint(edgepoints.B.X, edgepoints.B.Y), edgepoints.Angle, SKColors.Red);
                 }
-                
-                //do the drawing
-                canvas.DrawLine(start,target, transitionPaint);
-            }
-
-            
+            }         
         }
 
-        private void DrawArrow(SKCanvas canvas, SKPoint pos, float angle)
+        private void DrawArrow(SKCanvas canvas, SKPoint pos, float angle,SKColor color)
         {
 
             var pathStroke2 = new SKPaint
             {
                 IsAntialias = true,
                 Style = SKPaintStyle.StrokeAndFill,
-                Color = SKColors.Red,
+                Color = color,
                 StrokeWidth = 5
             };
 
             var path2 = new SKPath { FillType = SKPathFillType.EvenOdd };
-            path2.MoveTo(0, 0);
+            path2.MoveTo(0, 3);
             path2.LineTo(5, 10);
             path2.LineTo(-5, 10);
-            path2.LineTo(0, 0);
+            path2.LineTo(0, 3);
             path2.Close();
             
             path2.Transform(SKMatrix.CreateRotationDegrees(360-angle+180));

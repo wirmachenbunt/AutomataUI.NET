@@ -13,6 +13,9 @@ namespace AutomataUI
         public List<State> states { get; set; }
         public List<Transition> transitions { get; set; }
 
+        public State activeState;
+        public Transition activeTransition;
+
         public World world;
         public AutomataModel()
         {
@@ -53,12 +56,10 @@ namespace AutomataUI
                 EndState = endState
             });
         }
-
         public void EditState(State state)
         {
 
         }
-
         public static string RNGCharacterMask()
         {
             int maxSize = 8;
@@ -99,9 +100,6 @@ namespace AutomataUI
     public class State : UIelement
     {
         public string ID { get; set; }
-
-        public bool Active { get; set; }
-
         public int Duration { get; set; } //how many frames is the state locked
 
     }
