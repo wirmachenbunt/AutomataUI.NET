@@ -117,7 +117,6 @@ namespace AutomataUI
                         AutomataView.startTransitionState = null;
                         AutomataView.endTransitionState = null;
 
-                        AutomataView.skiaView.Invalidate();
                     }
                 }
             }

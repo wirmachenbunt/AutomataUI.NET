@@ -131,6 +131,12 @@ namespace AutomataUI
             return myEdgeCoords;
         }
 
+        //calculate center between points
+        public static SKPoint CenterPoints(SKPoint A, SKPoint B)
+        {
+            return new SKPoint((A.X + B.X) / 2, (A.Y + B.Y) / 2);
+        }
+
     }
 
 

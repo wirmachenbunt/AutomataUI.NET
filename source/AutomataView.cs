@@ -139,13 +139,26 @@ namespace AutomataUI
             //debug mouse method
             //canvas.DrawCircle(Tools.ToWorldSpace(mousePos, worldOffset, worldScale), 10, stateDefaultPaint);
         }
-
         private void DrawStateText(SKCanvas canvas, State state, SKColor textColor, SKPoint pos)
         {
             TextRendererSk.DrawText(canvas,
                                                         state.Name,
                                                         font,
                                                         SKRect.Create(pos.X - 40, pos.Y - 40, 80, 80),
+                                                        textColor,
+                                                        SkiaTextRenderer.TextFormatFlags.WordBreak |
+                                                        SkiaTextRenderer.TextFormatFlags.VerticalCenter |
+                                                        SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
+        }
+
+        private void DrawTransitionText(SKCanvas canvas, Transition transition, SKColor textColor, SKPoint pos)
+        {
+            
+
+            TextRendererSk.DrawText(canvas,
+                                                        transition.Name,
+                                                        font,
+                                                        SKRect.Create(pos.X - 60, pos.Y - 60, 120, 120),
                                                         textColor,
                                                         SkiaTextRenderer.TextFormatFlags.WordBreak |
                                                         SkiaTextRenderer.TextFormatFlags.VerticalCenter |
@@ -163,17 +176,41 @@ namespace AutomataUI
 
             if (AutomataData != null)
             {
-                foreach (var item in AutomataData.transitions)
+                float angle = 0.0f;
+
+                foreach (var transition in AutomataData.transitions)
                 {
-                    var start = new SKPoint(item.StartState.Bounds.MidX, item.StartState.Bounds.MidY);
-                    var end = new SKPoint(item.EndState.Bounds.MidX, item.EndState.Bounds.MidY);
+                    var start = new SKPoint(transition.StartState.Bounds.MidX, transition.StartState.Bounds.MidY);
+                    var end = new SKPoint(transition.EndState.Bounds.MidX, transition.EndState.Bounds.MidY);
+
+                    // check if there is a return transition to draw double connections correctly
+                    foreach (Transition subtransition in AutomataData.transitions) // check if there is a return transition to draw double connections correctly
+                    {
+                        if (subtransition.StartState.ID == transition.EndState.ID && subtransition.EndState.ID == transition.StartState.ID)
+                        {
+                            angle = 0.4f;
+                            break;
+                        }
+                        else angle = 0.0f;
+                    }
 
                     // get transitions points with gap, center of transition and angle for arrow
-                    Tools.EdgePoints edgepoints = Tools.GetEdgePoints(start, end, 55, 0);
+                    Tools.EdgePoints edgepoints = Tools.GetEdgePoints(start, end, 55, angle);
 
                     //do the drawing
                     canvas.DrawLine(edgepoints.A,edgepoints.B, transitionPaint);                  
                     DrawArrow(canvas, new SKPoint(edgepoints.B.X,edgepoints.B.Y), edgepoints.Angle,SKColors.Cyan);
+
+                //    canvas.DrawCircle(Tools.CenterPoints(edgepoints.A, edgepoints.B), 20, textBlackPaint);
+
+                    SKPoint center = Tools.CenterPoints(edgepoints.A, edgepoints.B);
+                    SKSize s = TextRendererSk.MeasureText(transition.Name, font);
+
+                    canvas.DrawRect(center.X - s.Width/2, center.Y-s.Height/2, s.Width, s.Height, textBlackPaint);
+                    DrawTransitionText(canvas, transition, SKColors.White, center);
+
+                    SKPath maaa;
+                   
                 }
             }
 

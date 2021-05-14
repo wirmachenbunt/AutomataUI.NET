@@ -56,10 +56,7 @@ namespace AutomataUI
                 EndState = endState
             });
         }
-        public void EditState(State state)
-        {
 
-        }
         public static string RNGCharacterMask()
         {
             int maxSize = 8;
