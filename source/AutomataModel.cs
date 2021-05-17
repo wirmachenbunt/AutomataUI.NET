@@ -23,7 +23,7 @@ namespace AutomataUI
             transitions = new List<Transition>();
             AddState("Init", 0, new SKPoint(0, 0)); // add default state
             AddState("Start", 0, new SKPoint(500, 50));
-            AddTransition("toStart", 0, states[0], states[1]);
+            AddTransition("Start", 0, states[0], states[1]);
 
             //UI background aka desktop element
             world = new World()
