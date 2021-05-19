@@ -53,7 +53,7 @@ namespace AutomataUI
 
             SetupPaints();
             font = new SkiaTextRenderer.Font(SKTypeface.Default, 15);
-            
+           
         }
         public void SetupPaints()
         {
@@ -72,27 +72,27 @@ namespace AutomataUI
                 Color = SKColor.Parse("#323232")
             };
 
-            textPaint = new SKPaint
-            {
-                Color = SKColor.Parse("#adadad"),
-                IsAntialias = true,
-                Style = SKPaintStyle.Fill,
-                TextAlign = SKTextAlign.Center,
-                Typeface = SKTypeface.FromFamilyName("Segoe UI"),
-                TextSize = 24,
-                IsStroke = false
-            };
+            //textPaint = new SKPaint
+            //{
+            //    Color = SKColor.Parse("#adadad"),
+            //    IsAntialias = true,
+            //    Style = SKPaintStyle.Fill,
+            //    TextAlign = SKTextAlign.Center,
+            //    Typeface = SKTypeface.FromFamilyName("Segoe UI"),
+            //    TextSize = 24,
+            //    IsStroke = false
+            //};
 
-            textBlackPaint = new SKPaint
-            {
-                Color = SKColors.Black,
-                IsAntialias = true,
-                Style = SKPaintStyle.Fill,
-                TextAlign = SKTextAlign.Center,
-                Typeface = SKTypeface.FromFamilyName("Segoe UI"),
-                TextSize = 24,
-                IsStroke = false
-            };
+            //textBlackPaint = new SKPaint
+            //{
+            //    Color = SKColors.Black,
+            //    IsAntialias = true,
+            //    Style = SKPaintStyle.Fill,
+            //    TextAlign = SKTextAlign.Center,
+            //    Typeface = SKTypeface.FromFamilyName("Segoe UI"),
+            //    TextSize = 24,
+            //    IsStroke = false
+            //};
 
             textWhitePaint = new SKPaint
             {

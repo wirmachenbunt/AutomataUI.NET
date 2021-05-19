@@ -103,10 +103,11 @@ namespace AutomataUI
                 if (e.Button == MouseButtons.Left &&
                     AutomataView.startTransitionState != null &&
                     AutomataView.endTransitionState != null &&
-                    AutomataView.startTransitionState != AutomataView.endTransitionState)
+                    AutomataView.startTransitionState != AutomataView.endTransitionState &&
+                    !AutomataData.TransitionExists(AutomataView.startTransitionState, AutomataView.endTransitionState))
                 {
                     
-                    string transName = "new transition";
+                    string transName = "to" + AutomataView.endTransitionState.Name;
                     int frames = 1;
 
                     if (Dialogs.StateDialog(ref transName, ref frames, "New Transition") == DialogResult.OK)

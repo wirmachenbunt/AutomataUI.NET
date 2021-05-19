@@ -32,6 +32,27 @@ namespace AutomataUI
                 Name = "World"
             };
         }
+
+        public bool TransitionExists(State startState,State endState)
+        {
+
+            bool check = true;
+
+            //check if the transition already exists
+            foreach (Transition transition in transitions) // Loop through List with foreach.
+            {
+                if (transition.StartState.ID == startState.ID
+                && transition.EndState.ID == endState.ID)
+                {
+                    check = true;
+                    break; // achtung test, war vorher true         
+                }
+                check = false;
+            }
+            return check;
+        }
+
+
         public void AddState(String name, int frames, SKPoint point)
         {
             int size = 50;
