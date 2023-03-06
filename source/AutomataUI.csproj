@@ -94,6 +94,7 @@
     <Compile Include="AutomataTools.cs" />
     <Compile Include="AutomataModel.cs" />
     <Compile Include="AutomataView.cs" />
+    <Compile Include="AutomataWrapper.cs" />
     <Compile Include="Dialogs.cs" />
     <Compile Include="Interaction.cs" />
     <Compile Include="AutomataNode.cs">

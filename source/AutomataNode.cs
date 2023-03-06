@@ -30,7 +30,7 @@ namespace AutomataUI
         public Transition activeTransition;
 
         //debug stuff
-        public bool loopAsTask = true;
+        public bool loopAsTask = false;
 
 
         public AutomataNode()
