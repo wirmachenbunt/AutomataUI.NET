@@ -19,16 +19,16 @@ namespace AutomataUI
             InitializeForm();
         }
 
-        public void Dispose()
-        {
-            if (automataNode != null)
-                automataNode.Invoke((Action)CleanupForm);
-        }
+        //public void Dispose()
+        //{
+        //    if (automataNode != null)
+        //        automataNode.Invoke((Action)CleanupForm);
+        //}
 
-        void CleanupForm()
-        {
-            automataNode.Dispose();
-        }
+        //void CleanupForm()
+        //{
+        //    automataNode.Dispose();
+        //}
 
         void InitializeForm()
         {
