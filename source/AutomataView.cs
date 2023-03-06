@@ -27,6 +27,7 @@ namespace AutomataUI
         SKPaint textPaint;
         SKPaint textBlackPaint;
         SKPaint textWhitePaint;
+        SKPaint stateActivePaint;
 
         SkiaTextRenderer.Font font;
 
@@ -49,11 +50,12 @@ namespace AutomataUI
             skiaView.TabIndex = 0;
             skiaView.Text = "skControl1";
 
+
             skiaView.PaintSurface += new System.EventHandler<SkiaSharp.Views.Desktop.SKPaintGLSurfaceEventArgs>(UpdateSkiaView);
 
             SetupPaints();
             font = new SkiaTextRenderer.Font(SKTypeface.Default, 15);
-           
+
         }
         public void SetupPaints()
         {
@@ -70,6 +72,13 @@ namespace AutomataUI
                 IsAntialias = true,
                 Style = SKPaintStyle.Fill,
                 Color = SKColor.Parse("#323232")
+            };
+
+            stateActivePaint = new SKPaint
+            {
+                IsAntialias = true,
+                Style = SKPaintStyle.Fill,
+                Color = SKColor.Parse("#ffa500")
             };
 
             //textPaint = new SKPaint
@@ -103,7 +112,8 @@ namespace AutomataUI
                 Typeface = SKTypeface.FromFamilyName("Arial"),
                 TextSize = 15,
                 IsStroke = false,
-               
+                FilterQuality = SKFilterQuality.High
+
 
             };
 
@@ -132,10 +142,41 @@ namespace AutomataUI
             }
 
         }
+
+        public void DrawActiveState(SKCanvas canvas)
+        {
+            if (AutomataData.activeState != null)
+            {
+                //canvas.DrawCircle(AutomataData.activeState.Bounds.MidX, AutomataData.activeState.Bounds.MidY, 55, stateActivePaint);
+
+                var outerPaint = new SKPaint
+                {
+                    IsAntialias = true,
+                    Style = SKPaintStyle.Stroke, //stroke so that it traces the outline
+                    Color = SKColor.Parse("#ffa500"), //make it the color red
+                    StrokeWidth = 10
+                };
+
+                //var angle = Math.PI * (0 + 120) / 180.0;
+                //var radius = (AutomataData.activeState.Bounds.Right - AutomataData.activeState.Bounds.Left) / 2;
+                //var middlePoint = new SKPoint();
+                //middlePoint.X = (AutomataData.activeState.Bounds.Left + radius);
+                //middlePoint.Y = AutomataData.activeState.Bounds.Top + radius;
+                //canvas.DrawCircle(middlePoint.X + (float)(radius * Math.Cos(angle)),middlePoint.Y + (float)(radius * Math.Sin(angle)), 20, outerPaint);
+
+                SKPath skPath = new SKPath();
+                skPath.AddArc(AutomataData.activeState.Bounds, 0, 120);
+                canvas.DrawPath(skPath, outerPaint);
+
+            }
+
+        }
+
+
         private void UpdateSkiaView(object sender, SKPaintGLSurfaceEventArgs e)
         {
             var canvas = e.Surface.Canvas;
-         
+
 
             // scale and translate world aka canvas
             canvas.Scale(worldScale);
@@ -144,27 +185,43 @@ namespace AutomataUI
             // make sure the canvas is blank
             canvas.Clear(SKColor.Parse("#141414"));
 
+
+
             DrawTransitions(canvas);
 
             DrawNewTransition(canvas);
 
             DrawStates(canvas);
 
-
+            DrawActiveState(canvas); //draw active state if there is one
 
             //debug mouse method
             //canvas.DrawCircle(Tools.ToWorldSpace(mousePos, worldOffset, worldScale), 10, stateDefaultPaint);
         }
         private void DrawStateText(SKCanvas canvas, string name, SKColor textColor, SKPoint pos)
         {
-            TextRendererSk.DrawText(canvas,
-                                                        name,
-                                                        font,
-                                                        SKRect.Create(pos.X - 40, pos.Y - 40, 80, 80),
-                                                        textColor,
-                                                        SkiaTextRenderer.TextFormatFlags.WordBreak |
-                                                        SkiaTextRenderer.TextFormatFlags.VerticalCenter |
-                                                        SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
+
+            //Antialiased Text
+            //using (var paint = new SKPaint())
+            //{
+            //    paint.TextSize = 64.0f;
+            //    paint.IsAntialias = true;
+            //    paint.Color = new SKColor(0x42, 0x81, 0xA4);
+            //    paint.IsStroke = false;
+
+            //    canvas.DrawText("MegaState Haha", pos.X, pos.Y+4, textWhitePaint);
+            // }
+
+
+
+                TextRendererSk.DrawText(canvas,
+                                                    name,
+                                                    font,
+                                                    SKRect.Create(pos.X - 40, pos.Y - 40, 80, 80),
+                                                    textColor,
+                                                    SkiaTextRenderer.TextFormatFlags.WordBreak |
+                                                    SkiaTextRenderer.TextFormatFlags.VerticalCenter |
+                                                    SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
 
         }
         private void DrawTransitionText(SKCanvas canvas, string name, SKColor textColor, SKPoint pos)
@@ -220,10 +277,10 @@ namespace AutomataUI
 
 
                     SKPath linePath = new SKPath();
-                    linePath.MoveTo(center.X-60,center.Y+5);
-                    linePath.LineTo(center.X+60, center.Y+5);
+                    linePath.MoveTo(center.X - 60, center.Y + 5);
+                    linePath.LineTo(center.X + 60, center.Y + 5);
 
-                   
+
 
 
                     SKSize s = TextRendererSk.MeasureText(transition.Name, font);
@@ -234,8 +291,6 @@ namespace AutomataUI
 
                     //TextRendererSk.DrawText(canvas, "hallo", font, textBounds, SKColors.White, SkiaTextRenderer.TextFormatFlags.Default);
                     //DrawTransitionText(canvas, transition.Name, SKColors.White, center);
-                    
-                   
 
 
 
@@ -243,7 +298,9 @@ namespace AutomataUI
 
 
 
-                     canvas.DrawRect(center.X - s.Width/2, center.Y-s.Height/2, s.Width, s.Height, stateDefaultPaint);
+
+
+                    canvas.DrawRect(center.X - s.Width / 2, center.Y - s.Height / 2, s.Width, s.Height, stateDefaultPaint);
 
                     //i have to draw onto a path to avoid jitter...weirdo
                     canvas.DrawTextOnPath(transition.Name, linePath, 0, 0, textWhitePaint);
@@ -285,7 +342,6 @@ namespace AutomataUI
                 }
             }
         }
-
         private void DrawArrow(SKCanvas canvas, SKPoint pos, float angle, SKColor color)
         {
 

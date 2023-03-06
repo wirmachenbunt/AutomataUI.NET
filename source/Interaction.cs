@@ -91,6 +91,12 @@ namespace AutomataUI
                 BringStateToFront((State)selectedItem, AutomataData.states);
             }
 
+            //set active state
+            if (selectedItem is State && Form.ModifierKeys == Keys.Control)
+            {
+                AutomataData.activeState = (State)selectedItem;
+            }
+
             //add transition
             if (selectedItem is State)
             {
