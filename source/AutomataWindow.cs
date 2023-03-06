@@ -18,7 +18,7 @@ namespace AutomataUI
 /// Main window providing home for automata view rendering, data and control
 /// </summary>
 
-    public class AutomataNode : Form
+    public class AutomataWindow : Form
     {
         AutomataView AutomataView; //UI Rendering
         Interaction AutomataInteraction; //User Input Management
@@ -33,7 +33,7 @@ namespace AutomataUI
         public bool loopAsTask = false;
 
 
-        public AutomataNode()
+        public AutomataWindow()
         {
             InitializeAutomata();
 

@@ -15,28 +15,7 @@
       </p:NodeReference>
       <Patch Id="Cj5pJnlCGdGOHdbhPNJr6L">
         <Canvas Id="EDKJReWapZCL2yaGqo584G" CanvasType="Group">
-          <Node Bounds="511,320,146,136" Id="B1wTbnhNbcHO3toNDlihVR">
-            <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll" LastDependency="VL.CoreLib.vl">
-              <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
-              <CategoryReference Kind="Category" Name="Primitive" />
-              <Choice Kind="ApplicationStatefulRegion" Name="If" />
-            </p:NodeReference>
-            <Pin Id="OY3YdRiWamWLdyIj2uRcFQ" Name="Condition" Kind="InputPin" />
-            <Patch Id="G7WmW4D9wwhLoz9njRwPwL" ManuallySortedPins="true">
-              <Patch Id="VJaEC3fAfiEQMhIHKQIuU7" Name="Create" ManuallySortedPins="true" />
-              <Patch Id="D8JV67ZbHLxMR2Hc0q6oQZ" Name="Then" ManuallySortedPins="true" />
-            </Patch>
-          </Node>
-          <Pad Id="CjRVh3DbWsULSCd8r2u2ED" Comment="Condition" Bounds="470,233,35,35" ShowValueBox="true" isIOBox="true" Value="True">
-            <p:TypeAnnotation>
-              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
-              <CategoryReference Kind="Category" Name="Primitive" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings>
-              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
-            </p:ValueBoxSettings>
-          </Pad>
-          <Node Bounds="738,296,81,26" Id="E0PoDZOsbb5Ol6f7oF7JTW">
+          <Node Bounds="733,330,81,26" Id="E0PoDZOsbb5Ol6f7oF7JTW">
             <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWrapper" LastSymbolSource="AutomataUI.dll">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
@@ -45,76 +24,24 @@
             </p:NodeReference>
             <Pin Id="NQdSw1YGXRdOxzQph4wzcu" Name="Output" Kind="StateOutputPin" />
           </Node>
-          <Pad Id="LpvN0hviUsKN2XmtHxrcES" SlotId="ULXvvdufRzaOh91gWYB7cC" Bounds="741,409" />
-          <Node Bounds="741,459,83,26" Id="FSc3jB6cJunNmBcPMQUGMC">
-            <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWrapper" LastSymbolSource="AutomataUI.dll">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
-              <CategoryReference Kind="AssemblyCategory" Name="AutomataWrapper" />
-              <Choice Kind="OperationCallFlag" Name="automataNode" />
-            </p:NodeReference>
-            <Pin Id="IMxszZPYG7PLbu7SC5WALc" Name="Input" Kind="StateInputPin" />
-            <Pin Id="OeLDqqN0REiPCoSJH7iAyH" Name="Output" Kind="StateOutputPin" />
-            <Pin Id="JQXGV3vC3M8NOCxv9yPWF3" Name="Automata Node" Kind="OutputPin" />
-          </Node>
-          <Node Bounds="824,583,83,26" Id="VGQqAFVYqwLMcDpWAi6Ppk">
-            <p:NodeReference LastCategoryFullName="AutomataUI.AutomataNode" LastSymbolSource="AutomataUI.dll">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
-              <CategoryReference Kind="AssemblyCategory" Name="AutomataNode" />
-              <Choice Kind="OperationCallFlag" Name="SetloopAsTask" />
-            </p:NodeReference>
-            <Pin Id="GmRwcAtpg2uLSK4JMPI4BT" Name="Input" Kind="StateInputPin" />
-            <Pin Id="LQ4E1VniMMoL5rY6oGw1gJ" Name="Value" Kind="InputPin" />
-            <Pin Id="EzVipcasRIUM4bikxUGyaB" Name="Output" Kind="StateOutputPin" />
-          </Node>
-          <Pad Id="SayURbl9G1PNfWkNXJJD9C" Comment="Value" Bounds="959,503,35,35" ShowValueBox="true" isIOBox="true" Value="False">
-            <p:TypeAnnotation>
-              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
-              <CategoryReference Kind="Category" Name="Primitive" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings>
-              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
-            </p:ValueBoxSettings>
-          </Pad>
-          <Node Bounds="657,608,70,26" Id="KYSB3CePoNUMJyE2cQtXMV">
-            <p:NodeReference LastCategoryFullName="AutomataUI.AutomataNode" LastSymbolSource="AutomataUI.dll">
-              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
-              <CategoryReference Kind="AssemblyCategory" Name="AutomataNode" />
-              <Choice Kind="OperationCallFlag" Name="loopAsTask" />
-            </p:NodeReference>
-            <Pin Id="VTmCxV5pGiPOsyn6Q3k4Ow" Name="Input" Kind="StateInputPin" />
-            <Pin Id="ILN9FtBmtfMMeYsIC9DGI5" Name="Output" Kind="StateOutputPin" />
-            <Pin Id="TnxjY3K85lRL97dVv7fkDc" Name="Loop As Task" Kind="OutputPin" />
-          </Node>
-          <Pad Id="DcYz9pffUSIOvrjC8F9acV" Comment="Loop As Task" Bounds="688,688,35,35" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="Mj9gCbmPwKbN9WtKAgfKet" SlotId="LGEnFG3AnZxPmFW5WHc0wL" Bounds="868,678" />
+          <Pad Id="FbHKqoCmObZO6jLq813V6O" SlotId="AWwFeT4VOCXLx3gEbQQW1o" Bounds="736,420" />
         </Canvas>
-        <Patch Id="JQ73OL43NwKLXgS36LPYxA" Name="Create" ParticipatingElements="E0PoDZOsbb5Ol6f7oF7JTW,CzXIBdBX1rVPIe6x3v8VDm" />
-        <Patch Id="KzmNv2m0sBZMGrotRGJpPY" Name="Update" ParticipatingElements="FSc3jB6cJunNmBcPMQUGMC,Dxo7LBwFEJYOIPLyzeX5QX" />
+        <Patch Id="JQ73OL43NwKLXgS36LPYxA" Name="Create" ParticipatingElements="E0PoDZOsbb5Ol6f7oF7JTW" />
+        <Patch Id="KzmNv2m0sBZMGrotRGJpPY" Name="Update" />
         <ProcessDefinition Id="DvIBEIVDLSINCGZW3iMm1r">
           <Fragment Id="BjCsP3nPFeSLliEP54E2Ir" Patch="JQ73OL43NwKLXgS36LPYxA" Enabled="true" />
           <Fragment Id="U2gkneeYQk3LaDpkYnw8g1" Patch="KzmNv2m0sBZMGrotRGJpPY" Enabled="true" />
         </ProcessDefinition>
-        <Link Id="CzXIBdBX1rVPIe6x3v8VDm" Ids="NQdSw1YGXRdOxzQph4wzcu,LpvN0hviUsKN2XmtHxrcES" />
-        <Link Id="PTqCoGIYWpIM88GcnlEeq9" Ids="CjRVh3DbWsULSCd8r2u2ED,OY3YdRiWamWLdyIj2uRcFQ" />
-        <Slot Id="ULXvvdufRzaOh91gWYB7cC" Name="Wrapper" />
-        <Link Id="Dxo7LBwFEJYOIPLyzeX5QX" Ids="LpvN0hviUsKN2XmtHxrcES,IMxszZPYG7PLbu7SC5WALc" />
-        <Link Id="ReLsXwBXdLWNMUpuuvi4li" Ids="SayURbl9G1PNfWkNXJJD9C,LQ4E1VniMMoL5rY6oGw1gJ" />
-        <Link Id="McCmaVzYJsoNJBkEdhF45T" Ids="TnxjY3K85lRL97dVv7fkDc,DcYz9pffUSIOvrjC8F9acV" />
-        <Link Id="GeeLUuEF8vXLwrUJFgj2Sx" Ids="JQXGV3vC3M8NOCxv9yPWF3,GmRwcAtpg2uLSK4JMPI4BT" />
-        <Slot Id="LGEnFG3AnZxPmFW5WHc0wL" Name="Output" />
-        <Link Id="SbYjOwAGngXQSKpirKjphC" Ids="EzVipcasRIUM4bikxUGyaB,Mj9gCbmPwKbN9WtKAgfKet" />
-        <Link Id="SH8AGO5LABPLdC7WW4L8E3" Ids="JQXGV3vC3M8NOCxv9yPWF3,VTmCxV5pGiPOsyn6Q3k4Ow" />
+        <Slot Id="AWwFeT4VOCXLx3gEbQQW1o" Name="Output" />
+        <Link Id="NkseXqLpp8vLnfP0I9T5ai" Ids="NQdSw1YGXRdOxzQph4wzcu,FbHKqoCmObZO6jLq813V6O" />
       </Patch>
     </Node>
   </Patch>
-  <PlatformDependency Id="GngZKrhaSVFN2oMjHzCh8l" Location="../../../AutomataUI.NET/source/bin/Debug/AutomataUI.dll" />
-  <PlatformDependency Id="UfFHFb8Zxh1LiN7PiTTjGX" Location="../../../AutomataUI.NET/source/bin/Debug/SkiaSharp.Views.WindowsForms.dll" />
-  <PlatformDependency Id="EovqBhaNc3uOVMcq0ZcAmc" Location="../../../AutomataUI.NET/source/bin/Debug/OpenTK.GLControl.dll" />
-  <PlatformDependency Id="LB27RoJgkm3PXyHYge686F" Location="../../../AutomataUI.NET/source/bin/Debug/OpenTK.dll" />
-  <PlatformDependency Id="FZcud9MkNgRL6PakYCCQID" Location="../../../AutomataUI.NET/source/bin/Debug/SkiaSharp.Views.Desktop.dll" />
-  <PlatformDependency Id="GkVTrYEYuPnMluLbXZfXLI" Location="../../../AutomataUI.NET/source/bin/Debug/SkiaSharp.Views.Desktop.Common.dll" />
-  <PlatformDependency Id="GCQ11AgfFzULb3bdwVRUuN" Location="../../../AutomataUI.NET/source/bin/Debug/SkiaTextRenderer.dll" />
+  <PlatformDependency Id="GngZKrhaSVFN2oMjHzCh8l" Location="./source/bin/Debug/AutomataUI.dll" />
+  <PlatformDependency Id="UfFHFb8Zxh1LiN7PiTTjGX" Location="./source/bin/Debug/SkiaSharp.Views.WindowsForms.dll" />
+  <PlatformDependency Id="EovqBhaNc3uOVMcq0ZcAmc" Location="./source/bin/Debug/OpenTK.GLControl.dll" />
+  <PlatformDependency Id="LB27RoJgkm3PXyHYge686F" Location="./source/bin/Debug/OpenTK.dll" />
+  <PlatformDependency Id="FZcud9MkNgRL6PakYCCQID" Location="./source/bin/Debug/SkiaSharp.Views.Desktop.dll" />
+  <PlatformDependency Id="GkVTrYEYuPnMluLbXZfXLI" Location="./source/bin/Debug/SkiaSharp.Views.Desktop.Common.dll" />
+  <PlatformDependency Id="GCQ11AgfFzULb3bdwVRUuN" Location="./source/bin/Debug/SkiaTextRenderer.dll" />
 </Document>

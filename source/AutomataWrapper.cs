@@ -12,31 +12,41 @@ namespace AutomataUI
     public class AutomataWrapper
     {
         public bool testtest = true;
-        public AutomataNode automataNode;
+        public AutomataWindow automataWindow;
+        Thread FUIThread;
 
         public AutomataWrapper()
         {
-            InitializeForm();
+            FUIThread = new Thread(InitializeForm);
+            FUIThread.SetApartmentState(ApartmentState.STA);
+            FUIThread.Priority = ThreadPriority.Lowest;
+            FUIThread.Start();
         }
-
-        //public void Dispose()
-        //{
-        //    if (automataNode != null)
-        //        automataNode.Invoke((Action)CleanupForm);
-        //}
-
-        //void CleanupForm()
-        //{
-        //    automataNode.Dispose();
-        //}
 
         void InitializeForm()
         {
-            automataNode = new AutomataNode();
-
-            // Use ShowDialog as it starts its own main loop - using Show alone the window just disappears
-            automataNode.ShowDialog();
+            automataWindow = new AutomataWindow();
+            automataWindow.ShowDialog();
         }
 
+
+        public void Dispose()
+        {
+            if (automataWindow != null)
+                automataWindow.Invoke((Action)CleanupForm);
+        }
+
+        void CleanupForm()
+        {
+            automataWindow.Dispose();
+        }
+
+        //public InterpoleUI()
+        //{
+        //    FUIThread = new Thread(InitializeForm);
+        //    FUIThread.SetApartmentState(ApartmentState.STA);
+        //    FUIThread.Priority = ThreadPriority.Lowest;
+        //    FUIThread.Start();
+        //}
     }
 }

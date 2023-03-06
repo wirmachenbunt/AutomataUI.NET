@@ -97,7 +97,7 @@
     <Compile Include="AutomataWrapper.cs" />
     <Compile Include="Dialogs.cs" />
     <Compile Include="Interaction.cs" />
-    <Compile Include="AutomataNode.cs">
+    <Compile Include="AutomataWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
