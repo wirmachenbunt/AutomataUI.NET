@@ -15,7 +15,7 @@
       </p:NodeReference>
       <Patch Id="Cj5pJnlCGdGOHdbhPNJr6L">
         <Canvas Id="EDKJReWapZCL2yaGqo584G" CanvasType="Group">
-          <Node Bounds="733,330,81,26" Id="E0PoDZOsbb5Ol6f7oF7JTW">
+          <Node Bounds="741,323,81,26" Id="E0PoDZOsbb5Ol6f7oF7JTW">
             <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWrapper" LastSymbolSource="AutomataUI.dll">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
@@ -24,7 +24,40 @@
             </p:NodeReference>
             <Pin Id="NQdSw1YGXRdOxzQph4wzcu" Name="Output" Kind="StateOutputPin" />
           </Node>
-          <Pad Id="FbHKqoCmObZO6jLq813V6O" SlotId="AWwFeT4VOCXLx3gEbQQW1o" Bounds="736,420" />
+          <Pad Id="FbHKqoCmObZO6jLq813V6O" SlotId="AWwFeT4VOCXLx3gEbQQW1o" Bounds="743,471" />
+          <Node Bounds="775,563" Id="Kf4kMWhlJQjPvYy9eO3HbQ">
+            <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWrapper" LastSymbolSource="AutomataUI.dll">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
+              <CategoryReference Kind="AssemblyCategory" Name="AutomataWrapper" />
+              <Choice Kind="OperationCallFlag" Name="testtest" />
+            </p:NodeReference>
+            <Pin Id="SjkDmtQ0PiSN6P1b9ORTNV" Name="Input" Kind="StateInputPin" />
+            <Pin Id="ImbptxC3ZPzOIBMDD6OzZf" Name="Output" Kind="StateOutputPin" />
+            <Pin Id="F1bweyRSaIuMxZhVAXnIyR" Name="Testtest" Kind="OutputPin" />
+          </Node>
+          <Pad Id="J59Jkhalg9iPaoPWKZKtLx" Comment="" Bounds="635,673,244,205" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="P59K60jdN9KMBBN0lAfxJe" Comment="Testtest" Bounds="952,669,35,35" ShowValueBox="true" isIOBox="true" />
+          <Node Bounds="946,529" Id="UaNA9KrVEAzQDRlVdWjaqp">
+            <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWrapper" LastSymbolSource="AutomataUI.dll">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
+              <CategoryReference Kind="AssemblyCategory" Name="AutomataWrapper" />
+              <Choice Kind="OperationCallFlag" Name="Settesttest" />
+            </p:NodeReference>
+            <Pin Id="SOCwWtKb4kJLuuv795aaVZ" Name="Input" Kind="StateInputPin" />
+            <Pin Id="ENwkn2MUf4hLwjqptqBHwq" Name="Value" Kind="InputPin" />
+            <Pin Id="URqSQSRXo4COKx9enVZPpZ" Name="Output" Kind="StateOutputPin" />
+          </Node>
+          <Pad Id="BX5WajAyNGLLGFdBVXBt0d" Comment="Value" Bounds="1053,495,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+            <p:TypeAnnotation>
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+              <CategoryReference Kind="Category" Name="Primitive" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
         </Canvas>
         <Patch Id="JQ73OL43NwKLXgS36LPYxA" Name="Create" ParticipatingElements="E0PoDZOsbb5Ol6f7oF7JTW" />
         <Patch Id="KzmNv2m0sBZMGrotRGJpPY" Name="Update" />
@@ -34,6 +67,11 @@
         </ProcessDefinition>
         <Slot Id="AWwFeT4VOCXLx3gEbQQW1o" Name="Output" />
         <Link Id="NkseXqLpp8vLnfP0I9T5ai" Ids="NQdSw1YGXRdOxzQph4wzcu,FbHKqoCmObZO6jLq813V6O" />
+        <Link Id="KYuHvgjIGtcPI9y1uPR6cS" Ids="FbHKqoCmObZO6jLq813V6O,SjkDmtQ0PiSN6P1b9ORTNV" />
+        <Link Id="H6HJ7hVSYIVMOSZp8vSD0I" Ids="ImbptxC3ZPzOIBMDD6OzZf,J59Jkhalg9iPaoPWKZKtLx" />
+        <Link Id="VwnDFkSsH6lOTAPYYYKmUJ" Ids="F1bweyRSaIuMxZhVAXnIyR,P59K60jdN9KMBBN0lAfxJe" />
+        <Link Id="A1DCxloQwHxMJDBtL8V2x3" Ids="FbHKqoCmObZO6jLq813V6O,SOCwWtKb4kJLuuv795aaVZ" />
+        <Link Id="SFHCvGF139APvdlIZn2MVI" Ids="BX5WajAyNGLLGFdBVXBt0d,ENwkn2MUf4hLwjqptqBHwq" />
       </Patch>
     </Node>
   </Patch>
