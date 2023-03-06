@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,16 +18,35 @@ namespace AutomataUI
 /// Main window providing home for automata view rendering, data and control
 /// </summary>
 
-    public class Window : Form
+    public class AutomataNode : Form
     {
         AutomataView AutomataView; //UI Rendering
         Interaction AutomataInteraction; //User Input Management
         AutomataModel AutomataData; //contains Automata Structure and Methods
         Dialogs AutomataDialogs; //Winforms Dialogs
-        
-        public Window()
+
+        //results if statemachine     
+        public State activeState;
+        public Transition activeTransition;
+
+        //debug stuff
+        public bool loopAsTask = true;
+
+
+        public AutomataNode()
         {
             InitializeAutomata();
+
+            // run automataloop as task when in VS
+            if (loopAsTask)
+            {
+                //automata renderloop
+                Action actionDelegate = new Action(AutomataLoop);
+                Task task1 = new Task(actionDelegate);
+                task1.Start();
+            }
+            
+
         } 
          
         private void InitializeAutomata()
@@ -46,6 +66,22 @@ namespace AutomataUI
             Name = "AutomataUI";
             Text = "AutomataUI";
             ResumeLayout(false);
+        }
+
+
+        //evluation loop to find out which state is active
+        static void AutomataLoop()
+        {
+            int counter = 0;
+            
+
+            while (true)
+            {
+                Thread.Sleep(10);
+                counter++;
+                Console.WriteLine("counter " + counter);
+            }
+                        
         }
     }
 }

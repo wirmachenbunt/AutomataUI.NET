@@ -16,7 +16,7 @@ namespace AutomataUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Window());
+            Application.Run(new AutomataNode());
         }
     }
 }

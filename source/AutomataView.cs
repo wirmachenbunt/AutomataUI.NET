@@ -230,7 +230,7 @@ namespace AutomataUI
 
                     SKRect textBounds = new SKRect(center.X, center.Y, s.Width, s.Height);
 
-                    Console.WriteLine(s);
+                    //Console.WriteLine(s);
 
                     //TextRendererSk.DrawText(canvas, "hallo", font, textBounds, SKColors.White, SkiaTextRenderer.TextFormatFlags.Default);
                     //DrawTransitionText(canvas, transition.Name, SKColors.White, center);

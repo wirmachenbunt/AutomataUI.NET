@@ -93,7 +93,7 @@
     <Compile Include="AutomataView.cs" />
     <Compile Include="Dialogs.cs" />
     <Compile Include="Interaction.cs" />
-    <Compile Include="Window.cs">
+    <Compile Include="AutomataNode.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />

@@ -112,7 +112,7 @@ namespace AutomataUI
 
                     if (Dialogs.StateDialog(ref transName, ref frames, "New Transition") == DialogResult.OK)
                     {
-                        Console.WriteLine("Make new transition");
+                        //Console.WriteLine("Make new transition");
                         AutomataData.AddTransition(transName, frames, AutomataView.startTransitionState, AutomataView.endTransitionState);
 
                         AutomataView.startTransitionState = null;
@@ -223,7 +223,7 @@ namespace AutomataUI
         public void ZoomWorld(MouseEventArgs e)
         {
             float worldScalePre = AutomataView.worldScale;
-            Console.WriteLine(AutomataView.worldScale);
+            //Console.WriteLine(AutomataView.worldScale);
 
             if (e.Delta > 0 && AutomataView.worldScale < 1.2f)
             {
