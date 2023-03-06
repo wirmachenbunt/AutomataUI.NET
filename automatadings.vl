@@ -25,7 +25,7 @@
             <Pin Id="NQdSw1YGXRdOxzQph4wzcu" Name="Output" Kind="StateOutputPin" />
           </Node>
           <Pad Id="FbHKqoCmObZO6jLq813V6O" SlotId="AWwFeT4VOCXLx3gEbQQW1o" Bounds="743,471" />
-          <Node Bounds="775,563" Id="Kf4kMWhlJQjPvYy9eO3HbQ">
+          <Node Bounds="740,551,81,26" Id="Kf4kMWhlJQjPvYy9eO3HbQ">
             <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWrapper" LastSymbolSource="AutomataUI.dll">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
@@ -36,7 +36,7 @@
             <Pin Id="ImbptxC3ZPzOIBMDD6OzZf" Name="Output" Kind="StateOutputPin" />
             <Pin Id="F1bweyRSaIuMxZhVAXnIyR" Name="Testtest" Kind="OutputPin" />
           </Node>
-          <Pad Id="J59Jkhalg9iPaoPWKZKtLx" Comment="" Bounds="635,673,244,205" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="J59Jkhalg9iPaoPWKZKtLx" Comment="" Bounds="810,783,244,205" ShowValueBox="true" isIOBox="true" />
           <Pad Id="P59K60jdN9KMBBN0lAfxJe" Comment="Testtest" Bounds="952,669,35,35" ShowValueBox="true" isIOBox="true" />
           <Node Bounds="946,529" Id="UaNA9KrVEAzQDRlVdWjaqp">
             <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWrapper" LastSymbolSource="AutomataUI.dll">
@@ -49,7 +49,7 @@
             <Pin Id="ENwkn2MUf4hLwjqptqBHwq" Name="Value" Kind="InputPin" />
             <Pin Id="URqSQSRXo4COKx9enVZPpZ" Name="Output" Kind="StateOutputPin" />
           </Node>
-          <Pad Id="BX5WajAyNGLLGFdBVXBt0d" Comment="Value" Bounds="1053,495,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+          <Pad Id="BX5WajAyNGLLGFdBVXBt0d" Comment="Value" Bounds="1053,495,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation>
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
               <CategoryReference Kind="Category" Name="Primitive" />
@@ -58,8 +58,62 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
+          <Node Bounds="570,556" Id="VkHCCiZcnC7NwrOuNUl77I">
+            <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWrapper" LastSymbolSource="AutomataUI.dll">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
+              <CategoryReference Kind="AssemblyCategory" Name="AutomataWrapper" />
+              <Choice Kind="OperationCallFlag" Name="automataWindow" />
+            </p:NodeReference>
+            <Pin Id="Iccwg7JmbP9Of2jq55YRCu" Name="Input" Kind="StateInputPin" />
+            <Pin Id="Iti6fg3jCEsO9XbQN8jmhO" Name="Output" Kind="StateOutputPin" />
+            <Pin Id="Dl1M8qxhxXpLiJnjTrREGK" Name="Automata Window" Kind="OutputPin" />
+          </Node>
+          <Pad Id="KOdjxzrGeQTMoOvRaZsGyK" SlotId="FGdSXZc0ucKPplMXxLlki7" Bounds="481,712" />
+          <Node Bounds="354,791,79,26" Id="AW5GmdedadDP476l85JEWW">
+            <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastSymbolSource="AutomataUI.dll">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
+              <CategoryReference Kind="AssemblyCategory" Name="AutomataWindow" />
+              <Choice Kind="OperationCallFlag" Name="loopAsTask" />
+            </p:NodeReference>
+            <Pin Id="PP9e3M10EZzNF9icLw7lN9" Name="Input" Kind="StateInputPin" />
+            <Pin Id="H9r4hrtA5C2OeRYr9pXIEi" Name="Output" Kind="StateOutputPin" />
+            <Pin Id="KjIpcKT7hRILUAg3PXBqLe" Name="Loop As Task" Kind="OutputPin" />
+          </Node>
+          <Pad Id="NcfISR3vXS1LNS82YIk4mc" Comment="Loop As Task" Bounds="456,897,35,35" ShowValueBox="true" isIOBox="true" />
+          <Node Bounds="501,822,83,26" Id="Sa9Vp94GbizPDfqrttKua4">
+            <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastSymbolSource="AutomataUI.dll">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
+              <CategoryReference Kind="AssemblyCategory" Name="AutomataWindow" />
+              <Choice Kind="OperationCallFlag" Name="SetloopAsTask" />
+            </p:NodeReference>
+            <Pin Id="OKq8GiZ0P9dOPJ15n3VE5M" Name="Input" Kind="StateInputPin" />
+            <Pin Id="T11pqrTRFQPNSc01WaTImD" Name="Value" Kind="InputPin" />
+            <Pin Id="DpmD7yZunOuMZQMLqoebIx" Name="Output" Kind="StateOutputPin" />
+          </Node>
+          <Pad Id="GKynkOWkPQwMnGsoxLvK3p" Comment="Value" Bounds="584,749,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+            <p:TypeAnnotation>
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+              <CategoryReference Kind="Category" Name="Primitive" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Node Bounds="1026,235,81,26" Id="Na7YPdS6uhmPSHekkHUSCz">
+            <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWrapper" LastSymbolSource="AutomataUI.dll">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
+              <CategoryReference Kind="AssemblyCategory" Name="AutomataWrapper" />
+              <Choice Kind="OperationCallFlag" Name="Create" />
+            </p:NodeReference>
+            <Pin Id="BSGSBl18O1tQEoR2ibNHNq" Name="Output" Kind="StateOutputPin" />
+          </Node>
+          <Pad Id="Oga2R9R1z3lOMg5bGYmNJb" SlotId="KJucyjnOhG0O5ISKRVDYX3" Bounds="1023,374" />
         </Canvas>
-        <Patch Id="JQ73OL43NwKLXgS36LPYxA" Name="Create" ParticipatingElements="E0PoDZOsbb5Ol6f7oF7JTW" />
+        <Patch Id="JQ73OL43NwKLXgS36LPYxA" Name="Create" ParticipatingElements="E0PoDZOsbb5Ol6f7oF7JTW,Na7YPdS6uhmPSHekkHUSCz" />
         <Patch Id="KzmNv2m0sBZMGrotRGJpPY" Name="Update" />
         <ProcessDefinition Id="DvIBEIVDLSINCGZW3iMm1r">
           <Fragment Id="BjCsP3nPFeSLliEP54E2Ir" Patch="JQ73OL43NwKLXgS36LPYxA" Enabled="true" />
@@ -72,6 +126,15 @@
         <Link Id="VwnDFkSsH6lOTAPYYYKmUJ" Ids="F1bweyRSaIuMxZhVAXnIyR,P59K60jdN9KMBBN0lAfxJe" />
         <Link Id="A1DCxloQwHxMJDBtL8V2x3" Ids="FbHKqoCmObZO6jLq813V6O,SOCwWtKb4kJLuuv795aaVZ" />
         <Link Id="SFHCvGF139APvdlIZn2MVI" Ids="BX5WajAyNGLLGFdBVXBt0d,ENwkn2MUf4hLwjqptqBHwq" />
+        <Link Id="Uh2FCUvzd1qNXmWcS15N1t" Ids="FbHKqoCmObZO6jLq813V6O,Iccwg7JmbP9Of2jq55YRCu" />
+        <Slot Id="FGdSXZc0ucKPplMXxLlki7" Name="Automata Window" />
+        <Link Id="LHIJJAKSwwWPLVJg4RXe7f" Ids="Dl1M8qxhxXpLiJnjTrREGK,KOdjxzrGeQTMoOvRaZsGyK" />
+        <Link Id="DqI6CokzzJhMMZxTsx1HVM" Ids="KOdjxzrGeQTMoOvRaZsGyK,PP9e3M10EZzNF9icLw7lN9" />
+        <Link Id="DyVuau1sCrsNSrvB2aJKy5" Ids="KjIpcKT7hRILUAg3PXBqLe,NcfISR3vXS1LNS82YIk4mc" />
+        <Link Id="HyCdUe95u0vMNVnqEKc3hh" Ids="KOdjxzrGeQTMoOvRaZsGyK,OKq8GiZ0P9dOPJ15n3VE5M" />
+        <Link Id="I0CAk6rQSEWPRqKevZLfqL" Ids="GKynkOWkPQwMnGsoxLvK3p,T11pqrTRFQPNSc01WaTImD" />
+        <Link Id="L1u5wv6ckFmPu01uB2Fx02" Ids="BSGSBl18O1tQEoR2ibNHNq,Oga2R9R1z3lOMg5bGYmNJb" />
+        <Slot Id="KJucyjnOhG0O5ISKRVDYX3" Name="Output23" />
       </Patch>
     </Node>
   </Patch>
