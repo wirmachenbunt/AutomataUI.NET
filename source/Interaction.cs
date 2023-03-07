@@ -77,6 +77,7 @@ namespace AutomataUI
         {
             //global hittest
             selectedItem = HitTest(e);
+            Console.WriteLine(selectedItem);
 
             //reset things
             if (e.Button == MouseButtons.Left && selectedItem is World)
@@ -97,22 +98,36 @@ namespace AutomataUI
                 AutomataData.activeState = (State)selectedItem;
             }
 
+            ////Remove Transition
+            if (selectedItem is Transition && e.Button == MouseButtons.Middle)
+            {
+                AutomataData.RemoveTransition((Transition)selectedItem);
+            }
+
+            ////Remove State
+            if (selectedItem is State && e.Button == MouseButtons.Middle)
+            {
+                AutomataData.RemoveState((State)selectedItem);
+            }
+
+
             //add transition
             if (selectedItem is State)
             {
                 if (e.Button == MouseButtons.Right)
                 {
                     AutomataView.startTransitionState = (State)selectedItem;
+                    Console.WriteLine(AutomataView.startTransitionState.Name);
                 }
 
                 //create Transition
                 if (e.Button == MouseButtons.Left &&
                     AutomataView.startTransitionState != null &&
                     AutomataView.endTransitionState != null &&
-                    AutomataView.startTransitionState != AutomataView.endTransitionState &&
-                    !AutomataData.TransitionExists(AutomataView.startTransitionState, AutomataView.endTransitionState))
+                    AutomataView.startTransitionState != AutomataView.endTransitionState)
                 {
-                    
+                    //hier fehlt noch der test ob es die transition geben darf
+                    //&&!AutomataData.TransitionExists(AutomataView.startTransitionState, AutomataView.endTransitionState
                     string transName = "to" + AutomataView.endTransitionState.Name;
                     int frames = 1;
 
@@ -127,6 +142,8 @@ namespace AutomataUI
                     }
                 }
             }
+
+            
 
             AutomataView.skiaView.Invalidate();
         }
@@ -152,12 +169,16 @@ namespace AutomataUI
                 if (selecteditem is State && selecteditem != AutomataView.startTransitionState)
                 {
                     AutomataView.endTransitionState = (State)selecteditem;
+                    
+                    Console.WriteLine(AutomataView.endTransitionState.Name);
                 }
                 else AutomataView.endTransitionState = null;
                 
                 //do redraw when we try to make a new transition
                 AutomataView.skiaView.Invalidate();
             }
+
+            
 
             //Mouse stuff like mouse delta and pos 2 view
             previousMousePosition = e.Location.ToSKPoint(); 
@@ -171,10 +192,6 @@ namespace AutomataUI
         {
             //transform mouse to world space for hit testing
             SKPoint worldMousePos = Tools.ToWorldSpace(e.Location.ToSKPoint(), AutomataView.worldOffset, AutomataView.worldScale);
-
-
-           
-
 
 
             //who wants to be hit tested

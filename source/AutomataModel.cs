@@ -52,7 +52,6 @@ namespace AutomataUI
             return check;
         }
 
-
         public void AddState(String name, int frames, SKPoint point)
         {
             int size = 50;
@@ -76,6 +75,21 @@ namespace AutomataUI
                 StartState = startState,
                 EndState = endState
             });
+        }
+
+        public void RemoveTransition(Transition transition)
+        {
+            transitions.Remove(transition);
+        }
+
+        public void RemoveState(State state)
+        {
+            if (!(state == states[0])) //do not delete init state
+            {
+                states.Remove(state);
+            }
+
+            
         }
 
         public static string RNGCharacterMask()
