@@ -173,22 +173,7 @@ namespace AutomataUI
             SKPoint worldMousePos = Tools.ToWorldSpace(e.Location.ToSKPoint(), AutomataView.worldOffset, AutomataView.worldScale);
 
 
-
-
-            ////////////////////////////////////////////////////////////////////////////////////
-
-            SKPath testPath = new SKPath();
-            testPath.MoveTo(0, 0);
-            testPath.LineTo(2000, 0);
-            testPath.FillType = SKPathFillType.Winding;
-            
-            
-            if (testPath.Contains(100, 0))
-            {
-                Console.WriteLine("Treffer");
-            } 
-
-            ////////////////////////////////////////////////////////////////////////////////////
+           
 
 
 
@@ -197,33 +182,31 @@ namespace AutomataUI
 
             //states UI element
             foreach (var item in AutomataData.states)
-            {
-                
+            {         
                 hitTestList.Add(item);
             }
 
+            //transitions UI element
+            foreach (var item in AutomataData.transitions)
+            {
+                hitTestList.Add(item);
+                //Console.WriteLine(item.Bounds);
+            }
+            
             //background UI element
             hitTestList.Add(AutomataData.world);
-
+            
             // HIT TEST
-            // transitions is tested with path, states with bounds
-
-
-
             var hooverObject = hitTestList.FirstOrDefault(x => x.Bounds.Contains(worldMousePos));
 
-            //var hooverObjectTransition = hitTestListTrans.FirstOrDefault(x => x.Path.Contains(worldMousePos.X, worldMousePos.Y));
-
-            if (hooverObject is State)
+            if (hooverObject is State || hooverObject is Transition)
             {
-
                 parentForm.Cursor = Cursors.Hand;
             }
             else
             {
                 parentForm.Cursor = Cursors.Default;
             }
-
             return hooverObject;
         }
         public void DragWorld(MouseEventArgs e, SKPoint mouseDelta, Object selectedItem)

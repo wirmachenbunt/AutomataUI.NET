@@ -29,7 +29,6 @@ namespace AutomataUI
             world = new World()
             {
                 Bounds = new SKRect(-100000, -100000, 100000, 100000),
-                Path = new SKPath(),
                 Name = "World"
             };
         }

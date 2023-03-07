@@ -141,26 +141,6 @@ namespace AutomataUI
                 }
             }
 
-
-
-            /////////////////////////////////////////////////////////////////////////////
-            var outerPaint = new SKPaint
-            {
-                IsAntialias = true,
-                Style = SKPaintStyle.Stroke, //stroke so that it traces the outline
-                Color = SKColor.Parse("#ffa500"), //make it the color red
-                StrokeWidth = 30
-            };
-
-            SKPath testPath = new SKPath();
-            testPath.MoveTo(0, 0);
-            testPath.LineTo(2000, 0);
-            canvas.DrawPath(testPath, outerPaint);
-
-            /////////////////////////////////////////////////////////////////////////////
-
-
-
         }
 
         public void DrawActiveState(SKCanvas canvas)
@@ -291,16 +271,17 @@ namespace AutomataUI
 
                     SKPoint center = Tools.CenterPoints(edgepoints.A, edgepoints.B);
 
-
                     SKPath linePath = new SKPath();
                     linePath.MoveTo(center.X - 60, center.Y + 5);
                     linePath.LineTo(center.X + 60, center.Y + 5);
 
-                    transition.Path = linePath; //add path to object for hittest
-
                     SKSize s = TextRendererSk.MeasureText(transition.Name, font);
+ 
+                    SKRect textBounds = new SKRect(center.X - s.Width / 2, center.Y - s.Height / 2, center.X + s.Width/2, center.Y + s.Height/2);
 
-                    SKRect textBounds = new SKRect(center.X, center.Y, s.Width, s.Height);
+                    ////////////////add bounds to transition
+                    transition.Bounds = textBounds;
+                    ////////////////add bounds to transition
 
                     canvas.DrawRect(center.X - s.Width / 2, center.Y - s.Height / 2, s.Width, s.Height, stateDefaultPaint);
 
