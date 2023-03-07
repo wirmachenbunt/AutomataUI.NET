@@ -172,21 +172,47 @@ namespace AutomataUI
             //transform mouse to world space for hit testing
             SKPoint worldMousePos = Tools.ToWorldSpace(e.Location.ToSKPoint(), AutomataView.worldOffset, AutomataView.worldScale);
 
+
+
+
+            ////////////////////////////////////////////////////////////////////////////////////
+
+            SKPath testPath = new SKPath();
+            testPath.MoveTo(0, 0);
+            testPath.LineTo(2000, 0);
+            testPath.FillType = SKPathFillType.Winding;
+            
+            
+            if (testPath.Contains(100, 0))
+            {
+                Console.WriteLine("Treffer");
+            } 
+
+            ////////////////////////////////////////////////////////////////////////////////////
+
+
+
             //who wants to be hit tested
             List<UIelement> hitTestList = new List<UIelement>();
 
             //states UI element
             foreach (var item in AutomataData.states)
             {
+                
                 hitTestList.Add(item);
             }
 
             //background UI element
             hitTestList.Add(AutomataData.world);
 
-            // actual hittest
+            // HIT TEST
+            // transitions is tested with path, states with bounds
+
+
+
             var hooverObject = hitTestList.FirstOrDefault(x => x.Bounds.Contains(worldMousePos));
 
+            //var hooverObjectTransition = hitTestListTrans.FirstOrDefault(x => x.Path.Contains(worldMousePos.X, worldMousePos.Y));
 
             if (hooverObject is State)
             {

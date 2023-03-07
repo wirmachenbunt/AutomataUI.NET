@@ -141,6 +141,26 @@ namespace AutomataUI
                 }
             }
 
+
+
+            /////////////////////////////////////////////////////////////////////////////
+            var outerPaint = new SKPaint
+            {
+                IsAntialias = true,
+                Style = SKPaintStyle.Stroke, //stroke so that it traces the outline
+                Color = SKColor.Parse("#ffa500"), //make it the color red
+                StrokeWidth = 30
+            };
+
+            SKPath testPath = new SKPath();
+            testPath.MoveTo(0, 0);
+            testPath.LineTo(2000, 0);
+            canvas.DrawPath(testPath, outerPaint);
+
+            /////////////////////////////////////////////////////////////////////////////
+
+
+
         }
 
         public void DrawActiveState(SKCanvas canvas)
@@ -171,8 +191,6 @@ namespace AutomataUI
             }
 
         }
-
-
         private void UpdateSkiaView(object sender, SKPaintGLSurfaceEventArgs e)
         {
             var canvas = e.Surface.Canvas;
@@ -184,8 +202,6 @@ namespace AutomataUI
 
             // make sure the canvas is blank
             canvas.Clear(SKColor.Parse("#141414"));
-
-
 
             DrawTransitions(canvas);
 
@@ -280,31 +296,16 @@ namespace AutomataUI
                     linePath.MoveTo(center.X - 60, center.Y + 5);
                     linePath.LineTo(center.X + 60, center.Y + 5);
 
-
-
+                    transition.Path = linePath; //add path to object for hittest
 
                     SKSize s = TextRendererSk.MeasureText(transition.Name, font);
 
                     SKRect textBounds = new SKRect(center.X, center.Y, s.Width, s.Height);
 
-                    //Console.WriteLine(s);
-
-                    //TextRendererSk.DrawText(canvas, "hallo", font, textBounds, SKColors.White, SkiaTextRenderer.TextFormatFlags.Default);
-                    //DrawTransitionText(canvas, transition.Name, SKColors.White, center);
-
-
-
-
-
-
-
-
-
                     canvas.DrawRect(center.X - s.Width / 2, center.Y - s.Height / 2, s.Width, s.Height, stateDefaultPaint);
 
                     //i have to draw onto a path to avoid jitter...weirdo
                     canvas.DrawTextOnPath(transition.Name, linePath, 0, 0, textWhitePaint);
-
 
                 }
             }

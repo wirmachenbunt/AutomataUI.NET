@@ -29,6 +29,7 @@ namespace AutomataUI
             world = new World()
             {
                 Bounds = new SKRect(-100000, -100000, 100000, 100000),
+                Path = new SKPath(),
                 Name = "World"
             };
         }
@@ -113,6 +114,9 @@ namespace AutomataUI
     public abstract class UIelement //all UI Elements should be based upon this to make the hittest work
     {
         public SKRect Bounds { get; set; }
+
+        public SKPath Path { get; set; }
+
         public string Name { get; set; }
     }
     public class State : UIelement
