@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,16 +23,14 @@ namespace AutomataUI
     {
         AutomataView AutomataView; //UI Rendering
         Interaction AutomataInteraction; //User Input Management
-        AutomataModel AutomataData; //contains Automata Structure and Methods
+        public AutomataModel AutomataData; //contains Automata Structure and Methods
         Dialogs AutomataDialogs; //Winforms Dialogs
 
-        //results if statemachine     
-        public State activeState;
-        public Transition activeTransition;
+        
 
         //debug stuff
         public bool loopAsTask = false;
-
+        public string activeState;
 
         public AutomataWindow()
         {
@@ -49,7 +48,7 @@ namespace AutomataUI
 
         } 
          
-        private void InitializeAutomata()
+        public void InitializeAutomata()
         {
            
             AutomataData = new AutomataModel();
@@ -84,8 +83,18 @@ namespace AutomataUI
                 Thread.Sleep(10);
                 counter++;
                 Console.WriteLine("counter " + counter);
+               
             }
                         
         }
+
+
+        public void Serialize(string path)
+        {
+            Tools.WriteToBinaryFile(path, AutomataData, false);
+        }
+
+        
+       
     }
 }

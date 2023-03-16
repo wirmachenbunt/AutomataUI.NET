@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using SkiaSharp;
+using System.IO;
 
 namespace AutomataUI
 {
-    class AutomataModel
+    public class AutomataModel
     {
         public List<State> states { get; set; }
         public List<Transition> transitions { get; set; }
@@ -33,6 +35,7 @@ namespace AutomataUI
             };
         }
 
+        
         public bool TransitionExists(State startState,State endState)
         {
 
@@ -51,7 +54,6 @@ namespace AutomataUI
             }
             return check;
         }
-
         public void AddState(String name, int frames, SKPoint point)
         {
             int size = 50;
@@ -80,7 +82,6 @@ namespace AutomataUI
         {
             transitions.Remove(transition);
         }
-
         public void RemoveState(State state)
         {
 
@@ -103,7 +104,6 @@ namespace AutomataUI
             }
 
         }
-
         public static string RNGCharacterMask()
         {
             int maxSize = 8;
@@ -134,13 +134,15 @@ namespace AutomataUI
             // Return char and concat substring.
             return char.ToUpper(s[0]) + s.Substring(1);
         }
+
+
     }
 
     public abstract class UIelement //all UI Elements should be based upon this to make the hittest work
     {
         public SKRect Bounds { get; set; }
 
-        public SKPath Path { get; set; }
+        //public SKPath Path { get; set; }
 
         public string Name { get; set; }
     }
