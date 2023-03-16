@@ -6,6 +6,8 @@
     <Nullable>enable</Nullable>
 	<UseWindowsForms>true</UseWindowsForms>
 	<OutputType>WinExe</OutputType>
+	<PlatformTarget>x64</PlatformTarget>
+	<Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
