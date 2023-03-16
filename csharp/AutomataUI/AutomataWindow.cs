@@ -65,6 +65,10 @@ namespace AutomataUI
             Controls.Add(AutomataView.skiaView);
             Name = "AutomataUI";
             Text = "AutomataUI";
+            //note! USING JUST AUTOSCALEMODE WILL NOT SOLVE ISSUE. MUST USE BOTH!
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F); //IMPORTANT
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;   //IMPORTANT
+
             ResumeLayout(false);
         }
 

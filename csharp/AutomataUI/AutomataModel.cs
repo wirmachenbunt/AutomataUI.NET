@@ -36,7 +36,7 @@ namespace AutomataUI
         public bool TransitionExists(State startState,State endState)
         {
 
-            bool check = true;
+            bool check = false;
 
             //check if the transition already exists
             foreach (Transition transition in transitions) // Loop through List with foreach.
@@ -76,7 +76,6 @@ namespace AutomataUI
                 EndState = endState
             });
         }
-
         public void RemoveTransition(Transition transition)
         {
             transitions.Remove(transition);
@@ -84,12 +83,25 @@ namespace AutomataUI
 
         public void RemoveState(State state)
         {
+
+
+            //remove all connected transitions
+            for (int i = transitions.Count - 1; i >= 0; i--)
+            {
+                Transition transition = new Transition();
+                transition = transitions.ElementAt(i);
+
+                if (state.ID == transition.StartState.ID || state.ID == transition.EndState.ID)
+                {
+                    transitions.RemoveAt(i);
+                }
+            }
+
             if (!(state == states[0])) //do not delete init state
             {
                 states.Remove(state);
             }
 
-            
         }
 
         public static string RNGCharacterMask()

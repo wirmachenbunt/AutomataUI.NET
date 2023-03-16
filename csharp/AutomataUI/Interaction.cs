@@ -51,7 +51,7 @@ namespace AutomataUI
             // add new state
             if (item is World)
             {
-                if (Dialogs.StateDialog(ref stateName, ref frames, "Add State") == DialogResult.OK)
+                if (Dialogs.Dialog(ref stateName, ref frames, "Add State") == DialogResult.OK)
                 {
                     AutomataData.AddState(stateName, frames, Tools.ToWorldSpace(e.Location.ToSKPoint(), AutomataView.worldOffset, AutomataView.worldScale));
                     AutomataView.skiaView.Invalidate();
@@ -64,13 +64,28 @@ namespace AutomataUI
                 stateName = (item as State).Name;
                 frames = (item as State).Duration;
 
-                if (Dialogs.StateDialog(ref stateName, ref frames, "Edit State") == DialogResult.OK)
+                if (Dialogs.Dialog(ref stateName, ref frames, "Edit State") == DialogResult.OK)
                 {
                     (item as State).Name = stateName;
                     (item as State).Duration = frames;
                     AutomataView.skiaView.Invalidate();
                 }
             }
+
+            //edit Transition
+            if (item is Transition)
+            {
+                var transitionName = (item as Transition).Name;
+                frames = (item as Transition).Duration;
+
+                if (Dialogs.Dialog(ref transitionName, ref frames, "Edit Transition") == DialogResult.OK)
+                {
+                    (item as Transition).Name = transitionName;
+                    (item as Transition).Duration = frames;
+                    AutomataView.skiaView.Invalidate();
+                }
+            }
+
         }
 
         private void DoMouseDown(object sender, MouseEventArgs e)
@@ -124,14 +139,15 @@ namespace AutomataUI
                 if (e.Button == MouseButtons.Left &&
                     AutomataView.startTransitionState != null &&
                     AutomataView.endTransitionState != null &&
-                    AutomataView.startTransitionState != AutomataView.endTransitionState)
+                    AutomataView.startTransitionState != AutomataView.endTransitionState
+                    && !AutomataData.TransitionExists(AutomataView.startTransitionState, AutomataView.endTransitionState))
                 {
                     //hier fehlt noch der test ob es die transition geben darf
                     //&&!AutomataData.TransitionExists(AutomataView.startTransitionState, AutomataView.endTransitionState
                     string transName = "to" + AutomataView.endTransitionState.Name;
                     int frames = 1;
 
-                    if (Dialogs.StateDialog(ref transName, ref frames, "New Transition") == DialogResult.OK)
+                    if (Dialogs.Dialog(ref transName, ref frames, "New Transition") == DialogResult.OK)
                     {
                         //Console.WriteLine("Make new transition");
                         AutomataData.AddTransition(transName, frames, AutomataView.startTransitionState, AutomataView.endTransitionState);
