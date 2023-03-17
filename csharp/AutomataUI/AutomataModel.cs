@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SkiaSharp;
 using System.IO;
+using System.Diagnostics;
 
 namespace AutomataUI
 {
@@ -16,7 +17,12 @@ namespace AutomataUI
         public List<Transition> transitions { get; set; }
 
         public State activeState;
-        public Transition activeTransition;
+        public State targetState;
+
+        public int elapsedTransitionTime;
+        public int elapsedStateTime;
+
+        public String output; //output what transition or state is currently active
 
         public World world;
         public AutomataModel()
@@ -27,15 +33,16 @@ namespace AutomataUI
             AddState("Start", 0, new SKPoint(500, 50));
             AddTransition("Start", 0, states[0], states[1]);
 
+            activeState = states[0]; //set activestate to init
+            targetState = states[0]; // set targetstate also to init
+
             //UI background aka desktop element
             world = new World()
             {
                 Bounds = new SKRect(-100000, -100000, 100000, 100000),
                 Name = "World"
             };
-        }
-
-        
+        }   
         public bool TransitionExists(State startState,State endState)
         {
 
@@ -135,7 +142,40 @@ namespace AutomataUI
             return char.ToUpper(s[0]) + s.Substring(1);
         }
 
+        public void UpdateAutomata()
+        {
 
+            if (states.Count > 0)
+            {
+                //transition timer
+                if (activeState != targetState && elapsedTransitionTime != 0)
+                {
+                    elapsedTransitionTime -= 1; //counting transition down to 0
+                                                //output = activeTransition;
+                }
+                else
+                {
+                    output = activeState.Name;
+                }
+
+                //wenn targetstate erreicht wurde
+                if (elapsedTransitionTime == 0 && elapsedStateTime == 0) //solange transition time und elapsedtime 0 sind, setze target und active gleich
+                {
+                    activeState = targetState;
+                    Debug.WriteLine("Transition Ends");
+                }
+
+                //state timer
+                if (elapsedTransitionTime == 0)
+                {
+                    elapsedStateTime += 1; //Run State Timer when TransitionTimer is 0
+                }
+            }
+
+
+            
+
+        }
     }
 
     public abstract class UIelement //all UI Elements should be based upon this to make the hittest work
@@ -167,8 +207,6 @@ namespace AutomataUI
     {
 
     }
+
+    
 }
-
-
-
-

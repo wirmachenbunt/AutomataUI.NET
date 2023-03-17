@@ -15,9 +15,9 @@ using System.Windows.Forms;
 namespace AutomataUI
 {
 
-/// <summary>
-/// Main window providing home for automata view rendering, data and control
-/// </summary>
+    /// <summary>
+    /// Main window providing home for automata view rendering, data and control
+    /// </summary>
 
     public class AutomataWindow : Form
     {
@@ -26,36 +26,48 @@ namespace AutomataUI
         public AutomataModel AutomataData; //contains Automata Structure and Methods
         Dialogs AutomataDialogs; //Winforms Dialogs
 
-        
+
 
         //debug stuff
-        public bool loopAsTask = false;
-        public string activeState;
+        public bool loopAsTask = true;
+
+
+
 
         public AutomataWindow()
         {
+
             InitializeAutomata();
 
             // run automataloop as task when in VS
             if (loopAsTask)
             {
                 //automata renderloop
-                Action actionDelegate = new Action(AutomataLoop);
-                Task task1 = new Task(actionDelegate);
-                task1.Start();
-            }
-            
 
-        } 
-         
+                //Action<AutomataModel> firstAction = AutomataLoop;
+                //firstAction(AutomataData); 
+
+                //Action actionDelegate = new Action(AutomataLoop);
+                //Task task1 = new Task(actionDelegate);
+                //task1.Start();
+
+
+
+
+                Task.Run(() => AutomataLoop(AutomataData));
+            }
+
+
+        }
+
         public void InitializeAutomata()
         {
-           
+
             AutomataData = new AutomataModel();
             AutomataView = new AutomataView(AutomataData);
             AutomataDialogs = new Dialogs();
             // create mousekeyboard control for drawing
-            AutomataInteraction = new Interaction(AutomataView, AutomataData, AutomataDialogs,this);
+            AutomataInteraction = new Interaction(AutomataView, AutomataData, AutomataDialogs, this);
 
             this.SuspendLayout();
             //AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
@@ -73,19 +85,19 @@ namespace AutomataUI
 
 
         //evluation loop to find out which state is active
-        static void AutomataLoop()
+        static void AutomataLoop(AutomataModel data)
         {
-            int counter = 0;
-            
+
+
 
             while (true)
             {
-                Thread.Sleep(10);
-                counter++;
-                Console.WriteLine("counter " + counter);
-               
+                Thread.Sleep(60);
+
+                data.UpdateAutomata();
+                Debug.WriteLine(data.elapsedStateTime);
             }
-                        
+
         }
 
 
@@ -94,7 +106,7 @@ namespace AutomataUI
             Tools.WriteToBinaryFile(path, AutomataData, false);
         }
 
-        
-       
+
+
     }
 }

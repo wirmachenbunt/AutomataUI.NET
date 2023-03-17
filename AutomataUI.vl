@@ -43,7 +43,7 @@
               <Pin Id="SE1zaOUSVESO0xbIJDM3Qu" Name="Result" Kind="OutputPin" />
               <Pin Id="G0DJLZ12EOXPef2x0FVklC" Name="Not Assigned" Kind="OutputPin" />
             </Node>
-            <Node Bounds="193,359,320,432" Id="LmpPsg1ACiuPQVxSR3yDWx">
+            <Node Bounds="103,359,410,432" Id="LmpPsg1ACiuPQVxSR3yDWx">
               <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
                 <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                 <CategoryReference Kind="Category" Name="Primitive" />
@@ -109,7 +109,7 @@
                   <Pin Id="BmuO2OwVhTTLlt1VOCR54I" Name="Value" Kind="InputPin" />
                   <Pin Id="KZUknwedepwPwUvD7hxPFJ" Name="Output" Kind="StateOutputPin" />
                 </Node>
-                <Node Bounds="224,509,136,189" Id="An5tQaTLuWfMbS3PBr0sIN">
+                <Node Bounds="134,511,221,187" Id="An5tQaTLuWfMbS3PBr0sIN">
                   <p:NodeReference LastCategoryFullName="Control" LastDependency="VL.CoreLib.vl">
                     <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                     <Choice Kind="ProcessAppFlag" Name="Try" />
@@ -117,7 +117,7 @@
                   <Patch Id="BKp4F3nZ2aXQFKQLcSbGgk" ManuallySortedPins="true">
                     <Patch Id="GDhwelehBfPPhIsv2YaZma" Name="Create" ManuallySortedPins="true" />
                     <Patch Id="SOnx5YQqzdCLS7Udwwf2Rv" Name="Update" ManuallySortedPins="true" />
-                    <Node Bounds="236,532,81,26" Id="VXOExeVAQ2hPt6ax5CuZD5">
+                    <Node Bounds="146,534,81,26" Id="VXOExeVAQ2hPt6ax5CuZD5">
                       <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.csproj">
                         <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                         <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
@@ -128,7 +128,7 @@
                       <Pin Id="G52wltEzyFJP3DvWB1uAZz" Name="Output" Kind="StateOutputPin" />
                       <Pin Id="QRBiL1m5mg9MVJnbapknR1" Name="Automata Data" Kind="OutputPin" />
                     </Node>
-                    <Node Bounds="275,597,73,26" Id="Chv6CkXbjIzL6rabkTGav9">
+                    <Node Bounds="222,591,73,26" Id="Chv6CkXbjIzL6rabkTGav9">
                       <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.csproj">
                         <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                         <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
@@ -139,7 +139,7 @@
                       <Pin Id="VfUpdQjk9rhNza10lFrjec" Name="Output" Kind="StateOutputPin" />
                       <Pin Id="CJ6HvRV7TOAPpg9CeDujHS" Name="Active State" Kind="OutputPin" />
                     </Node>
-                    <Node Bounds="290,652,52,26" Id="GNPn95Tt21zLXVRAWibblE">
+                    <Node Bounds="291,640,52,26" Id="GNPn95Tt21zLXVRAWibblE">
                       <p:NodeReference LastCategoryFullName="AutomataUI.UIelement" LastDependency="AutomataUI.csproj">
                         <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                         <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
@@ -159,8 +159,9 @@
                   <Pin Id="F0PSGkqGkypQNMGS7Pgh7i" Name="Exceptions" Kind="OutputPin" />
                   <ControlPoint Id="LHlFJNQ7qFkPkvxn5kAFEN" Bounds="326,692" Alignment="Bottom" />
                 </Node>
-                <Pad Id="JYcYaj5iMOQNqh9hh83ijr" Comment="" Bounds="320,734,35,15" ShowValueBox="true" isIOBox="true" />
               </Patch>
+              <ControlPoint Id="UZhQOtD1q6vQZGYcAJyyAq" Bounds="340,785" Alignment="Bottom" />
+              <ControlPoint Id="VusxoY6XPClOHoHuNyguan" Bounds="340,365" Alignment="Top" />
             </Node>
             <ControlPoint Id="MmnH8iLri2PNoSU0OVohHk" Bounds="486,275" />
             <ControlPoint Id="OnkEI3sBbhGNCatq4ECPt1" Bounds="472,591" />
@@ -218,6 +219,7 @@
                 <Choice Kind="TypeFlag" Name="String" />
               </p:TypeAnnotation>
             </Pad>
+            <ControlPoint Id="JqdKJcfxvSEMAHhQiDuElt" Bounds="339,854" />
           </Canvas>
           <ProcessDefinition Id="LBt7HEn8yAvLgg135lh1zu">
             <Fragment Id="UBvSlPKRxANOrYWmTZZinG" Patch="VYkZMraQGgtLBg7viYXnb5" Enabled="true" />
@@ -248,18 +250,22 @@
           <Link Id="TghAq0u4TDjQGX8PedmSpP" Ids="QVHQWV374QJNJDpFc1DU1x,JJknQtHDp7cMDeQlG06DKT" />
           <Link Id="VQOMM2NN8j7QDGLSMxcw7d" Ids="RznQMqua2rvPl42TwjoMCc,RsUGmlBm7XQOhiYlT0ALBR" />
           <Link Id="HF9PmeOZgalMUiyX5Ade9Y" Ids="G8SwJhRkrCIPw1ffPpxvz9,C80BkjTTEGHLthJxAE8NAY" />
-          <Patch Id="VYkZMraQGgtLBg7viYXnb5" Name="Create" ParticipatingElements="QQ6Nop5eNMwM3pambd8IlK" />
-          <Patch Id="E4jzpbwnMH9NzQ7WYqFC2M" Name="Update">
-            <Pin Id="J27fW3mtqjJLGf9SjpaeJj" Name="Loop As Task" Kind="InputPin" Bounds="575,473" />
-            <Pin Id="JCMA1Gg5xLnPDvCoy5RDF5" Name="Show" Kind="InputPin" Bounds="456,231" />
-            <Pin Id="V6dVkPjt5EDNq8OOzgF9aT" Name="Loop As Task" Kind="OutputPin" Bounds="517,704" />
-          </Patch>
-          <Patch Id="HXN17UI1WJnQLsGMb2uWoT" Name="Dispose" ParticipatingElements="T2cMHL9bbzjNTluHd3QrOS,M9lNXucLDqsL0ea4O2oVwf,LX9VuECKvmIOYqUvMDfjxB" />
           <Link Id="KHIpvI6jHzLOB8nvb8tHu6" Ids="RznQMqua2rvPl42TwjoMCc,JmphhidmSgdNjpffHs9guD" />
           <Link Id="Rdh0lRp8elPQUwvq0vbGQn" Ids="QRBiL1m5mg9MVJnbapknR1,KXnb3AmptydPiu7n6P347D" />
           <Link Id="Fhpy4kQlXS3O0bnns9qC6S" Ids="CJ6HvRV7TOAPpg9CeDujHS,FjXUtZqPyqKL4HuVbM2hNO" />
           <Link Id="A8VtG5NAvL2LwBe3qNzSuM" Ids="VDw7FKaPnUvOTwb00xus0N,LHlFJNQ7qFkPkvxn5kAFEN" />
-          <Link Id="VY4DVXv1QHyLBLPLyQyTwz" Ids="LHlFJNQ7qFkPkvxn5kAFEN,JYcYaj5iMOQNqh9hh83ijr" />
+          <Link Id="Lt7J2EARekkOXyGI6EwQQ6" Ids="VusxoY6XPClOHoHuNyguan,UZhQOtD1q6vQZGYcAJyyAq" IsFeedback="true" />
+          <Link Id="JmLMleJ87ZfM7Y5wnY2QlU" Ids="LHlFJNQ7qFkPkvxn5kAFEN,UZhQOtD1q6vQZGYcAJyyAq" />
+          <Link Id="TiNyUNI5lGlM74NcjabJXQ" Ids="UZhQOtD1q6vQZGYcAJyyAq,JqdKJcfxvSEMAHhQiDuElt" />
+          <Link Id="J2OqwD66ObXOvNhTaKAqMR" Ids="JqdKJcfxvSEMAHhQiDuElt,IdHpJku8xZ6LwVWr3QxkgY" IsHidden="true" />
+          <Patch Id="VYkZMraQGgtLBg7viYXnb5" Name="Create" ParticipatingElements="QQ6Nop5eNMwM3pambd8IlK" />
+          <Patch Id="E4jzpbwnMH9NzQ7WYqFC2M" Name="Update">
+            <Pin Id="J27fW3mtqjJLGf9SjpaeJj" Name="Loop As Task" Kind="InputPin" Bounds="575,473" />
+            <Pin Id="JCMA1Gg5xLnPDvCoy5RDF5" Name="Show" Kind="InputPin" Bounds="456,231" />
+            <Pin Id="IdHpJku8xZ6LwVWr3QxkgY" Name="ActiveState" Kind="OutputPin" Bounds="352,864" />
+            <Pin Id="V6dVkPjt5EDNq8OOzgF9aT" Name="Loop As Task" Kind="OutputPin" Bounds="517,704" />
+          </Patch>
+          <Patch Id="HXN17UI1WJnQLsGMb2uWoT" Name="Dispose" ParticipatingElements="T2cMHL9bbzjNTluHd3QrOS,M9lNXucLDqsL0ea4O2oVwf,LX9VuECKvmIOYqUvMDfjxB" />
         </Patch>
       </Node>
       <!--
@@ -302,9 +308,10 @@
             </p:NodeReference>
             <Pin Id="NMUEKPTpgRnOCXiT0gjca8" Name="Loop As Task" Kind="InputPin" />
             <Pin Id="UPaYfLxqgPIODbO0lrSf1m" Name="Show" Kind="InputPin" />
+            <Pin Id="GFf657tQtWXPH8uvTQSQUO" Name="ActiveState" Kind="OutputPin" />
             <Pin Id="LNJiQlIiF7UOL2BhusbroY" Name="Loop As Task" Kind="OutputPin" />
           </Node>
-          <Pad Id="Q7ZpratzWsLMP564uXDh6M" Comment="Show" Bounds="113,237,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+          <Pad Id="Q7ZpratzWsLMP564uXDh6M" Comment="Show" Bounds="309,262,35,35" ShowValueBox="true" isIOBox="true" Value="True">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
               <CategoryReference Kind="Category" Name="Primitive" />
@@ -313,7 +320,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="TtTmGlFiLlDODi7ddSNkZ8" Comment="Loop As Task" Bounds="254,173,42,39" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="TtTmGlFiLlDODi7ddSNkZ8" Comment="Loop As Task" Bounds="156,218,42,39" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
               <CategoryReference Kind="Category" Name="Primitive" />
@@ -322,7 +329,8 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="UCtBIA2gSAmLkigsf4aooV" Comment="Loop As Task" Bounds="203,397,35,35" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="UCtBIA2gSAmLkigsf4aooV" Comment="Loop As Task" Bounds="274,427,35,35" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="HdW8LFhcQoHPaEGEnayQLS" Comment="ActiveState" Bounds="156,437,35,15" ShowValueBox="true" isIOBox="true" />
         </Canvas>
         <Patch Id="Uyz8MOaMPzwM6sLZanPvQn" Name="Create" />
         <Patch Id="RkMMF3XLNKqMuP7oz8viQ8" Name="Update" />
@@ -333,6 +341,7 @@
         <Link Id="AB45w6bfXlDPia053J3yMe" Ids="Q7ZpratzWsLMP564uXDh6M,UPaYfLxqgPIODbO0lrSf1m" />
         <Link Id="N1HdeO8IJvENPdfLY8PTgp" Ids="TtTmGlFiLlDODi7ddSNkZ8,NMUEKPTpgRnOCXiT0gjca8" />
         <Link Id="RqkLZOnQI6oM2CFLp9qPPk" Ids="LNJiQlIiF7UOL2BhusbroY,UCtBIA2gSAmLkigsf4aooV" />
+        <Link Id="ScGRJDspIqlOtaD928KVEr" Ids="GFf657tQtWXPH8uvTQSQUO,HdW8LFhcQoHPaEGEnayQLS" />
       </Patch>
     </Node>
   </Patch>

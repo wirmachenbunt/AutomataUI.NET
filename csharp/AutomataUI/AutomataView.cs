@@ -173,6 +173,8 @@ namespace AutomataUI
         }
         private void UpdateSkiaView(object sender, SKPaintGLSurfaceEventArgs e)
         {
+
+           
             var canvas = e.Surface.Canvas;
 
 

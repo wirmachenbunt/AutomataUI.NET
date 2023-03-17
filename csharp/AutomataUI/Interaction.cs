@@ -113,6 +113,20 @@ namespace AutomataUI
                 AutomataData.activeState = (State)selectedItem;
             }
 
+            //override active transition
+            if (selectedItem is Transition && Form.ModifierKeys == Keys.Control)
+            {
+                Transition temp = (Transition)selectedItem;
+                AutomataData.targetState = temp.EndState;
+                AutomataData.activeState = temp.StartState;
+
+                AutomataData.elapsedTransitionTime = temp.Duration;
+                AutomataData.elapsedStateTime = 0;
+
+                AutomataView.skiaView.Invalidate();
+            }
+
+
             ////Remove Transition
             if (selectedItem is Transition && e.Button == MouseButtons.Middle)
             {
