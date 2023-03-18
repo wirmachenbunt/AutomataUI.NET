@@ -22,7 +22,11 @@ namespace AutomataUI
         public int elapsedTransitionTime;
         public int elapsedStateTime;
 
-        public String output; //output what transition or state is currently active
+        public String output = string.Empty; //output what transition or state is currently active
+
+        //redraw events to bubble up to AutomataView
+        public delegate void RedrawEventHandler();
+        public event RedrawEventHandler? Redraw;
 
         public World world;
         public AutomataModel()
@@ -63,6 +67,7 @@ namespace AutomataUI
         }
         public void AddState(String name, int frames, SKPoint point)
         {
+
             int size = 50;
 
             SKRect bounds = new SKRect(point.X-size,point.Y-size,point.X+size,point.Y+size);
@@ -163,6 +168,8 @@ namespace AutomataUI
                 {
                     activeState = targetState;
                     Debug.WriteLine("Transition Ends");
+
+                    if (Redraw != null) Redraw(); //redraw UI
                 }
 
                 //state timer

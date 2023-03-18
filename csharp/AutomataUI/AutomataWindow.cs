@@ -95,7 +95,7 @@ namespace AutomataUI
                 Thread.Sleep(60);
 
                 data.UpdateAutomata();
-                Debug.WriteLine(data.elapsedStateTime);
+               // Debug.WriteLine(data.elapsedStateTime);
             }
 
         }
