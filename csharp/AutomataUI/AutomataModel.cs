@@ -19,6 +19,8 @@ namespace AutomataUI
         public State activeState;
         public State targetState;
 
+        public Transition? activeTransition;
+
         public int elapsedTransitionTime;
         public int elapsedStateTime;
 
@@ -156,7 +158,7 @@ namespace AutomataUI
                 if (activeState != targetState && elapsedTransitionTime != 0)
                 {
                     elapsedTransitionTime -= 1; //counting transition down to 0
-                                                //output = activeTransition;
+                    //output = activeTransition;
                 }
                 else
                 {
@@ -167,10 +169,14 @@ namespace AutomataUI
                 if (elapsedTransitionTime == 0 && elapsedStateTime == 0) //solange transition time und elapsedtime 0 sind, setze target und active gleich
                 {
                     activeState = targetState;
-                    Debug.WriteLine("Transition Ends");
-
+                    
+                    activeTransition = null; // reset active transition
+                    
                     if (Redraw != null) Redraw(); //redraw UI
+
+                    Debug.WriteLine("Transition Ends");
                 }
+
 
                 //state timer
                 if (elapsedTransitionTime == 0)

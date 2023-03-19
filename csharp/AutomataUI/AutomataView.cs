@@ -27,10 +27,10 @@ namespace AutomataUI
         //colors
         SKPaint stateInitPaint;
         SKPaint stateDefaultPaint;
-        SKPaint textPaint;
-        SKPaint textBlackPaint;
         SKPaint textWhitePaint;
-        SKPaint stateActivePaint;
+        SKPaint activePaint;
+        SKPaint transitionPaint;
+        SKPaint activeTransitionPaint;
 
         SkiaTextRenderer.Font font;
 
@@ -86,34 +86,29 @@ namespace AutomataUI
                 Color = SKColor.Parse("#323232")
             };
 
-            stateActivePaint = new SKPaint
+            activePaint = new SKPaint
             {
                 IsAntialias = true,
-                Style = SKPaintStyle.Fill,
-                Color = SKColor.Parse("#ffa500")
+                Style = SKPaintStyle.Stroke,
+                Color = SKColor.Parse("#ffa500"),
+                StrokeWidth = 5
             };
 
-            //textPaint = new SKPaint
-            //{
-            //    Color = SKColor.Parse("#adadad"),
-            //    IsAntialias = true,
-            //    Style = SKPaintStyle.Fill,
-            //    TextAlign = SKTextAlign.Center,
-            //    Typeface = SKTypeface.FromFamilyName("Segoe UI"),
-            //    TextSize = 24,
-            //    IsStroke = false
-            //};
+            transitionPaint = new SKPaint
+            {
+                IsAntialias = true,
+                Style = SKPaintStyle.StrokeAndFill,
+                Color = SKColors.Cyan,
+                StrokeWidth = 3,
+            };
 
-            //textBlackPaint = new SKPaint
-            //{
-            //    Color = SKColors.Black,
-            //    IsAntialias = true,
-            //    Style = SKPaintStyle.Fill,
-            //    TextAlign = SKTextAlign.Center,
-            //    Typeface = SKTypeface.FromFamilyName("Segoe UI"),
-            //    TextSize = 24,
-            //    IsStroke = false
-            //};
+            activeTransitionPaint = new SKPaint
+            {
+                IsAntialias = true,
+                Style = SKPaintStyle.StrokeAndFill,
+                Color = SKColor.Parse("#ffa500"),
+                StrokeWidth = 3,
+            };
 
             textWhitePaint = new SKPaint
             {
@@ -128,7 +123,7 @@ namespace AutomataUI
 
 
             };
-
+            
         }
         public void DrawStates(SKCanvas canvas)
         {
@@ -141,24 +136,16 @@ namespace AutomataUI
                     //draw active state
                     if (item == AutomataData.activeState)
                     {
-                        var outerPaint = new SKPaint
-                        {
-                            IsAntialias = true,
-                            Style = SKPaintStyle.Stroke, //stroke so that it traces the outline
-                            Color = SKColor.Parse("#ffa500"), //make it the color red
-                            StrokeWidth = 10
-                        };
-                        canvas.DrawCircle(item.Bounds.MidX, item.Bounds.MidY, 52, outerPaint);
+                        canvas.DrawCircle(item.Bounds.MidX, item.Bounds.MidY, 52, activePaint);
                     }
 
-
-
-
+                    //draw init state
                     if (item.Name == "Init")
                     {
                         canvas.DrawCircle(item.Bounds.MidX, item.Bounds.MidY, 50, stateInitPaint);
                         DrawStateText(canvas, item.Name, SKColors.Black, new SKPoint(item.Bounds.MidX, item.Bounds.MidY));
                     }
+                    //draw states
                     else
                     {
                         canvas.DrawCircle(item.Bounds.MidX, item.Bounds.MidY, 50, stateDefaultPaint);
@@ -168,30 +155,6 @@ namespace AutomataUI
             }
 
         }
-
-        //public void DrawActiveState(SKCanvas canvas)
-        //{
-        //    if (AutomataData.activeState != null)
-        //    {
-        //        //canvas.DrawCircle(AutomataData.activeState.Bounds.MidX, AutomataData.activeState.Bounds.MidY, 55, stateActivePaint);
-
-        //        var outerPaint = new SKPaint
-        //        {
-        //            IsAntialias = true,
-        //            Style = SKPaintStyle.Stroke, //stroke so that it traces the outline
-        //            Color = SKColor.Parse("#ffa500"), //make it the color red
-        //            StrokeWidth = 10
-        //        };
-
-
-        //        SKPath skPath = new SKPath();
-        //        skPath.AddArc(AutomataData.activeState.Bounds, 0, 360);
-        //        canvas.DrawPath(skPath, outerPaint);
-
-        //    }
-
-        //}
-
         private void UpdateSkiaView(object sender, SKPaintGLSurfaceEventArgs e)
         {
             var canvas = e.Surface.Canvas;
@@ -250,14 +213,6 @@ namespace AutomataUI
         }
         private void DrawTransitions(SKCanvas canvas)
         {
-            var transitionPaint = new SKPaint
-            {
-                IsAntialias = true,
-                Style = SKPaintStyle.StrokeAndFill,
-                Color = SKColors.Cyan,
-                StrokeWidth = 3,
-            };
-
             if (AutomataData != null)
             {
                 float angle = 0.0f;
@@ -281,9 +236,18 @@ namespace AutomataUI
                     // get transitions points with gap, center of transition and angle for arrow
                     Tools.EdgePoints edgepoints = Tools.GetEdgePoints(start, end, 55, angle);
 
-                    //do the drawing
-                    canvas.DrawLine(edgepoints.A, edgepoints.B, transitionPaint);
-                    DrawArrow(canvas, new SKPoint(edgepoints.B.X, edgepoints.B.Y), edgepoints.Angle, SKColors.Cyan);
+                    //draw active transition
+                    if (AutomataData.activeTransition != null && transition == AutomataData.activeTransition)
+                    {
+                        canvas.DrawLine(edgepoints.A, edgepoints.B, activeTransitionPaint);
+                        DrawArrow(canvas, new SKPoint(edgepoints.B.X, edgepoints.B.Y), edgepoints.Angle, SKColor.Parse("#ffa500"));
+                    }
+                    //draw inactive transition
+                    else
+                    {
+                        canvas.DrawLine(edgepoints.A, edgepoints.B, transitionPaint);
+                        DrawArrow(canvas, new SKPoint(edgepoints.B.X, edgepoints.B.Y), edgepoints.Angle, SKColors.Cyan);
+                    }
 
                     SKPoint center = Tools.CenterPoints(edgepoints.A, edgepoints.B);
 
@@ -299,6 +263,7 @@ namespace AutomataUI
                     transition.Bounds = textBounds;
                     ////////////////add bounds to transition
 
+                    
                     canvas.DrawRect(center.X - s.Width / 2, center.Y - s.Height / 2, s.Width, s.Height, stateDefaultPaint);
 
                     //i have to draw onto a path to avoid jitter...weirdo
@@ -363,5 +328,27 @@ namespace AutomataUI
             canvas.DrawPath(path2, pathStroke2);
         }
 
+        //public void DrawActiveState(SKCanvas canvas)
+        //{
+        //    if (AutomataData.activeState != null)
+        //    {
+        //        //canvas.DrawCircle(AutomataData.activeState.Bounds.MidX, AutomataData.activeState.Bounds.MidY, 55, stateActivePaint);
+
+        //        var outerPaint = new SKPaint
+        //        {
+        //            IsAntialias = true,
+        //            Style = SKPaintStyle.Stroke, //stroke so that it traces the outline
+        //            Color = SKColor.Parse("#ffa500"), //make it the color red
+        //            StrokeWidth = 10
+        //        };
+
+
+        //        SKPath skPath = new SKPath();
+        //        skPath.AddArc(AutomataData.activeState.Bounds, 0, 360);
+        //        canvas.DrawPath(skPath, outerPaint);
+
+        //    }
+
+        //}
     }
 }
