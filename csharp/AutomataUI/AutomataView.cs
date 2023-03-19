@@ -28,6 +28,7 @@ namespace AutomataUI
         SKPaint stateInitPaint;
         SKPaint stateDefaultPaint;
         SKPaint textWhitePaint;
+        SKPaint textHelpPaint;
         SKPaint activePaint;
         SKPaint transitionPaint;
         SKPaint activeTransitionPaint;
@@ -120,10 +121,21 @@ namespace AutomataUI
                 TextSize = 15,
                 IsStroke = false,
                 FilterQuality = SKFilterQuality.High
-
-
             };
-            
+
+            textHelpPaint = new SKPaint
+            {
+                Color = SKColor.Parse("#555555"),
+                IsAntialias = true,
+                Style = SKPaintStyle.Fill,
+                TextAlign = SKTextAlign.Left,
+                Typeface = SKTypeface.FromFamilyName("Arial"),
+                TextSize = 12,
+                IsStroke = false,
+                FilterQuality = SKFilterQuality.High
+            };
+
+
         }
         public void DrawStates(SKCanvas canvas)
         {
@@ -157,14 +169,18 @@ namespace AutomataUI
         }
         private void UpdateSkiaView(object sender, SKPaintGLSurfaceEventArgs e)
         {
+           
+
             var canvas = e.Surface.Canvas;
+            // make sure the canvas is blank
+            canvas.Clear(SKColor.Parse("#141414"));
+
+            //help text
+            canvas.DrawText("Create/Edit State (DblClick) Create Transition (RClick -> LClick) Force State/Transition (Ctrl + LClick) ", 10, skiaView.Height-10, textHelpPaint);
 
             // scale and translate world aka canvas
             canvas.Scale(worldScale);
             canvas.Translate(worldOffset);
-
-            // make sure the canvas is blank
-            canvas.Clear(SKColor.Parse("#141414"));
 
             DrawTransitions(canvas);
 
