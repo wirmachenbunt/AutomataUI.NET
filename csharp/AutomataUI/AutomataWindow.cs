@@ -29,10 +29,7 @@ namespace AutomataUI
 
 
         //debug stuff
-        public bool loopAsTask = true;
-
-
-
+        public bool loopAsTask = false;
 
         public AutomataWindow()
         {
@@ -87,19 +84,13 @@ namespace AutomataUI
         //evluation loop to find out which state is active
         static void AutomataLoop(AutomataModel data)
         {
-
-
-
             while (true)
             {
                 Thread.Sleep(60);
-
-                data.UpdateAutomata();
-               // Debug.WriteLine(data.elapsedStateTime);
+                data.UpdateAutomata();     
             }
 
         }
-
 
         public void Serialize(string path)
         {
