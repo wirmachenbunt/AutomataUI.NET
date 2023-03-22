@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using SkiaSharp;
 using System.IO;
 using System.Diagnostics;
+using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace AutomataUI
 {
@@ -33,21 +35,24 @@ namespace AutomataUI
         public World world;
         public AutomataModel()
         {
-            states = new List<State>();
-            transitions = new List<Transition>();
-            AddState("Init", 0, new SKPoint(0, 0)); // add default state
-            AddState("Start", 0, new SKPoint(500, 50));
-            AddTransition("Start", 0, states[0], states[1]);
-
-            activeState = states[0]; //set activestate to init
-            targetState = states[0]; // set targetstate also to init
-
-            //UI background aka desktop element
-            world = new World()
+            if (states == null)
             {
-                Bounds = new SKRect(-100000, -100000, 100000, 100000),
-                Name = "World"
-            };
+                states = new List<State>();
+                transitions = new List<Transition>();
+                AddState("Init", 0, new SKPoint(0, 0)); // add default state
+                AddState("Start", 0, new SKPoint(500, 50));
+                AddTransition("Start", 0, states[0], states[1]);
+
+                activeState = states[0]; //set activestate to init
+                targetState = states[0]; // set targetstate also to init
+
+                //UI background aka desktop element
+                world = new World()
+                {
+                    Bounds = new SKRect(-100000, -100000, 100000, 100000),
+                    Name = "World"
+                };
+            }
         }   
         public bool TransitionExists(State startState,State endState)
         {
@@ -148,6 +153,29 @@ namespace AutomataUI
             // Return char and concat substring.
             return char.ToUpper(s[0]) + s.Substring(1);
         }
+
+        public void DeserializeData(String data)
+        {
+
+
+            //public static List<State> DataDeserializeState(string data)
+            //{
+            //    XmlSerializer xs = new XmlSerializer(typeof(List<State>));
+            //    List<State> newList = (List<State>)xs.Deserialize(new StringReader(data));
+            //    return newList;
+            //}
+
+            XmlSerializer xs = new XmlSerializer(typeof(AutomataModel));
+            AutomataModel newModel = (AutomataModel)xs.Deserialize(new StringReader(data));
+
+            elapsedStateTime = newModel.elapsedStateTime;
+            elapsedTransitionTime = newModel.elapsedTransitionTime;
+
+            states = newModel.states;
+            transitions = newModel.transitions;
+
+        }
+
 
         public void UpdateAutomata()
         {

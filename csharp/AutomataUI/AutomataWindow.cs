@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace AutomataUI
 {
@@ -21,8 +22,8 @@ namespace AutomataUI
 
     public class AutomataWindow : Form
     {
-        AutomataView AutomataView; //UI Rendering
-        Interaction AutomataInteraction; //User Input Management
+        public AutomataView AutomataView; //UI Rendering
+        public Interaction AutomataInteraction; //User Input Management
         public AutomataModel AutomataData; //contains Automata Structure and Methods
         Dialogs AutomataDialogs; //Winforms Dialogs
 
@@ -87,7 +88,7 @@ namespace AutomataUI
             while (true)
             {
                 Thread.Sleep(60);
-                data.UpdateAutomata();     
+                data.UpdateAutomata();
             }
 
         }
@@ -97,7 +98,18 @@ namespace AutomataUI
             Tools.WriteToBinaryFile(path, AutomataData, false);
         }
 
+        public String SerializeData()
+        {
+            string serializedData = string.Empty;
+            XmlSerializer serializer = new XmlSerializer(AutomataData.GetType());
+            using (StringWriter sw = new StringWriter())
+            {
+                serializer.Serialize(sw, AutomataData);
+                serializedData = sw.ToString();
+            }
 
+            return serializedData;
+        }
 
     }
 }

@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace AutomataUI
 {
-    class Interaction
+    public class Interaction
     {
         AutomataView AutomataView;
         AutomataModel AutomataData;
@@ -306,6 +306,14 @@ namespace AutomataUI
 
             AutomataView.skiaView.Invalidate();
         }
+
+        public void ClearData(String xmldata)
+        {
+            AutomataData.DeserializeData(xmldata);
+
+            AutomataView.skiaView.Invalidate();
+        }
+
         public enum Statemachine
         {
             world,

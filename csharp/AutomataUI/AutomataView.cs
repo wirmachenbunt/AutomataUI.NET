@@ -15,9 +15,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace AutomataUI
 {
-    class AutomataView
+    public class AutomataView
     {
-        AutomataModel AutomataData;
+        public AutomataModel AutomataData;
         //this.ResizeEnd += Window_Resize;
 
         public SkiaSharp.Views.Desktop.SKGLControl skiaView;
