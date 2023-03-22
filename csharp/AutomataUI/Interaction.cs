@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace AutomataUI
 {
-    public class Interaction
+    class Interaction
     {
         AutomataView AutomataView;
         AutomataModel AutomataData;
@@ -119,7 +119,6 @@ namespace AutomataUI
                 AutomataData.activeTransition = (Transition)selectedItem;
                 AutomataData.targetState = AutomataData.activeTransition.EndState;
                 AutomataData.activeState = AutomataData.activeTransition.StartState;
-                
 
                 AutomataData.elapsedTransitionTime = AutomataData.activeTransition.Duration;
                 AutomataData.elapsedStateTime = 0;
@@ -288,12 +287,12 @@ namespace AutomataUI
             float worldScalePre = AutomataView.worldScale;
             //Console.WriteLine(AutomataView.worldScale);
 
-            if (e.Delta > 0 && AutomataView.worldScale < 1.2f)
+            if (e.Delta > 0 && AutomataView.worldScale < 2.2f)
             {
                 AutomataView.worldScale *= 1.08f;
             }
 
-            if (e.Delta < 0 && AutomataView.worldScale > 0.2f)
+            if (e.Delta < 0 && AutomataView.worldScale > 0.1f)
             {
                 AutomataView.worldScale *= 0.92f;
             }
@@ -303,13 +302,6 @@ namespace AutomataUI
 
             AutomataView.worldOffset.X = postZoomPos.X - preZoomPos.X + AutomataView.worldOffset.X;
             AutomataView.worldOffset.Y = postZoomPos.Y - preZoomPos.Y + AutomataView.worldOffset.Y;
-
-            AutomataView.skiaView.Invalidate();
-        }
-
-        public void ClearData(String xmldata)
-        {
-            AutomataData.DeserializeData(xmldata);
 
             AutomataView.skiaView.Invalidate();
         }

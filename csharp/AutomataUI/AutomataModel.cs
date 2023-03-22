@@ -35,24 +35,23 @@ namespace AutomataUI
         public World world;
         public AutomataModel()
         {
-            if (states == null)
-            {
-                states = new List<State>();
-                transitions = new List<Transition>();
-                AddState("Init", 0, new SKPoint(0, 0)); // add default state
-                AddState("Start", 0, new SKPoint(500, 50));
-                AddTransition("Start", 0, states[0], states[1]);
+            
+                //states = new List<State>();
+                //transitions = new List<Transition>();
+                //AddState("Init", 0, new SKPoint(0, 0)); // add default state
+                //AddState("Start", 0, new SKPoint(500, 50));
+                //AddTransition("Start", 0, states[0], states[1]);
 
-                activeState = states[0]; //set activestate to init
-                targetState = states[0]; // set targetstate also to init
+                //activeState = states[0]; //set activestate to init
+                //targetState = states[0]; // set targetstate also to init
 
-                //UI background aka desktop element
-                world = new World()
-                {
-                    Bounds = new SKRect(-100000, -100000, 100000, 100000),
-                    Name = "World"
-                };
-            }
+                ////UI background aka desktop element
+                //world = new World()
+                //{
+                //    Bounds = new SKRect(-100000, -100000, 100000, 100000),
+                //    Name = "World"
+                //};
+            
         }   
         public bool TransitionExists(State startState,State endState)
         {
@@ -104,22 +103,21 @@ namespace AutomataUI
         public void RemoveState(State state)
         {
 
-
-            //remove all connected transitions
-            for (int i = transitions.Count - 1; i >= 0; i--)
-            {
-                Transition transition = new Transition();
-                transition = transitions.ElementAt(i);
-
-                if (state.ID == transition.StartState.ID || state.ID == transition.EndState.ID)
-                {
-                    transitions.RemoveAt(i);
-                }
-            }
-
-            if (!(state == states[0])) //do not delete init state
+            if (state.ID != "init")
             {
                 states.Remove(state);
+
+                //remove all connected transitions
+                for (int i = transitions.Count - 1; i >= 0; i--)
+                {
+                    Transition transition = new Transition();
+                    transition = transitions.ElementAt(i);
+
+                    if (state.ID == transition.StartState.ID || state.ID == transition.EndState.ID)
+                    {
+                        transitions.RemoveAt(i);
+                    }
+                }
             }
 
         }
@@ -153,30 +151,36 @@ namespace AutomataUI
             // Return char and concat substring.
             return char.ToUpper(s[0]) + s.Substring(1);
         }
-
         public void DeserializeData(String data)
         {
-
-
-            //public static List<State> DataDeserializeState(string data)
-            //{
-            //    XmlSerializer xs = new XmlSerializer(typeof(List<State>));
-            //    List<State> newList = (List<State>)xs.Deserialize(new StringReader(data));
-            //    return newList;
-            //}
-
             XmlSerializer xs = new XmlSerializer(typeof(AutomataModel));
-            AutomataModel newModel = (AutomataModel)xs.Deserialize(new StringReader(data));
+            AutomataModel loadedData = (AutomataModel)xs.Deserialize(new StringReader(data));
 
-            elapsedStateTime = newModel.elapsedStateTime;
-            elapsedTransitionTime = newModel.elapsedTransitionTime;
+            elapsedStateTime = loadedData.elapsedStateTime;
+            elapsedTransitionTime = loadedData.elapsedTransitionTime;
 
-            states = newModel.states;
-            transitions = newModel.transitions;
+            states.Clear();
+            transitions.Clear();
+
+            states = loadedData.states;
+            transitions = loadedData.transitions;
+
+            //repair relation
+            foreach (Transition transition in transitions)
+            {
+                transition.StartState = states.First(x => x.ID.Contains(transition.StartState.ID));
+                transition.EndState = states.First(x => x.ID.Contains(transition.EndState.ID));
+            }
+
+            elapsedStateTime = loadedData.elapsedStateTime;
+            elapsedTransitionTime = loadedData.elapsedTransitionTime;
+
+            activeState = states.First(x => x.ID.Contains("init"));
+
+            //redraw UI
+            if (Redraw != null) Redraw();
 
         }
-
-
         public void UpdateAutomata()
         {
 

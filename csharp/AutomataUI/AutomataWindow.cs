@@ -22,8 +22,8 @@ namespace AutomataUI
 
     public class AutomataWindow : Form
     {
-        public AutomataView AutomataView; //UI Rendering
-        public Interaction AutomataInteraction; //User Input Management
+        AutomataView AutomataView; //UI Rendering
+        Interaction AutomataInteraction; //User Input Management
         public AutomataModel AutomataData; //contains Automata Structure and Methods
         Dialogs AutomataDialogs; //Winforms Dialogs
 
@@ -62,6 +62,28 @@ namespace AutomataUI
         {
 
             AutomataData = new AutomataModel();
+
+            //initialize with test data when there is no data setup
+            AutomataData.states = new List<State>();
+            AutomataData.transitions = new List<Transition>();
+            AutomataData.AddState("Init", 0, new SKPoint(0, 0)); // add default state
+            
+            AutomataData.states[0].ID = "init"; //making init unique
+
+            AutomataData.AddState("Start", 0, new SKPoint(500, 50));
+            AutomataData.AddTransition("Start", 0, AutomataData.states[0], AutomataData.states[1]);
+
+            AutomataData.activeState = AutomataData.states[0]; //set activestate to init
+            AutomataData.targetState = AutomataData.states[0]; // set targetstate also to init
+
+            //UI background aka desktop element
+            AutomataData.world = new World()
+            {
+                Bounds = new SKRect(-100000, -100000, 100000, 100000),
+                Name = "World"
+            };
+
+
             AutomataView = new AutomataView(AutomataData);
             AutomataDialogs = new Dialogs();
             // create mousekeyboard control for drawing
@@ -77,7 +99,7 @@ namespace AutomataUI
             //note! USING JUST AUTOSCALEMODE WILL NOT SOLVE ISSUE. MUST USE BOTH!
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F); //IMPORTANT
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;   //IMPORTANT
-
+            this.ControlBox = false;
             ResumeLayout(false);
         }
 

@@ -227,11 +227,10 @@
               <Pin Id="V4Ln5lvJIzGO4tkFe2e2sc" Name="Input" Kind="StateInputPin" />
               <Pin Id="PPe8xor4DIgNikJ8xFBxnE" Name="Result" Kind="OutputPin" />
             </Node>
-            <ControlPoint Id="UsT5iXfcElKOvMd5UMn4Z0" Bounds="800,96" />
-            <ControlPoint Id="P3dTEI7bmaLODKyszp1Wng" Bounds="800,270" />
+            <ControlPoint Id="UsT5iXfcElKOvMd5UMn4Z0" Bounds="925,1377" />
             <Pad Id="QHm7T7wjFq7N4Z6JPd1Hra" SlotId="GTUdPOkM9QYLpyv5TGxCi7" Bounds="39,1718" />
             <ControlPoint Id="Tzc0WQfSp0lLuor85ttjNr" Bounds="256,1185" />
-            <Node Bounds="120,1553,236,348" Id="RoJf1PM7atrMPCamC7HoC1">
+            <Node Bounds="120,1553,266,348" Id="RoJf1PM7atrMPCamC7HoC1">
               <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
                 <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                 <CategoryReference Kind="Category" Name="Primitive" />
@@ -285,7 +284,7 @@
                   <Pin Id="EP98kXCW65GOrJxqpxxgWn" Name="Solution Update Kind" Kind="InputPin" />
                   <Pin Id="Pai7vN6KMyOPWH3uJUWH0e" Name="Output" Kind="StateOutputPin" />
                 </Node>
-                <Pad Id="AhplUhvSocnPALHMx7avOg" Comment="Pin" Bounds="247,1729,42,15" ShowValueBox="true" isIOBox="true" Value="Bounds">
+                <Pad Id="AhplUhvSocnPALHMx7avOg" Comment="Pin" Bounds="247,1729,91,15" ShowValueBox="true" isIOBox="true" Value="AutomataXML">
                   <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
                     <Choice Kind="TypeFlag" Name="String" />
                   </p:TypeAnnotation>
@@ -308,19 +307,10 @@
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="AND" />
               </p:NodeReference>
-              <Pin Id="KhRMSkmkjnLM41DiO217t3" Name="Input" Kind="StateInputPin" />
+              <Pin Id="KhRMSkmkjnLM41DiO217t3" Name="Input" Kind="StateInputPin" DefaultValue="False" />
               <Pin Id="BLudTmUA4CtLugBHy9ahY2" Name="Input 2" Kind="InputPin" />
               <Pin Id="FuGLp039oUPNcngBwpUSKD" Name="Output" Kind="StateOutputPin" />
             </Node>
-            <Pad Id="RoY6LjVKrh3OJPD4O8MlFT" Comment="" Bounds="67,1331,35,35" ShowValueBox="true" isIOBox="true" Value="False">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
-                <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
-                <CategoryReference Kind="Category" Name="Primitive" />
-              </p:TypeAnnotation>
-              <p:ValueBoxSettings>
-                <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
-              </p:ValueBoxSettings>
-            </Pad>
             <Pad Id="MPllHSrDy9nPckGkCVMN0G" Bounds="164,1503,251,41" ShowValueBox="true" isIOBox="true" Value="SerializeDataToPin">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
                 <Choice Kind="TypeFlag" Name="String" />
@@ -331,8 +321,7 @@
               </p:ValueBoxSettings>
             </Pad>
             <Pad Id="GtZZOwYepldMACdelA5xzC" SlotId="JleIM3NMy1YO8LS3F0eDx2" Bounds="265,1330" />
-            <Pad Id="EtLRMlkSb22NFPBz8phrme" Comment="Bounds" Bounds="1150,243,852,2287" ShowValueBox="true" isIOBox="true" />
-            <Node Bounds="565,1537,240,315" Id="Dv3oTqiypfTPhaqqw7iVwQ">
+            <Node Bounds="565,1537,239,315" Id="Dv3oTqiypfTPhaqqw7iVwQ">
               <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
                 <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                 <CategoryReference Kind="Category" Name="Primitive" />
@@ -344,27 +333,27 @@
               <Patch Id="MLmcDZc81xTLJsqTUlW1dj" ManuallySortedPins="true">
                 <Patch Id="QpiLb3KAVMSOA5sKW50eqJ" Name="Create" ManuallySortedPins="true" />
                 <Patch Id="Fv2vl2W4jVAMDA598P6KjP" Name="Then" ManuallySortedPins="true" />
-                <Node Bounds="616,1600,109,26" Id="NZ29MfFDCF2OyVpyNzTn88">
+                <Node Bounds="630,1645,81,26" Id="EnCQZW61wU7OCgNC6CMJve">
                   <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.csproj">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataWindow" />
-                    <Choice Kind="OperationCallFlag" Name="AutomataInteraction" />
+                    <Choice Kind="OperationCallFlag" Name="AutomataData" />
                   </p:NodeReference>
-                  <Pin Id="PlplZQWT9oiPaT6xsC2V2f" Name="Input" Kind="StateInputPin" />
-                  <Pin Id="Dv9CW4QtEEqM2V8vd9sR2o" Name="Output" Kind="StateOutputPin" />
-                  <Pin Id="J9BaoFcGFd2M9XLucgRXHS" Name="Automata Interaction" Kind="OutputPin" />
+                  <Pin Id="AT9TQzJa7jFK95M4FeqybA" Name="Input" Kind="StateInputPin" />
+                  <Pin Id="F46mrKXncpqQWrFdLUznGP" Name="Output" Kind="StateOutputPin" />
+                  <Pin Id="Vb4w4BWDUobQO4q0soLnkw" Name="Automata Data" Kind="OutputPin" />
                 </Node>
-                <Node Bounds="732,1680,61,26" Id="I0HWcTZDnCdNbtmLuTEM4C">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.Interaction" LastDependency="AutomataUI.csproj">
+                <Node Bounds="705,1753,87,26" Id="ByxqNmzN1AuPF4vYtExQAR">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.csproj">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
-                    <CategoryReference Kind="AssemblyCategory" Name="Interaction" />
-                    <Choice Kind="OperationCallFlag" Name="ClearData" />
+                    <CategoryReference Kind="AssemblyCategory" Name="AutomataModel" />
+                    <Choice Kind="OperationCallFlag" Name="DeserializeData" />
                   </p:NodeReference>
-                  <Pin Id="Cv6cjt3kZ3cMbWHSNwyQMc" Name="Input" Kind="StateInputPin" />
-                  <Pin Id="Ax205fldysQOqXlxGJXteX" Name="Xmldata" Kind="InputPin" />
-                  <Pin Id="QwAgC5wWrktMDWq48sykWi" Name="Output" Kind="StateOutputPin" />
+                  <Pin Id="IFV5e7g2swCLYyruM95dTj" Name="Input" Kind="StateInputPin" />
+                  <Pin Id="LxBHzi8YnTOQaN40Q7RBqK" Name="Data" Kind="InputPin" />
+                  <Pin Id="LB6K9qiAIhKLNzknxOF44y" Name="Output" Kind="StateOutputPin" />
                 </Node>
               </Patch>
             </Node>
@@ -383,19 +372,12 @@
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <Choice Kind="OperationCallFlag" Name="AND" />
               </p:NodeReference>
-              <Pin Id="IFVjV2Dui5zNNhXf7Q9qwc" Name="Input" Kind="StateInputPin" />
+              <Pin Id="IFVjV2Dui5zNNhXf7Q9qwc" Name="Input" Kind="StateInputPin" DefaultValue="False" />
               <Pin Id="OodaodKdLtWQXHoAXE6yzd" Name="Input 2" Kind="InputPin" />
               <Pin Id="N0vSm1GxhxyNieQjQs0ixS" Name="Output" Kind="StateOutputPin" />
             </Node>
-            <Pad Id="JAOh82UtVNvMwScqlWjE1i" Comment="" Bounds="440,1322,35,35" ShowValueBox="true" isIOBox="true" Value="False">
-              <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
-                <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
-                <CategoryReference Kind="Category" Name="Primitive" />
-              </p:TypeAnnotation>
-              <p:ValueBoxSettings>
-                <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
-              </p:ValueBoxSettings>
-            </Pad>
+            <ControlPoint Id="CVL6UPZqI0oM2fL86Mh35m" Bounds="458,1341" />
+            <ControlPoint Id="Iv9E5UEm5jUMGJcWeHRuee" Bounds="70,1355" />
           </Canvas>
           <ProcessDefinition Id="LBt7HEn8yAvLgg135lh1zu">
             <Fragment Id="UBvSlPKRxANOrYWmTZZinG" Patch="VYkZMraQGgtLBg7viYXnb5" Enabled="true" />
@@ -430,8 +412,6 @@
           <Link Id="BEBWGsKfLvTPylhYeRmXSt" Ids="EipceCN7NgVMPJp3I33brL,OK4DnX5oI3oOTB5aBwaOB0" IsHidden="true" />
           <Link Id="NrL1u9M2RS4L9z59I7wWVw" Ids="E4vq2A327haLgRAkdJhICt,V4Ln5lvJIzGO4tkFe2e2sc" />
           <Link Id="C0JgBZf0HDCOQ4EuBL2WTt" Ids="QKT0yJ5EaIZOW73iJKIxBZ,UsT5iXfcElKOvMd5UMn4Z0" IsHidden="true" />
-          <Link Id="O0ssQz598ALPqmugWje7r8" Ids="UsT5iXfcElKOvMd5UMn4Z0,P3dTEI7bmaLODKyszp1Wng" />
-          <Link Id="Hekv4L6bUpnP5Gh2Yz3VIF" Ids="P3dTEI7bmaLODKyszp1Wng,UOzaDUZ0kOmP2y1ppTuzdF" IsHidden="true" />
           <Slot Id="GTUdPOkM9QYLpyv5TGxCi7" Name="Result" />
           <Link Id="E8boYj3MFW1NUyYTxHdRJJ" Ids="PPe8xor4DIgNikJ8xFBxnE,QHm7T7wjFq7N4Z6JPd1Hra" />
           <Link Id="OvxfHVlkhMHOv6C2JezoLa" Ids="QHm7T7wjFq7N4Z6JPd1Hra,AIgoULTWtnIN1GrgAYLfb1" />
@@ -444,39 +424,41 @@
           <Link Id="E4VRiTU0bGhLOBDNkkWPbL" Ids="DQKwZZG2pcPLcuJNRdS4jo,LRLTnikOHWDLLjuZl3Yrqi" />
           <Link Id="G0xFNFAcK1CNJNUHDGdiei" Ids="GI3E6AMPq5ILERI9K2yUTG,BLudTmUA4CtLugBHy9ahY2" />
           <Link Id="NUDngjAsV6rQVDMhPzN0M4" Ids="FuGLp039oUPNcngBwpUSKD,ULBHhScDDMlOIbZ9UmcEFd" />
-          <Link Id="Uf5wPNB6QfsNocrU9VnuG6" Ids="RoY6LjVKrh3OJPD4O8MlFT,KhRMSkmkjnLM41DiO217t3" />
           <Link Id="JcCmOXsMgX1P2rHIWdnfMQ" Ids="SVVkf0sid5SOke0fK09qlu,KmCsJtP1YUhMq2u5BGfBAr" />
           <Link Id="FeROkMARSAMPBfG7mrRaju" Ids="HND4ZzJWlEBN3nC4Cf8Bzj,J0UJJYlzKXTMrvf5hT0ig5" />
           <Link Id="AD37DfqiYlGLwBXuzvWUTw" Ids="AhplUhvSocnPALHMx7avOg,Cqw8G6USur1PbDrimYtPFr" />
+          <Slot Id="JleIM3NMy1YO8LS3F0eDx2" Name="AutomataWindow" />
+          <Link Id="Kf4wPXv6R55NmlqywuwC2g" Ids="GtZZOwYepldMACdelA5xzC,S24tUW2hsWzMFnDpP4nBiw" />
+          <Link Id="GVNzOMu7X7gLa2hGyMbjNJ" Ids="GtZZOwYepldMACdelA5xzC,DQKwZZG2pcPLcuJNRdS4jo" />
+          <Link Id="Ay9xi2dZpmoLI07RIDiguQ" Ids="O88lsYu2khCODATvmK1OlV,BiiHDsjtrdMOVCJTcBwnbt" />
+          <Link Id="V8PAJKevvNAMmtVbEVXJKo" Ids="N0vSm1GxhxyNieQjQs0ixS,ArOcefCMVS8MG6g8K2srVK" />
+          <Link Id="Mwj4Btmor1IOSOLDerDVhs" Ids="F943aLIJwsDMYagklbbPif,FbunFVwSQamL09CcR844uv" IsFeedback="true" />
+          <Link Id="DMTlMPg32OrLXcWLovaNcT" Ids="O88lsYu2khCODATvmK1OlV,F943aLIJwsDMYagklbbPif" />
+          <Link Id="BFwILNGXFzTMvqJOIpGt0V" Ids="Q5vyfBVgRU8MJBhJfwl6nS,OodaodKdLtWQXHoAXE6yzd" />
+          <Link Id="SRqWqM50cMCQaEXHrQwfdW" Ids="CJminGFgnFiMhZ3q8K6ArQ,IzXEs0W2ZXjPQSDzdQewtN" />
+          <Link Id="CO6pMLinl4XLXyUhMnburx" Ids="F943aLIJwsDMYagklbbPif,AT9TQzJa7jFK95M4FeqybA" />
+          <Link Id="FqlXDXU15F4LYytug5ot2C" Ids="Vb4w4BWDUobQO4q0soLnkw,IFV5e7g2swCLYyruM95dTj" />
+          <Link Id="Hkj4QAf28ZIQSy3wi5nwoP" Ids="UsT5iXfcElKOvMd5UMn4Z0,LxBHzi8YnTOQaN40Q7RBqK" />
+          <Link Id="NDg8ywuGvigL9VErYbP1Dv" Ids="CVL6UPZqI0oM2fL86Mh35m,IFVjV2Dui5zNNhXf7Q9qwc" />
+          <Link Id="RCEe0ap2bFDM7ENzEuBEJB" Ids="B9M2tA3bVMzPncsIlcW6tx,CVL6UPZqI0oM2fL86Mh35m" IsHidden="true" />
+          <Link Id="AU7InpcpfLOQEhAj3AQ1sA" Ids="Iv9E5UEm5jUMGJcWeHRuee,KhRMSkmkjnLM41DiO217t3" />
+          <Link Id="PgjTBg6GuJ0Picjpx7WQZa" Ids="DYrvijpkfoQPZZucORzKF9,Iv9E5UEm5jUMGJcWeHRuee" IsHidden="true" />
           <Patch Id="VYkZMraQGgtLBg7viYXnb5" Name="Create" ParticipatingElements="QQ6Nop5eNMwM3pambd8IlK">
-            <Pin Id="EipceCN7NgVMPJp3I33brL" Name="Node Context" Kind="InputPin" Bounds="462,860" />
+            <Pin Id="EipceCN7NgVMPJp3I33brL" Name="Node Context" Kind="InputPin" Bounds="462,860" Visibility="Hidden" />
           </Patch>
           <Patch Id="E4jzpbwnMH9NzQ7WYqFC2M" Name="Update" ParticipatingElements="UIPmrcrGscTMbOuw2qkfeK">
+            <Pin Id="DYrvijpkfoQPZZucORzKF9" Name="Save" Kind="InputPin" Bounds="70,1355" />
+            <Pin Id="B9M2tA3bVMzPncsIlcW6tx" Name="Load" Kind="InputPin" Bounds="458,1341" />
             <Pin Id="JCMA1Gg5xLnPDvCoy5RDF5" Name="Show" Kind="InputPin" Bounds="456,231" />
-            <Pin Id="QKT0yJ5EaIZOW73iJKIxBZ" Name="Bounds" Kind="InputPin">
+            <Pin Id="QKT0yJ5EaIZOW73iJKIxBZ" Name="AutomataXML" Kind="InputPin" Visibility="Optional">
               <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
                 <Choice Kind="TypeFlag" Name="String" />
               </p:TypeAnnotation>
             </Pin>
             <Pin Id="IdHpJku8xZ6LwVWr3QxkgY" Name="ActiveState" Kind="OutputPin" Bounds="352,864" />
             <Pin Id="LwQaj9ggByAM5x7u2Mg6zV" Name="Automata" Kind="OutputPin" Bounds="338,843" />
-            <Pin Id="UOzaDUZ0kOmP2y1ppTuzdF" Name="Bounds" Kind="OutputPin" Bounds="188,1351" />
           </Patch>
           <Patch Id="HXN17UI1WJnQLsGMb2uWoT" Name="Dispose" ParticipatingElements="T2cMHL9bbzjNTluHd3QrOS,M9lNXucLDqsL0ea4O2oVwf,LX9VuECKvmIOYqUvMDfjxB" />
-          <Slot Id="JleIM3NMy1YO8LS3F0eDx2" Name="AutomataWindow" />
-          <Link Id="Kf4wPXv6R55NmlqywuwC2g" Ids="GtZZOwYepldMACdelA5xzC,S24tUW2hsWzMFnDpP4nBiw" />
-          <Link Id="GVNzOMu7X7gLa2hGyMbjNJ" Ids="GtZZOwYepldMACdelA5xzC,DQKwZZG2pcPLcuJNRdS4jo" />
-          <Link Id="CgdWOcNxW4UOOmH6Jtz70B" Ids="UsT5iXfcElKOvMd5UMn4Z0,EtLRMlkSb22NFPBz8phrme" />
-          <Link Id="Ay9xi2dZpmoLI07RIDiguQ" Ids="O88lsYu2khCODATvmK1OlV,BiiHDsjtrdMOVCJTcBwnbt" />
-          <Link Id="V8PAJKevvNAMmtVbEVXJKo" Ids="N0vSm1GxhxyNieQjQs0ixS,ArOcefCMVS8MG6g8K2srVK" />
-          <Link Id="Mwj4Btmor1IOSOLDerDVhs" Ids="F943aLIJwsDMYagklbbPif,FbunFVwSQamL09CcR844uv" IsFeedback="true" />
-          <Link Id="DMTlMPg32OrLXcWLovaNcT" Ids="O88lsYu2khCODATvmK1OlV,F943aLIJwsDMYagklbbPif" />
-          <Link Id="BFwILNGXFzTMvqJOIpGt0V" Ids="Q5vyfBVgRU8MJBhJfwl6nS,OodaodKdLtWQXHoAXE6yzd" />
-          <Link Id="B45Tg8wqdZUOxK7n9O919x" Ids="JAOh82UtVNvMwScqlWjE1i,IFVjV2Dui5zNNhXf7Q9qwc" />
-          <Link Id="SRqWqM50cMCQaEXHrQwfdW" Ids="CJminGFgnFiMhZ3q8K6ArQ,IzXEs0W2ZXjPQSDzdQewtN" />
-          <Link Id="TephvOKXV3zQYw4ukQZPRA" Ids="F943aLIJwsDMYagklbbPif,PlplZQWT9oiPaT6xsC2V2f" />
-          <Link Id="SVmUbT0qYGkM3j2uKLQILH" Ids="J9BaoFcGFd2M9XLucgRXHS,Cv6cjt3kZ3cMbWHSNwyQMc" />
-          <Link Id="A9FwK7gOi6DNTUmP9qadiV" Ids="UsT5iXfcElKOvMd5UMn4Z0,Ax205fldysQOqXlxGJXteX" />
         </Patch>
       </Node>
       <!--
@@ -757,21 +739,19 @@
       </p:NodeReference>
       <Patch Id="JHUoi3yBnlCQTgSg437hRB">
         <Canvas Id="GLFkMYxcpvWMtZVJQTLfTr" CanvasType="Group">
-          <Node Bounds="162,375,227,19" Id="Be15ZcNNTWAPqW84qvY7sC">
+          <Node Bounds="15,386,337,19" Id="Be15ZcNNTWAPqW84qvY7sC">
             <p:NodeReference LastCategoryFullName="AutomataUI" LastDependency="AutomataUI.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessNode" Name="AutomataUI" />
             </p:NodeReference>
-            <Pin Id="Fgj8MVO8GLePuqpzI1xW4V" Name="Node Context" Kind="InputPin" />
+            <Pin Id="PbWf1TtfwutORzTfYHd1Y4" Name="Save" Kind="InputPin" />
+            <Pin Id="IsRuTPefFzNMdwzWdbPVHi" Name="Load" Kind="InputPin" />
             <Pin Id="UPaYfLxqgPIODbO0lrSf1m" Name="Show" Kind="InputPin" />
-            <Pin Id="EBH2FgMBOASO673FYo4cGT" Name="Bounds" Kind="InputPin" DefaultValue="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&#xD;&#xA;&lt;AutomataModel xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;&#xD;&#xA;  &lt;activeState&gt;&#xD;&#xA;    &lt;Bounds&gt;&#xD;&#xA;      &lt;Size&gt;&#xD;&#xA;        &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;        &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;      &lt;/Size&gt;&#xD;&#xA;      &lt;Location&gt;&#xD;&#xA;        &lt;X&gt;138&lt;/X&gt;&#xD;&#xA;        &lt;Y&gt;250&lt;/Y&gt;&#xD;&#xA;      &lt;/Location&gt;&#xD;&#xA;      &lt;Left&gt;138&lt;/Left&gt;&#xD;&#xA;      &lt;Top&gt;250&lt;/Top&gt;&#xD;&#xA;      &lt;Right&gt;238&lt;/Right&gt;&#xD;&#xA;      &lt;Bottom&gt;350&lt;/Bottom&gt;&#xD;&#xA;    &lt;/Bounds&gt;&#xD;&#xA;    &lt;Name&gt;Init&lt;/Name&gt;&#xD;&#xA;    &lt;ID&gt;pL9eGQjs&lt;/ID&gt;&#xD;&#xA;    &lt;Duration&gt;0&lt;/Duration&gt;&#xD;&#xA;  &lt;/activeState&gt;&#xD;&#xA;  &lt;targetState&gt;&#xD;&#xA;    &lt;Bounds&gt;&#xD;&#xA;      &lt;Size&gt;&#xD;&#xA;        &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;        &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;      &lt;/Size&gt;&#xD;&#xA;      &lt;Location&gt;&#xD;&#xA;        &lt;X&gt;138&lt;/X&gt;&#xD;&#xA;        &lt;Y&gt;250&lt;/Y&gt;&#xD;&#xA;      &lt;/Location&gt;&#xD;&#xA;      &lt;Left&gt;138&lt;/Left&gt;&#xD;&#xA;      &lt;Top&gt;250&lt;/Top&gt;&#xD;&#xA;      &lt;Right&gt;238&lt;/Right&gt;&#xD;&#xA;      &lt;Bottom&gt;350&lt;/Bottom&gt;&#xD;&#xA;    &lt;/Bounds&gt;&#xD;&#xA;    &lt;Name&gt;Init&lt;/Name&gt;&#xD;&#xA;    &lt;ID&gt;pL9eGQjs&lt;/ID&gt;&#xD;&#xA;    &lt;Duration&gt;0&lt;/Duration&gt;&#xD;&#xA;  &lt;/targetState&gt;&#xD;&#xA;  &lt;elapsedTransitionTime&gt;0&lt;/elapsedTransitionTime&gt;&#xD;&#xA;  &lt;elapsedStateTime&gt;1191&lt;/elapsedStateTime&gt;&#xD;&#xA;  &lt;output&gt;Init&lt;/output&gt;&#xD;&#xA;  &lt;world&gt;&#xD;&#xA;    &lt;Bounds&gt;&#xD;&#xA;      &lt;Size&gt;&#xD;&#xA;        &lt;Width&gt;200000&lt;/Width&gt;&#xD;&#xA;        &lt;Height&gt;200000&lt;/Height&gt;&#xD;&#xA;      &lt;/Size&gt;&#xD;&#xA;      &lt;Location&gt;&#xD;&#xA;        &lt;X&gt;-100000&lt;/X&gt;&#xD;&#xA;        &lt;Y&gt;-100000&lt;/Y&gt;&#xD;&#xA;      &lt;/Location&gt;&#xD;&#xA;      &lt;Left&gt;-100000&lt;/Left&gt;&#xD;&#xA;      &lt;Top&gt;-100000&lt;/Top&gt;&#xD;&#xA;      &lt;Right&gt;100000&lt;/Right&gt;&#xD;&#xA;      &lt;Bottom&gt;100000&lt;/Bottom&gt;&#xD;&#xA;    &lt;/Bounds&gt;&#xD;&#xA;    &lt;Name&gt;World&lt;/Name&gt;&#xD;&#xA;  &lt;/world&gt;&#xD;&#xA;  &lt;states&gt;&#xD;&#xA;    &lt;State&gt;&#xD;&#xA;      &lt;Bounds&gt;&#xD;&#xA;        &lt;Size&gt;&#xD;&#xA;          &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;          &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;        &lt;/Size&gt;&#xD;&#xA;        &lt;Location&gt;&#xD;&#xA;          &lt;X&gt;431&lt;/X&gt;&#xD;&#xA;          &lt;Y&gt;130&lt;/Y&gt;&#xD;&#xA;        &lt;/Location&gt;&#xD;&#xA;        &lt;Left&gt;431&lt;/Left&gt;&#xD;&#xA;        &lt;Top&gt;130&lt;/Top&gt;&#xD;&#xA;        &lt;Right&gt;531&lt;/Right&gt;&#xD;&#xA;        &lt;Bottom&gt;230&lt;/Bottom&gt;&#xD;&#xA;      &lt;/Bounds&gt;&#xD;&#xA;      &lt;Name&gt;Start&lt;/Name&gt;&#xD;&#xA;      &lt;ID&gt;kPQq1cIk&lt;/ID&gt;&#xD;&#xA;      &lt;Duration&gt;0&lt;/Duration&gt;&#xD;&#xA;    &lt;/State&gt;&#xD;&#xA;    &lt;State&gt;&#xD;&#xA;      &lt;Bounds&gt;&#xD;&#xA;        &lt;Size&gt;&#xD;&#xA;          &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;          &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;        &lt;/Size&gt;&#xD;&#xA;        &lt;Location&gt;&#xD;&#xA;          &lt;X&gt;138&lt;/X&gt;&#xD;&#xA;          &lt;Y&gt;250&lt;/Y&gt;&#xD;&#xA;        &lt;/Location&gt;&#xD;&#xA;        &lt;Left&gt;138&lt;/Left&gt;&#xD;&#xA;        &lt;Top&gt;250&lt;/Top&gt;&#xD;&#xA;        &lt;Right&gt;238&lt;/Right&gt;&#xD;&#xA;        &lt;Bottom&gt;350&lt;/Bottom&gt;&#xD;&#xA;      &lt;/Bounds&gt;&#xD;&#xA;      &lt;Name&gt;Init&lt;/Name&gt;&#xD;&#xA;      &lt;ID&gt;pL9eGQjs&lt;/ID&gt;&#xD;&#xA;      &lt;Duration&gt;0&lt;/Duration&gt;&#xD;&#xA;    &lt;/State&gt;&#xD;&#xA;  &lt;/states&gt;&#xD;&#xA;  &lt;transitions&gt;&#xD;&#xA;    &lt;Transition&gt;&#xD;&#xA;      &lt;Bounds&gt;&#xD;&#xA;        &lt;Size&gt;&#xD;&#xA;          &lt;Width&gt;39.981445&lt;/Width&gt;&#xD;&#xA;          &lt;Height&gt;19.951172&lt;/Height&gt;&#xD;&#xA;        &lt;/Size&gt;&#xD;&#xA;        &lt;Location&gt;&#xD;&#xA;          &lt;X&gt;314.50928&lt;/X&gt;&#xD;&#xA;          &lt;Y&gt;230.02441&lt;/Y&gt;&#xD;&#xA;        &lt;/Location&gt;&#xD;&#xA;        &lt;Left&gt;314.50928&lt;/Left&gt;&#xD;&#xA;        &lt;Top&gt;230.02441&lt;/Top&gt;&#xD;&#xA;        &lt;Right&gt;354.49072&lt;/Right&gt;&#xD;&#xA;        &lt;Bottom&gt;249.97559&lt;/Bottom&gt;&#xD;&#xA;      &lt;/Bounds&gt;&#xD;&#xA;      &lt;Name&gt;Start&lt;/Name&gt;&#xD;&#xA;      &lt;StartState&gt;&#xD;&#xA;        &lt;Bounds&gt;&#xD;&#xA;          &lt;Size&gt;&#xD;&#xA;            &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;            &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;          &lt;/Size&gt;&#xD;&#xA;          &lt;Location&gt;&#xD;&#xA;            &lt;X&gt;138&lt;/X&gt;&#xD;&#xA;            &lt;Y&gt;250&lt;/Y&gt;&#xD;&#xA;          &lt;/Location&gt;&#xD;&#xA;          &lt;Left&gt;138&lt;/Left&gt;&#xD;&#xA;          &lt;Top&gt;250&lt;/Top&gt;&#xD;&#xA;          &lt;Right&gt;238&lt;/Right&gt;&#xD;&#xA;          &lt;Bottom&gt;350&lt;/Bottom&gt;&#xD;&#xA;        &lt;/Bounds&gt;&#xD;&#xA;        &lt;Name&gt;Init&lt;/Name&gt;&#xD;&#xA;        &lt;ID&gt;pL9eGQjs&lt;/ID&gt;&#xD;&#xA;        &lt;Duration&gt;0&lt;/Duration&gt;&#xD;&#xA;      &lt;/StartState&gt;&#xD;&#xA;      &lt;EndState&gt;&#xD;&#xA;        &lt;Bounds&gt;&#xD;&#xA;          &lt;Size&gt;&#xD;&#xA;            &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;            &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;          &lt;/Size&gt;&#xD;&#xA;          &lt;Location&gt;&#xD;&#xA;            &lt;X&gt;431&lt;/X&gt;&#xD;&#xA;            &lt;Y&gt;130&lt;/Y&gt;&#xD;&#xA;          &lt;/Location&gt;&#xD;&#xA;          &lt;Left&gt;431&lt;/Left&gt;&#xD;&#xA;          &lt;Top&gt;130&lt;/Top&gt;&#xD;&#xA;          &lt;Right&gt;531&lt;/Right&gt;&#xD;&#xA;          &lt;Bottom&gt;230&lt;/Bottom&gt;&#xD;&#xA;        &lt;/Bounds&gt;&#xD;&#xA;        &lt;Name&gt;Start&lt;/Name&gt;&#xD;&#xA;        &lt;ID&gt;kPQq1cIk&lt;/ID&gt;&#xD;&#xA;        &lt;Duration&gt;0&lt;/Duration&gt;&#xD;&#xA;      &lt;/EndState&gt;&#xD;&#xA;      &lt;Duration&gt;0&lt;/Duration&gt;&#xD;&#xA;    &lt;/Transition&gt;&#xD;&#xA;  &lt;/transitions&gt;&#xD;&#xA;&lt;/AutomataModel&gt;" />
+            <Pin Id="EBH2FgMBOASO673FYo4cGT" Name="AutomataXML" Kind="InputPin" DefaultValue="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&#xD;&#xA;&lt;AutomataModel xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;&#xD;&#xA;  &lt;activeState&gt;&#xD;&#xA;    &lt;Bounds&gt;&#xD;&#xA;      &lt;Size&gt;&#xD;&#xA;        &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;        &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;      &lt;/Size&gt;&#xD;&#xA;      &lt;Location&gt;&#xD;&#xA;        &lt;X&gt;102&lt;/X&gt;&#xD;&#xA;        &lt;Y&gt;146&lt;/Y&gt;&#xD;&#xA;      &lt;/Location&gt;&#xD;&#xA;      &lt;Left&gt;102&lt;/Left&gt;&#xD;&#xA;      &lt;Top&gt;146&lt;/Top&gt;&#xD;&#xA;      &lt;Right&gt;202&lt;/Right&gt;&#xD;&#xA;      &lt;Bottom&gt;246&lt;/Bottom&gt;&#xD;&#xA;    &lt;/Bounds&gt;&#xD;&#xA;    &lt;Name&gt;Init&lt;/Name&gt;&#xD;&#xA;    &lt;ID&gt;init&lt;/ID&gt;&#xD;&#xA;    &lt;Duration&gt;0&lt;/Duration&gt;&#xD;&#xA;  &lt;/activeState&gt;&#xD;&#xA;  &lt;targetState&gt;&#xD;&#xA;    &lt;Bounds&gt;&#xD;&#xA;      &lt;Size&gt;&#xD;&#xA;        &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;        &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;      &lt;/Size&gt;&#xD;&#xA;      &lt;Location&gt;&#xD;&#xA;        &lt;X&gt;-50&lt;/X&gt;&#xD;&#xA;        &lt;Y&gt;-50&lt;/Y&gt;&#xD;&#xA;      &lt;/Location&gt;&#xD;&#xA;      &lt;Left&gt;-50&lt;/Left&gt;&#xD;&#xA;      &lt;Top&gt;-50&lt;/Top&gt;&#xD;&#xA;      &lt;Right&gt;50&lt;/Right&gt;&#xD;&#xA;      &lt;Bottom&gt;50&lt;/Bottom&gt;&#xD;&#xA;    &lt;/Bounds&gt;&#xD;&#xA;    &lt;Name&gt;Init&lt;/Name&gt;&#xD;&#xA;    &lt;ID&gt;init&lt;/ID&gt;&#xD;&#xA;    &lt;Duration&gt;0&lt;/Duration&gt;&#xD;&#xA;  &lt;/targetState&gt;&#xD;&#xA;  &lt;elapsedTransitionTime&gt;0&lt;/elapsedTransitionTime&gt;&#xD;&#xA;  &lt;elapsedStateTime&gt;4712&lt;/elapsedStateTime&gt;&#xD;&#xA;  &lt;output&gt;Init&lt;/output&gt;&#xD;&#xA;  &lt;world&gt;&#xD;&#xA;    &lt;Bounds&gt;&#xD;&#xA;      &lt;Size&gt;&#xD;&#xA;        &lt;Width&gt;200000&lt;/Width&gt;&#xD;&#xA;        &lt;Height&gt;200000&lt;/Height&gt;&#xD;&#xA;      &lt;/Size&gt;&#xD;&#xA;      &lt;Location&gt;&#xD;&#xA;        &lt;X&gt;-100000&lt;/X&gt;&#xD;&#xA;        &lt;Y&gt;-100000&lt;/Y&gt;&#xD;&#xA;      &lt;/Location&gt;&#xD;&#xA;      &lt;Left&gt;-100000&lt;/Left&gt;&#xD;&#xA;      &lt;Top&gt;-100000&lt;/Top&gt;&#xD;&#xA;      &lt;Right&gt;100000&lt;/Right&gt;&#xD;&#xA;      &lt;Bottom&gt;100000&lt;/Bottom&gt;&#xD;&#xA;    &lt;/Bounds&gt;&#xD;&#xA;    &lt;Name&gt;World&lt;/Name&gt;&#xD;&#xA;  &lt;/world&gt;&#xD;&#xA;  &lt;states&gt;&#xD;&#xA;    &lt;State&gt;&#xD;&#xA;      &lt;Bounds&gt;&#xD;&#xA;        &lt;Size&gt;&#xD;&#xA;          &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;          &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;        &lt;/Size&gt;&#xD;&#xA;        &lt;Location&gt;&#xD;&#xA;          &lt;X&gt;102&lt;/X&gt;&#xD;&#xA;          &lt;Y&gt;146&lt;/Y&gt;&#xD;&#xA;        &lt;/Location&gt;&#xD;&#xA;        &lt;Left&gt;102&lt;/Left&gt;&#xD;&#xA;        &lt;Top&gt;146&lt;/Top&gt;&#xD;&#xA;        &lt;Right&gt;202&lt;/Right&gt;&#xD;&#xA;        &lt;Bottom&gt;246&lt;/Bottom&gt;&#xD;&#xA;      &lt;/Bounds&gt;&#xD;&#xA;      &lt;Name&gt;Init&lt;/Name&gt;&#xD;&#xA;      &lt;ID&gt;init&lt;/ID&gt;&#xD;&#xA;      &lt;Duration&gt;0&lt;/Duration&gt;&#xD;&#xA;    &lt;/State&gt;&#xD;&#xA;    &lt;State&gt;&#xD;&#xA;      &lt;Bounds&gt;&#xD;&#xA;        &lt;Size&gt;&#xD;&#xA;          &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;          &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;        &lt;/Size&gt;&#xD;&#xA;        &lt;Location&gt;&#xD;&#xA;          &lt;X&gt;458&lt;/X&gt;&#xD;&#xA;          &lt;Y&gt;41&lt;/Y&gt;&#xD;&#xA;        &lt;/Location&gt;&#xD;&#xA;        &lt;Left&gt;458&lt;/Left&gt;&#xD;&#xA;        &lt;Top&gt;41&lt;/Top&gt;&#xD;&#xA;        &lt;Right&gt;558&lt;/Right&gt;&#xD;&#xA;        &lt;Bottom&gt;141&lt;/Bottom&gt;&#xD;&#xA;      &lt;/Bounds&gt;&#xD;&#xA;      &lt;Name&gt;Start&lt;/Name&gt;&#xD;&#xA;      &lt;ID&gt;uMmd5dRT&lt;/ID&gt;&#xD;&#xA;      &lt;Duration&gt;0&lt;/Duration&gt;&#xD;&#xA;    &lt;/State&gt;&#xD;&#xA;    &lt;State&gt;&#xD;&#xA;      &lt;Bounds&gt;&#xD;&#xA;        &lt;Size&gt;&#xD;&#xA;          &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;          &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;        &lt;/Size&gt;&#xD;&#xA;        &lt;Location&gt;&#xD;&#xA;          &lt;X&gt;409&lt;/X&gt;&#xD;&#xA;          &lt;Y&gt;351&lt;/Y&gt;&#xD;&#xA;        &lt;/Location&gt;&#xD;&#xA;        &lt;Left&gt;409&lt;/Left&gt;&#xD;&#xA;        &lt;Top&gt;351&lt;/Top&gt;&#xD;&#xA;        &lt;Right&gt;509&lt;/Right&gt;&#xD;&#xA;        &lt;Bottom&gt;451&lt;/Bottom&gt;&#xD;&#xA;      &lt;/Bounds&gt;&#xD;&#xA;      &lt;Name&gt;Empty&lt;/Name&gt;&#xD;&#xA;      &lt;ID&gt;NX7APT36&lt;/ID&gt;&#xD;&#xA;      &lt;Duration&gt;1&lt;/Duration&gt;&#xD;&#xA;    &lt;/State&gt;&#xD;&#xA;    &lt;State&gt;&#xD;&#xA;      &lt;Bounds&gt;&#xD;&#xA;        &lt;Size&gt;&#xD;&#xA;          &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;          &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;        &lt;/Size&gt;&#xD;&#xA;        &lt;Location&gt;&#xD;&#xA;          &lt;X&gt;792&lt;/X&gt;&#xD;&#xA;          &lt;Y&gt;155&lt;/Y&gt;&#xD;&#xA;        &lt;/Location&gt;&#xD;&#xA;        &lt;Left&gt;792&lt;/Left&gt;&#xD;&#xA;        &lt;Top&gt;155&lt;/Top&gt;&#xD;&#xA;        &lt;Right&gt;892&lt;/Right&gt;&#xD;&#xA;        &lt;Bottom&gt;255&lt;/Bottom&gt;&#xD;&#xA;      &lt;/Bounds&gt;&#xD;&#xA;      &lt;Name&gt;Empty&lt;/Name&gt;&#xD;&#xA;      &lt;ID&gt;T2zbDzns&lt;/ID&gt;&#xD;&#xA;      &lt;Duration&gt;1&lt;/Duration&gt;&#xD;&#xA;    &lt;/State&gt;&#xD;&#xA;  &lt;/states&gt;&#xD;&#xA;  &lt;transitions&gt;&#xD;&#xA;    &lt;Transition&gt;&#xD;&#xA;      &lt;Bounds&gt;&#xD;&#xA;        &lt;Size&gt;&#xD;&#xA;          &lt;Width&gt;39.981445&lt;/Width&gt;&#xD;&#xA;          &lt;Height&gt;19.951172&lt;/Height&gt;&#xD;&#xA;        &lt;/Size&gt;&#xD;&#xA;        &lt;Location&gt;&#xD;&#xA;          &lt;X&gt;310.00928&lt;/X&gt;&#xD;&#xA;          &lt;Y&gt;133.52441&lt;/Y&gt;&#xD;&#xA;        &lt;/Location&gt;&#xD;&#xA;        &lt;Left&gt;310.00928&lt;/Left&gt;&#xD;&#xA;        &lt;Top&gt;133.52441&lt;/Top&gt;&#xD;&#xA;        &lt;Right&gt;349.99072&lt;/Right&gt;&#xD;&#xA;        &lt;Bottom&gt;153.47559&lt;/Bottom&gt;&#xD;&#xA;      &lt;/Bounds&gt;&#xD;&#xA;      &lt;Name&gt;Start&lt;/Name&gt;&#xD;&#xA;      &lt;StartState&gt;&#xD;&#xA;        &lt;Bounds&gt;&#xD;&#xA;          &lt;Size&gt;&#xD;&#xA;            &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;            &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;          &lt;/Size&gt;&#xD;&#xA;          &lt;Location&gt;&#xD;&#xA;            &lt;X&gt;102&lt;/X&gt;&#xD;&#xA;            &lt;Y&gt;146&lt;/Y&gt;&#xD;&#xA;          &lt;/Location&gt;&#xD;&#xA;          &lt;Left&gt;102&lt;/Left&gt;&#xD;&#xA;          &lt;Top&gt;146&lt;/Top&gt;&#xD;&#xA;          &lt;Right&gt;202&lt;/Right&gt;&#xD;&#xA;          &lt;Bottom&gt;246&lt;/Bottom&gt;&#xD;&#xA;        &lt;/Bounds&gt;&#xD;&#xA;        &lt;Name&gt;Init&lt;/Name&gt;&#xD;&#xA;        &lt;ID&gt;init&lt;/ID&gt;&#xD;&#xA;        &lt;Duration&gt;0&lt;/Duration&gt;&#xD;&#xA;      &lt;/StartState&gt;&#xD;&#xA;      &lt;EndState&gt;&#xD;&#xA;        &lt;Bounds&gt;&#xD;&#xA;          &lt;Size&gt;&#xD;&#xA;            &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;            &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;          &lt;/Size&gt;&#xD;&#xA;          &lt;Location&gt;&#xD;&#xA;            &lt;X&gt;458&lt;/X&gt;&#xD;&#xA;            &lt;Y&gt;41&lt;/Y&gt;&#xD;&#xA;          &lt;/Location&gt;&#xD;&#xA;          &lt;Left&gt;458&lt;/Left&gt;&#xD;&#xA;          &lt;Top&gt;41&lt;/Top&gt;&#xD;&#xA;          &lt;Right&gt;558&lt;/Right&gt;&#xD;&#xA;          &lt;Bottom&gt;141&lt;/Bottom&gt;&#xD;&#xA;        &lt;/Bounds&gt;&#xD;&#xA;        &lt;Name&gt;Start&lt;/Name&gt;&#xD;&#xA;        &lt;ID&gt;uMmd5dRT&lt;/ID&gt;&#xD;&#xA;        &lt;Duration&gt;0&lt;/Duration&gt;&#xD;&#xA;      &lt;/EndState&gt;&#xD;&#xA;      &lt;Duration&gt;0&lt;/Duration&gt;&#xD;&#xA;    &lt;/Transition&gt;&#xD;&#xA;    &lt;Transition&gt;&#xD;&#xA;      &lt;Bounds&gt;&#xD;&#xA;        &lt;Size&gt;&#xD;&#xA;          &lt;Width&gt;67.31543&lt;/Width&gt;&#xD;&#xA;          &lt;Height&gt;19.951172&lt;/Height&gt;&#xD;&#xA;        &lt;/Size&gt;&#xD;&#xA;        &lt;Location&gt;&#xD;&#xA;          &lt;X&gt;271.8423&lt;/X&gt;&#xD;&#xA;          &lt;Y&gt;288.5244&lt;/Y&gt;&#xD;&#xA;        &lt;/Location&gt;&#xD;&#xA;        &lt;Left&gt;271.8423&lt;/Left&gt;&#xD;&#xA;        &lt;Top&gt;288.5244&lt;/Top&gt;&#xD;&#xA;        &lt;Right&gt;339.1577&lt;/Right&gt;&#xD;&#xA;        &lt;Bottom&gt;308.4756&lt;/Bottom&gt;&#xD;&#xA;      &lt;/Bounds&gt;&#xD;&#xA;      &lt;Name&gt;ToEmpty&lt;/Name&gt;&#xD;&#xA;      &lt;StartState&gt;&#xD;&#xA;        &lt;Bounds&gt;&#xD;&#xA;          &lt;Size&gt;&#xD;&#xA;            &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;            &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;          &lt;/Size&gt;&#xD;&#xA;          &lt;Location&gt;&#xD;&#xA;            &lt;X&gt;102&lt;/X&gt;&#xD;&#xA;            &lt;Y&gt;146&lt;/Y&gt;&#xD;&#xA;          &lt;/Location&gt;&#xD;&#xA;          &lt;Left&gt;102&lt;/Left&gt;&#xD;&#xA;          &lt;Top&gt;146&lt;/Top&gt;&#xD;&#xA;          &lt;Right&gt;202&lt;/Right&gt;&#xD;&#xA;          &lt;Bottom&gt;246&lt;/Bottom&gt;&#xD;&#xA;        &lt;/Bounds&gt;&#xD;&#xA;        &lt;Name&gt;Init&lt;/Name&gt;&#xD;&#xA;        &lt;ID&gt;init&lt;/ID&gt;&#xD;&#xA;        &lt;Duration&gt;0&lt;/Duration&gt;&#xD;&#xA;      &lt;/StartState&gt;&#xD;&#xA;      &lt;EndState&gt;&#xD;&#xA;        &lt;Bounds&gt;&#xD;&#xA;          &lt;Size&gt;&#xD;&#xA;            &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;            &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;          &lt;/Size&gt;&#xD;&#xA;          &lt;Location&gt;&#xD;&#xA;            &lt;X&gt;409&lt;/X&gt;&#xD;&#xA;            &lt;Y&gt;351&lt;/Y&gt;&#xD;&#xA;          &lt;/Location&gt;&#xD;&#xA;          &lt;Left&gt;409&lt;/Left&gt;&#xD;&#xA;          &lt;Top&gt;351&lt;/Top&gt;&#xD;&#xA;          &lt;Right&gt;509&lt;/Right&gt;&#xD;&#xA;          &lt;Bottom&gt;451&lt;/Bottom&gt;&#xD;&#xA;        &lt;/Bounds&gt;&#xD;&#xA;        &lt;Name&gt;Empty&lt;/Name&gt;&#xD;&#xA;        &lt;ID&gt;NX7APT36&lt;/ID&gt;&#xD;&#xA;        &lt;Duration&gt;1&lt;/Duration&gt;&#xD;&#xA;      &lt;/EndState&gt;&#xD;&#xA;      &lt;Duration&gt;1&lt;/Duration&gt;&#xD;&#xA;    &lt;/Transition&gt;&#xD;&#xA;    &lt;Transition&gt;&#xD;&#xA;      &lt;Bounds&gt;&#xD;&#xA;        &lt;Size&gt;&#xD;&#xA;          &lt;Width&gt;56.629395&lt;/Width&gt;&#xD;&#xA;          &lt;Height&gt;19.951172&lt;/Height&gt;&#xD;&#xA;        &lt;/Size&gt;&#xD;&#xA;        &lt;Location&gt;&#xD;&#xA;          &lt;X&gt;455.1853&lt;/X&gt;&#xD;&#xA;          &lt;Y&gt;236.02441&lt;/Y&gt;&#xD;&#xA;        &lt;/Location&gt;&#xD;&#xA;        &lt;Left&gt;455.1853&lt;/Left&gt;&#xD;&#xA;        &lt;Top&gt;236.02441&lt;/Top&gt;&#xD;&#xA;        &lt;Right&gt;511.8147&lt;/Right&gt;&#xD;&#xA;        &lt;Bottom&gt;255.97559&lt;/Bottom&gt;&#xD;&#xA;      &lt;/Bounds&gt;&#xD;&#xA;      &lt;Name&gt;ToStart&lt;/Name&gt;&#xD;&#xA;      &lt;StartState&gt;&#xD;&#xA;        &lt;Bounds&gt;&#xD;&#xA;          &lt;Size&gt;&#xD;&#xA;            &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;            &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;          &lt;/Size&gt;&#xD;&#xA;          &lt;Location&gt;&#xD;&#xA;            &lt;X&gt;409&lt;/X&gt;&#xD;&#xA;            &lt;Y&gt;351&lt;/Y&gt;&#xD;&#xA;          &lt;/Location&gt;&#xD;&#xA;          &lt;Left&gt;409&lt;/Left&gt;&#xD;&#xA;          &lt;Top&gt;351&lt;/Top&gt;&#xD;&#xA;          &lt;Right&gt;509&lt;/Right&gt;&#xD;&#xA;          &lt;Bottom&gt;451&lt;/Bottom&gt;&#xD;&#xA;        &lt;/Bounds&gt;&#xD;&#xA;        &lt;Name&gt;Empty&lt;/Name&gt;&#xD;&#xA;        &lt;ID&gt;NX7APT36&lt;/ID&gt;&#xD;&#xA;        &lt;Duration&gt;1&lt;/Duration&gt;&#xD;&#xA;      &lt;/StartState&gt;&#xD;&#xA;      &lt;EndState&gt;&#xD;&#xA;        &lt;Bounds&gt;&#xD;&#xA;          &lt;Size&gt;&#xD;&#xA;            &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;            &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;          &lt;/Size&gt;&#xD;&#xA;          &lt;Location&gt;&#xD;&#xA;            &lt;X&gt;458&lt;/X&gt;&#xD;&#xA;            &lt;Y&gt;41&lt;/Y&gt;&#xD;&#xA;          &lt;/Location&gt;&#xD;&#xA;          &lt;Left&gt;458&lt;/Left&gt;&#xD;&#xA;          &lt;Top&gt;41&lt;/Top&gt;&#xD;&#xA;          &lt;Right&gt;558&lt;/Right&gt;&#xD;&#xA;          &lt;Bottom&gt;141&lt;/Bottom&gt;&#xD;&#xA;        &lt;/Bounds&gt;&#xD;&#xA;        &lt;Name&gt;Start&lt;/Name&gt;&#xD;&#xA;        &lt;ID&gt;uMmd5dRT&lt;/ID&gt;&#xD;&#xA;        &lt;Duration&gt;0&lt;/Duration&gt;&#xD;&#xA;      &lt;/EndState&gt;&#xD;&#xA;      &lt;Duration&gt;1&lt;/Duration&gt;&#xD;&#xA;    &lt;/Transition&gt;&#xD;&#xA;    &lt;Transition&gt;&#xD;&#xA;      &lt;Bounds&gt;&#xD;&#xA;        &lt;Size&gt;&#xD;&#xA;          &lt;Width&gt;67.31543&lt;/Width&gt;&#xD;&#xA;          &lt;Height&gt;19.951172&lt;/Height&gt;&#xD;&#xA;        &lt;/Size&gt;&#xD;&#xA;        &lt;Location&gt;&#xD;&#xA;          &lt;X&gt;616.8423&lt;/X&gt;&#xD;&#xA;          &lt;Y&gt;293.0244&lt;/Y&gt;&#xD;&#xA;        &lt;/Location&gt;&#xD;&#xA;        &lt;Left&gt;616.8423&lt;/Left&gt;&#xD;&#xA;        &lt;Top&gt;293.0244&lt;/Top&gt;&#xD;&#xA;        &lt;Right&gt;684.1577&lt;/Right&gt;&#xD;&#xA;        &lt;Bottom&gt;312.9756&lt;/Bottom&gt;&#xD;&#xA;      &lt;/Bounds&gt;&#xD;&#xA;      &lt;Name&gt;ToEmpty&lt;/Name&gt;&#xD;&#xA;      &lt;StartState&gt;&#xD;&#xA;        &lt;Bounds&gt;&#xD;&#xA;          &lt;Size&gt;&#xD;&#xA;            &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;            &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;          &lt;/Size&gt;&#xD;&#xA;          &lt;Location&gt;&#xD;&#xA;            &lt;X&gt;409&lt;/X&gt;&#xD;&#xA;            &lt;Y&gt;351&lt;/Y&gt;&#xD;&#xA;          &lt;/Location&gt;&#xD;&#xA;          &lt;Left&gt;409&lt;/Left&gt;&#xD;&#xA;          &lt;Top&gt;351&lt;/Top&gt;&#xD;&#xA;          &lt;Right&gt;509&lt;/Right&gt;&#xD;&#xA;          &lt;Bottom&gt;451&lt;/Bottom&gt;&#xD;&#xA;        &lt;/Bounds&gt;&#xD;&#xA;        &lt;Name&gt;Empty&lt;/Name&gt;&#xD;&#xA;        &lt;ID&gt;NX7APT36&lt;/ID&gt;&#xD;&#xA;        &lt;Duration&gt;1&lt;/Duration&gt;&#xD;&#xA;      &lt;/StartState&gt;&#xD;&#xA;      &lt;EndState&gt;&#xD;&#xA;        &lt;Bounds&gt;&#xD;&#xA;          &lt;Size&gt;&#xD;&#xA;            &lt;Width&gt;100&lt;/Width&gt;&#xD;&#xA;            &lt;Height&gt;100&lt;/Height&gt;&#xD;&#xA;          &lt;/Size&gt;&#xD;&#xA;          &lt;Location&gt;&#xD;&#xA;            &lt;X&gt;792&lt;/X&gt;&#xD;&#xA;            &lt;Y&gt;155&lt;/Y&gt;&#xD;&#xA;          &lt;/Location&gt;&#xD;&#xA;          &lt;Left&gt;792&lt;/Left&gt;&#xD;&#xA;          &lt;Top&gt;155&lt;/Top&gt;&#xD;&#xA;          &lt;Right&gt;892&lt;/Right&gt;&#xD;&#xA;          &lt;Bottom&gt;255&lt;/Bottom&gt;&#xD;&#xA;        &lt;/Bounds&gt;&#xD;&#xA;        &lt;Name&gt;Empty&lt;/Name&gt;&#xD;&#xA;        &lt;ID&gt;T2zbDzns&lt;/ID&gt;&#xD;&#xA;        &lt;Duration&gt;1&lt;/Duration&gt;&#xD;&#xA;      &lt;/EndState&gt;&#xD;&#xA;      &lt;Duration&gt;1&lt;/Duration&gt;&#xD;&#xA;    &lt;/Transition&gt;&#xD;&#xA;  &lt;/transitions&gt;&#xD;&#xA;&lt;/AutomataModel&gt;" />
             <Pin Id="GFf657tQtWXPH8uvTQSQUO" Name="ActiveState" Kind="OutputPin" />
             <Pin Id="LSMgq2bGKP7MNALqLYB0d8" Name="Automata" Kind="OutputPin" />
-            <Pin Id="Uta9n3mZvS4PPZpKRaFFix" Name="Bounds" Kind="OutputPin" />
-            <Pin Id="LNJiQlIiF7UOL2BhusbroY" Name="Loop As Task" Kind="OutputPin" />
-            <Pin Id="NMUEKPTpgRnOCXiT0gjca8" Name="Loop As Task" Kind="InputPin" />
           </Node>
-          <Pad Id="Q7ZpratzWsLMP564uXDh6M" Comment="Show" Bounds="312,252,35,38" ShowValueBox="true" isIOBox="true" Value="True">
+          <Pad Id="Q7ZpratzWsLMP564uXDh6M" Comment="Show" Bounds="239,323,35,38" ShowValueBox="true" isIOBox="true" Value="True">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
               <CategoryReference Kind="Category" Name="Primitive" />
@@ -780,18 +760,8 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="TtTmGlFiLlDODi7ddSNkZ8" Comment="Loop As Task" Bounds="386,295,39,38" ShowValueBox="true" isIOBox="true" Value="False">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
-              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
-              <CategoryReference Kind="Category" Name="Primitive" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings>
-              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
-            </p:ValueBoxSettings>
-          </Pad>
-          <Pad Id="UCtBIA2gSAmLkigsf4aooV" Comment="Loop As Task" Bounds="386,431,35,35" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="HdW8LFhcQoHPaEGEnayQLS" Comment="ActiveState" Bounds="83,475,35,15" ShowValueBox="true" isIOBox="true" />
-          <Node Bounds="181,553,74,19" Id="VO3eGK2HsEwOSm0bWN2GIM">
+          <Pad Id="HdW8LFhcQoHPaEGEnayQLS" Comment="ActiveState" Bounds="17,467,35,15" ShowValueBox="true" isIOBox="true" />
+          <Node Bounds="240,593,74,19" Id="VO3eGK2HsEwOSm0bWN2GIM">
             <p:NodeReference LastCategoryFullName="AutomataUI" LastDependency="AutomataUI.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="IsActiveState" />
@@ -801,12 +771,12 @@
             <Pin Id="VI2jQB0cM3LLqh5YfeDn9o" Name="Name" Kind="OutputPin" />
             <Pin Id="UyXAUFQdpEyMQK6WB4wi2F" Name="Result" Kind="OutputPin" />
           </Node>
-          <Pad Id="I90ZDBSXlVdNDydCvvrcJa" Comment="StateName" Bounds="253,526,44,18" ShowValueBox="true" isIOBox="true" Value="Init">
+          <Pad Id="I90ZDBSXlVdNDydCvvrcJa" Comment="StateName" Bounds="312,566,44,18" ShowValueBox="true" isIOBox="true" Value="Init">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="EjVVjObgDQlNhKgyB6Nptz" Comment="" Bounds="253,608,35,35" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="EjVVjObgDQlNhKgyB6Nptz" Comment="" Bounds="312,648,35,35" ShowValueBox="true" isIOBox="true" />
           <Node Bounds="474,577,54,19" Id="Sz7VN4ZntKSPZyXZgyVQJk">
             <p:NodeReference LastCategoryFullName="AutomataUI" LastDependency="AutomataUI.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -825,6 +795,24 @@
           </Pad>
           <Pad Id="KtlmipjBOjILpnUT9PfuFn" Comment="Elapsed State Time" Bounds="580,641,59,24" ShowValueBox="true" isIOBox="true" />
           <Pad Id="DTzjOKEfVYYM14uIhyIqlN" Comment="Active" Bounds="477,646,35,35" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="VZ4L2VvQwTbO2G8xeVNp5O" Comment="Load" Bounds="128,319,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+              <CategoryReference Kind="Category" Name="Primitive" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Pad Id="J87X35JVtCRPNdPHdrfQX1" Comment="Save" Bounds="17,319,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+              <CategoryReference Kind="Category" Name="Primitive" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
         </Canvas>
         <Patch Id="Uyz8MOaMPzwM6sLZanPvQn" Name="Create" />
         <Patch Id="RkMMF3XLNKqMuP7oz8viQ8" Name="Update" />
@@ -833,8 +821,6 @@
           <Fragment Id="Mpl1X4QWiEzNTTuTeIHFj9" Patch="RkMMF3XLNKqMuP7oz8viQ8" Enabled="true" />
         </ProcessDefinition>
         <Link Id="AB45w6bfXlDPia053J3yMe" Ids="Q7ZpratzWsLMP564uXDh6M,UPaYfLxqgPIODbO0lrSf1m" />
-        <Link Id="N1HdeO8IJvENPdfLY8PTgp" Ids="TtTmGlFiLlDODi7ddSNkZ8,NMUEKPTpgRnOCXiT0gjca8" />
-        <Link Id="RqkLZOnQI6oM2CFLp9qPPk" Ids="LNJiQlIiF7UOL2BhusbroY,UCtBIA2gSAmLkigsf4aooV" />
         <Link Id="ScGRJDspIqlOtaD928KVEr" Ids="GFf657tQtWXPH8uvTQSQUO,HdW8LFhcQoHPaEGEnayQLS" />
         <Link Id="Irtv3Vpl5FkLeitDy82tQt" Ids="LSMgq2bGKP7MNALqLYB0d8,TaFhOdjDEoNObbLWaujw8K" />
         <Link Id="NhUraFmVVDaOCOAUAUcniw" Ids="I90ZDBSXlVdNDydCvvrcJa,EJaCxEoZUrVNTpwieOuhAX" />
@@ -843,6 +829,8 @@
         <Link Id="Kh2dORSbjvuM3tqEGre6J4" Ids="AHpwkQG5TWRQCz3L8ew8a5,VSk7nzofwpuPkxnXp3ku2n" />
         <Link Id="FQ289uD1zvOMTBWEvKcL9S" Ids="O0F3eOQ9wA3QCfVpiTfS07,KtlmipjBOjILpnUT9PfuFn" />
         <Link Id="OFhfafwvBGoLUWgBrF3oSi" Ids="JiPntMtpmggPx79nNqIvc9,DTzjOKEfVYYM14uIhyIqlN" />
+        <Link Id="CwPL6qY0UuxP1UwekiY1Jo" Ids="VZ4L2VvQwTbO2G8xeVNp5O,IsRuTPefFzNMdwzWdbPVHi" />
+        <Link Id="Bu0t5NXmd7vPiFecJ0KvLn" Ids="J87X35JVtCRPNdPHdrfQX1,PbWf1TtfwutORzTfYHd1Y4" />
       </Patch>
     </Node>
   </Patch>
