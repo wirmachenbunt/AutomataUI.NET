@@ -221,6 +221,23 @@ namespace AutomataUI
             
 
         }
+
+        public void TriggerTransition(String transitionNameIN)
+        {
+
+            //find transition and set targettransition
+            foreach (var transition in transitions) 
+            {
+                if (transition.Name == transitionNameIN &&
+                    transition.StartState.ID == activeState.ID)
+                {
+
+                }
+            
+            
+            }
+
+        }
     }
 
     public abstract class UIelement //all UI Elements should be based upon this to make the hittest work
