@@ -36,25 +36,25 @@ namespace AutomataUI
         public World world;
         public AutomataModel()
         {
-            
-                //states = new List<State>();
-                //transitions = new List<Transition>();
-                //AddState("Init", 0, new SKPoint(0, 0)); // add default state
-                //AddState("Start", 0, new SKPoint(500, 50));
-                //AddTransition("Start", 0, states[0], states[1]);
 
-                //activeState = states[0]; //set activestate to init
-                //targetState = states[0]; // set targetstate also to init
+            //states = new List<State>();
+            //transitions = new List<Transition>();
+            //AddState("Init", 0, new SKPoint(0, 0)); // add default state
+            //AddState("Start", 0, new SKPoint(500, 50));
+            //AddTransition("Start", 0, states[0], states[1]);
 
-                ////UI background aka desktop element
-                //world = new World()
-                //{
-                //    Bounds = new SKRect(-100000, -100000, 100000, 100000),
-                //    Name = "World"
-                //};
-            
-        }   
-        public bool TransitionExists(State startState,State endState)
+            //activeState = states[0]; //set activestate to init
+            //targetState = states[0]; // set targetstate also to init
+
+            ////UI background aka desktop element
+            //world = new World()
+            //{
+            //    Bounds = new SKRect(-100000, -100000, 100000, 100000),
+            //    Name = "World"
+            //};
+
+        }
+        public bool TransitionExists(State startState, State endState)
         {
 
             bool check = false;
@@ -77,7 +77,7 @@ namespace AutomataUI
 
             int size = 50;
 
-            SKRect bounds = new SKRect(point.X-size,point.Y-size,point.X+size,point.Y+size);
+            SKRect bounds = new SKRect(point.X - size, point.Y - size, point.X + size, point.Y + size);
 
             states.Add(new State()
             {
@@ -202,9 +202,9 @@ namespace AutomataUI
                 if (elapsedTransitionTime == 0 && elapsedStateTime == 0) //solange transition time und elapsedtime 0 sind, setze target und active gleich
                 {
                     activeState = targetState;
-                    
+
                     activeTransition = null; // reset active transition
-                    
+
                     if (Redraw != null) Redraw(); //redraw UI
 
                     Debug.WriteLine("Transition Ends");
@@ -219,7 +219,7 @@ namespace AutomataUI
             }
 
 
-            
+
 
         }
 
@@ -227,7 +227,7 @@ namespace AutomataUI
         {
 
             //find transition and set targettransition
-            foreach (var transition in transitions) 
+            foreach (var transition in transitions)
             {
                 if (transition.Name == transitionNameIN &&
                     transition.StartState.ID == activeState.ID &&
@@ -245,30 +245,7 @@ namespace AutomataUI
 
                 }
             }
-
-            ////Find Transition
-            //int i = 0;
-            //foreach (Transition transition in transitionList)
-            //{
-            //    // standard transitions
-            //    if (transition.Name == TransitionName &&
-            //        transition.startState.ID == stateList.ElementAt(ActiveStateIndex[ii]).ID &&
-            //        TransitionFramesOut[ii] == 0 &&
-            //        ElapsedStateTime[ii] >= transition.startState.Frames)
-            //    {
-            //        TargetStateIndex[ii] = stateList.IndexOf(transition.endState); // set target state index
-            //        TransitionFramesOut[ii] = transition.Frames; // get frames of transition
-            //        TransitionIndex[ii] = i; //get transition
-            //        ElapsedStateTime[ii] = 0; // stop ElapsedStateTimer
-            //        this.Invalidate(); //redraw
-
-            //        break;
-            //    }
-
-
-
-
-            }
+        }
     }
 
     public abstract class UIelement //all UI Elements should be based upon this to make the hittest work
@@ -301,5 +278,5 @@ namespace AutomataUI
 
     }
 
-    
+
 }

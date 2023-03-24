@@ -111,6 +111,9 @@ namespace AutomataUI
             if (selectedItem is State && Form.ModifierKeys == Keys.Control)
             {
                 AutomataData.activeState = (State)selectedItem;
+                AutomataData.elapsedStateTime = 0;
+                AutomataData.elapsedTransitionTime = 0;
+                AutomataData.targetState = (State)selectedItem;
             }
 
             //override active transition
