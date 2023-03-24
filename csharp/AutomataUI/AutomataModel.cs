@@ -10,6 +10,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using static System.TimeZoneInfo;
 
 namespace AutomataUI
 {
@@ -229,15 +230,45 @@ namespace AutomataUI
             foreach (var transition in transitions) 
             {
                 if (transition.Name == transitionNameIN &&
-                    transition.StartState.ID == activeState.ID)
+                    transition.StartState.ID == activeState.ID &&
+                    elapsedTransitionTime == 0)
                 {
 
+                    targetState = transition.EndState;
+                    elapsedTransitionTime = transition.Duration;
+                    elapsedStateTime = 0;
+
+                    activeTransition = transition;
+                    //redraw UI
+                    if (Redraw != null) Redraw();
+                    break;
+
                 }
-            
-            
             }
 
-        }
+            ////Find Transition
+            //int i = 0;
+            //foreach (Transition transition in transitionList)
+            //{
+            //    // standard transitions
+            //    if (transition.Name == TransitionName &&
+            //        transition.startState.ID == stateList.ElementAt(ActiveStateIndex[ii]).ID &&
+            //        TransitionFramesOut[ii] == 0 &&
+            //        ElapsedStateTime[ii] >= transition.startState.Frames)
+            //    {
+            //        TargetStateIndex[ii] = stateList.IndexOf(transition.endState); // set target state index
+            //        TransitionFramesOut[ii] = transition.Frames; // get frames of transition
+            //        TransitionIndex[ii] = i; //get transition
+            //        ElapsedStateTime[ii] = 0; // stop ElapsedStateTimer
+            //        this.Invalidate(); //redraw
+
+            //        break;
+            //    }
+
+
+
+
+            }
     }
 
     public abstract class UIelement //all UI Elements should be based upon this to make the hittest work
