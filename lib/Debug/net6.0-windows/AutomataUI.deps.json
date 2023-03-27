@@ -1,0 +1,273 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "AutomataUI/0.0.2": {
+        "dependencies": {
+          "SkiaSharp": "2.88.1",
+          "SkiaSharp.Views": "2.88.1",
+          "SkiaTextRenderer": "2.0.0"
+        },
+        "runtime": {
+          "AutomataUI.dll": {}
+        }
+      },
+      "Microsoft.NETCore.Platforms/2.0.0": {},
+      "Microsoft.Win32.SystemEvents/4.5.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.0.0"
+        }
+      },
+      "OpenTK/3.1.0": {
+        "runtime": {
+          "lib/net20/OpenTK.dll": {
+            "assemblyVersion": "3.1.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        }
+      },
+      "OpenTK.GLControl/3.1.0": {
+        "dependencies": {
+          "OpenTK": "3.1.0"
+        },
+        "runtime": {
+          "lib/net20/OpenTK.GLControl.dll": {
+            "assemblyVersion": "3.1.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        }
+      },
+      "SkiaSharp/2.88.1": {
+        "dependencies": {
+          "SkiaSharp.NativeAssets.Win32": "2.88.1",
+          "SkiaSharp.NativeAssets.macOS": "2.88.1"
+        },
+        "runtime": {
+          "lib/net6.0/SkiaSharp.dll": {
+            "assemblyVersion": "2.88.0.0",
+            "fileVersion": "2.88.1.0"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.macOS/2.88.1": {
+        "runtimeTargets": {
+          "runtimes/osx/native/libSkiaSharp.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.Win32/2.88.1": {
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/libSkiaSharp.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libSkiaSharp.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/libSkiaSharp.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SkiaSharp.Views/2.88.1": {
+        "dependencies": {
+          "SkiaSharp": "2.88.1",
+          "SkiaSharp.Views.Desktop.Common": "2.88.1",
+          "SkiaSharp.Views.Gtk2": "2.88.1",
+          "SkiaSharp.Views.WPF": "2.88.1",
+          "SkiaSharp.Views.WindowsForms": "2.88.1"
+        },
+        "runtime": {
+          "lib/net462/SkiaSharp.Views.Desktop.dll": {
+            "assemblyVersion": "2.88.0.0",
+            "fileVersion": "2.88.1.0"
+          }
+        }
+      },
+      "SkiaSharp.Views.Desktop.Common/2.88.1": {
+        "dependencies": {
+          "SkiaSharp": "2.88.1",
+          "System.Drawing.Common": "4.5.1"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/SkiaSharp.Views.Desktop.Common.dll": {
+            "assemblyVersion": "2.88.0.0",
+            "fileVersion": "2.88.1.0"
+          }
+        }
+      },
+      "SkiaSharp.Views.Gtk2/2.88.1": {
+        "dependencies": {
+          "SkiaSharp": "2.88.1",
+          "SkiaSharp.Views.Desktop.Common": "2.88.1"
+        },
+        "runtime": {
+          "lib/net462/SkiaSharp.Views.Gtk.dll": {
+            "assemblyVersion": "2.88.0.0",
+            "fileVersion": "2.88.1.0"
+          }
+        }
+      },
+      "SkiaSharp.Views.WindowsForms/2.88.1": {
+        "dependencies": {
+          "OpenTK": "3.1.0",
+          "OpenTK.GLControl": "3.1.0",
+          "SkiaSharp": "2.88.1",
+          "SkiaSharp.Views.Desktop.Common": "2.88.1"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/SkiaSharp.Views.WindowsForms.dll": {
+            "assemblyVersion": "2.88.0.0",
+            "fileVersion": "2.88.1.0"
+          }
+        }
+      },
+      "SkiaSharp.Views.WPF/2.88.1": {
+        "dependencies": {
+          "SkiaSharp": "2.88.1",
+          "SkiaSharp.Views.Desktop.Common": "2.88.1"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/SkiaSharp.Views.WPF.dll": {
+            "assemblyVersion": "2.88.0.0",
+            "fileVersion": "2.88.1.0"
+          }
+        }
+      },
+      "SkiaTextRenderer/2.0.0": {
+        "dependencies": {
+          "SkiaSharp": "2.88.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SkiaTextRenderer.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "System.Drawing.Common/4.5.1": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.0.0",
+          "Microsoft.Win32.SystemEvents": "4.5.0"
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AutomataUI/0.0.2": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.NETCore.Platforms/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VdLJOCXhZaEMY7Hm2GKiULmn7IEPFE4XC5LPSfBVCUIA8YLZVh846gtfBJalsPQF2PlzdD7ecX7DZEulJ402ZQ==",
+      "path": "microsoft.netcore.platforms/2.0.0",
+      "hashPath": "microsoft.netcore.platforms.2.0.0.nupkg.sha512"
+    },
+    "Microsoft.Win32.SystemEvents/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LuI1oG+24TUj1ZRQQjM5Ew73BKnZE5NZ/7eAdh1o8ST5dPhUnJvIkiIn2re3MwnkRy6ELRnvEbBxHP8uALKhJw==",
+      "path": "microsoft.win32.systemevents/4.5.0",
+      "hashPath": "microsoft.win32.systemevents.4.5.0.nupkg.sha512"
+    },
+    "OpenTK/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xoP5kb81lRSY5RzbntaFA9yXK+aGF5SLShhns55MyZtxtNafIxRH5KvRTFss/N653brTzE+AfepjKsbMexYlBQ==",
+      "path": "opentk/3.1.0",
+      "hashPath": "opentk.3.1.0.nupkg.sha512"
+    },
+    "OpenTK.GLControl/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BjDzF+MhJd2LaZYzkXmgkzzXgHAko/Iur4rGy6+DPdZA1Jcc0X6jXZ6QsUsjlLRNzgevO7uAj2h1TqX7sguaYg==",
+      "path": "opentk.glcontrol/3.1.0",
+      "hashPath": "opentk.glcontrol.3.1.0.nupkg.sha512"
+    },
+    "SkiaSharp/2.88.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bEgYq0n0kVb/t/3DgQTILBqlXcNjKmz0t8ur9w41UK+pbufBGcEF8QMJQIhdRYohHqhsBwrCF87WUBkeRAuquA==",
+      "path": "skiasharp/2.88.1",
+      "hashPath": "skiasharp.2.88.1.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.macOS/2.88.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pJETwmhPe7L3w9x5eBHjmFucj5WiI4cYhG+v04IzZs0gcdC7aTeIh6D+vE3hjxaRBr6eDEr/U/JEPSm7YEfxPg==",
+      "path": "skiasharp.nativeassets.macos/2.88.1",
+      "hashPath": "skiasharp.nativeassets.macos.2.88.1.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.Win32/2.88.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rea9/AzPq3n5tQJ9ffQJqhrhl1EkO9XtnPjEDu+6ovsLJoSIj4khvPiqNvxo/j97bo1/qQP6VsWjk06U0TUtYg==",
+      "path": "skiasharp.nativeassets.win32/2.88.1",
+      "hashPath": "skiasharp.nativeassets.win32.2.88.1.nupkg.sha512"
+    },
+    "SkiaSharp.Views/2.88.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CXTRGgy0YMHCt3KknUs/+ra2EJy6WXgX1+gFPHa0AWVt7Rki1ByTdfpAW5G3DYKLBgZ8YIjBv92IbSMj3yEQdw==",
+      "path": "skiasharp.views/2.88.1",
+      "hashPath": "skiasharp.views.2.88.1.nupkg.sha512"
+    },
+    "SkiaSharp.Views.Desktop.Common/2.88.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kVynintQ4hEe5YejTEwaeFh286XDSl9fqSK3hxC4Wia1eUNQjsAJYvAvjictVOjYu3yWmRtb7uuzUNjuChz9Mw==",
+      "path": "skiasharp.views.desktop.common/2.88.1",
+      "hashPath": "skiasharp.views.desktop.common.2.88.1.nupkg.sha512"
+    },
+    "SkiaSharp.Views.Gtk2/2.88.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/cu0SFaJ+dgEA9WDHxzNVVGjTYgsKuT+OjGSFDEttzzGKmm0CxAKRSUix05sm14ipzXmzAHgQSGoWN+MH4069A==",
+      "path": "skiasharp.views.gtk2/2.88.1",
+      "hashPath": "skiasharp.views.gtk2.2.88.1.nupkg.sha512"
+    },
+    "SkiaSharp.Views.WindowsForms/2.88.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bNZewGE9YQJbQdXrmAj+gAxwSZyIWVv8qOQoIrb+U4drWlsAdcWAdTni+zSsHJ5Xju9hbqWIcNsD47fdEJM70Q==",
+      "path": "skiasharp.views.windowsforms/2.88.1",
+      "hashPath": "skiasharp.views.windowsforms.2.88.1.nupkg.sha512"
+    },
+    "SkiaSharp.Views.WPF/2.88.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ERHPChykBW8ZInivxaKTePnokB61PjUM0qBZy74WBCi7n/5rO/WZR61iv4vC50muotDvnMvciWhKF/cuRtmJqg==",
+      "path": "skiasharp.views.wpf/2.88.1",
+      "hashPath": "skiasharp.views.wpf.2.88.1.nupkg.sha512"
+    },
+    "SkiaTextRenderer/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pXg2c2AQc0LijPz1oirxn5bvH8/5GbimgmV1Li7EH1PusHBR7M6gjObylpEpV3+aymhN9hlUn3d5/FTF5OKs4Q==",
+      "path": "skiatextrenderer/2.0.0",
+      "hashPath": "skiatextrenderer.2.0.0.nupkg.sha512"
+    },
+    "System.Drawing.Common/4.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GiyeGi/v4xYDz1vCNFwFvhz9k1XddOG7VD3jxRqzRBCbTHji+s3HxxbxtoymuK4OadEpgotI8zQ5+GEEH9sUEQ==",
+      "path": "system.drawing.common/4.5.1",
+      "hashPath": "system.drawing.common.4.5.1.nupkg.sha512"
+    }
+  }
+}
