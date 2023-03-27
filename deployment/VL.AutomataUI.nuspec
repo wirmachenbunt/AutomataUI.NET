@@ -20,8 +20,7 @@
   </dependencies>
   </metadata>
   <files>
-    <file src="*.vl" target="" exclude="" />
-    <file src="\lib\Release\net6.0-windows\AutomataUI.dll" target="lib\" exclude="" />
+    <file src="..\*.vl" target="" exclude="" />
 	<file src="nugeticon.png" target="icon\" />
   </files>
 </package>
