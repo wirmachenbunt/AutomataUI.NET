@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>VL.AutomataUI</id>
+    <version>0.0.1</version>
+    <title>VL.AutomataUI</title>
+    <authors>wirmachenbunt</authors>
+    <owners>wirmachenbunt</owners>
+    <projectUrl>https://github.com/wirmachenbunt/AutomataUI.NET</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>A Statemachine Editor</summary>
+    <description>A Statemachine Editor</description>
+    <tags>statemachine</tags>
+	<license type="expression">LGPL-3.0-only</license>
+	<icon>icon\nugeticon.png</icon>
+  </metadata>
+  <files>
+    <file src="..\lib\**" target="lib\" exclude="" />
+    <file src="..\*.vl" target="" exclude="" />
+    <file src="..\help\**" target="help\" exclude="" />
+	<file src="nugeticon.png" target="icon\" />
+  </files>
+</package>
