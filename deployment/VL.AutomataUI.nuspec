@@ -13,12 +13,12 @@
     <tags>statemachine</tags>
 	<license type="expression">LGPL-3.0-only</license>
 	<icon>icon\nugeticon.png</icon>
-  </metadata>
   <dependencies>
     <dependency id="SkiaSharp" version="2.88.1"/>
     <dependency id="SkiaSharp.Views" version="2.88.1"/>
     <dependency id="SkiaTextRenderer" version="2.0.0"/>
   </dependencies>
+  </metadata>
   <files>
     <file src="..\*.vl" target="" exclude="" />
 	<file src="nugeticon.png" target="icon\" />
