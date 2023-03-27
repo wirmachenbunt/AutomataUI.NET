@@ -2,7 +2,7 @@
 <Document xmlns:p="property" Id="IFdW7uYR97TMIB3Wu6G99y" LanguageVersion="2022.5.0-0716-gdb6bf12015" Version="0.128">
   <NugetDependency Id="LdwYlVkV4ZhPv4mvr9ilnM" Location="VL.CoreLib" Version="2022.5.0-0716-gdb6bf12015" />
   <Patch Id="UULx6KMsTs2Lny97tXmxUO">
-    <Canvas Id="GVTm77QGaLKNGwWy1XLnSL" DefaultCategory="AutomataUI" CanvasType="FullCategory">
+    <Canvas Id="GVTm77QGaLKNGwWy1XLnSL" DefaultCategory="VVVV.AutomataUI" CanvasType="FullCategory">
       <!--
 
     ************************ AutomataUI ************************
@@ -885,7 +885,7 @@
       <Patch Id="JHUoi3yBnlCQTgSg437hRB">
         <Canvas Id="GLFkMYxcpvWMtZVJQTLfTr" CanvasType="Group">
           <Node Bounds="15,386,337,19" Id="Be15ZcNNTWAPqW84qvY7sC">
-            <p:NodeReference LastCategoryFullName="AutomataUI" LastDependency="AutomataUI.vl">
+            <p:NodeReference LastCategoryFullName="VVVV.AutomataUI" LastDependency="AutomataUI.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessNode" Name="AutomataUI" />
             </p:NodeReference>
@@ -911,7 +911,7 @@
             </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="-124,665,74,19" Id="VO3eGK2HsEwOSm0bWN2GIM">
-            <p:NodeReference LastCategoryFullName="AutomataUI" LastDependency="AutomataUI.vl">
+            <p:NodeReference LastCategoryFullName="VVVV.AutomataUI" LastDependency="AutomataUI.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="IsActiveState" />
             </p:NodeReference>
@@ -927,7 +927,7 @@
           </Pad>
           <Pad Id="EjVVjObgDQlNhKgyB6Nptz" Comment="" Bounds="-53,711,35,35" ShowValueBox="true" isIOBox="true" />
           <Node Bounds="110,649,54,19" Id="Sz7VN4ZntKSPZyXZgyVQJk">
-            <p:NodeReference LastCategoryFullName="AutomataUI" LastDependency="AutomataUI.vl">
+            <p:NodeReference LastCategoryFullName="VVVV.AutomataUI" LastDependency="AutomataUI.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="AutomataUI" NeedsToBeDirectParent="true" />
               <Choice Kind="ProcessAppFlag" Name="GetState" />
@@ -963,7 +963,7 @@
             </p:ValueBoxSettings>
           </Pad>
           <Node Bounds="838,631,135,19" Id="J165UKAOnosLwsVP1VBHt4">
-            <p:NodeReference LastCategoryFullName="AutomataUI" LastDependency="AutomataUI.vl">
+            <p:NodeReference LastCategoryFullName="VVVV.AutomataUI" LastDependency="AutomataUI.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="GetElapsedTransitionTime" />
             </p:NodeReference>
@@ -972,7 +972,7 @@
           </Node>
           <Pad Id="BYpCZAnILXdPPdOmK0RKQi" Comment="Elapsed Transition Time" Bounds="840,680,35,15" ShowValueBox="true" isIOBox="true" />
           <Node Bounds="518,693,95,19" Id="KAOOvh3YXGrLnbuOLB91Z3">
-            <p:NodeReference LastCategoryFullName="AutomataUI" LastDependency="AutomataUI.vl">
+            <p:NodeReference LastCategoryFullName="VVVV.AutomataUI" LastDependency="AutomataUI.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <CategoryReference Kind="Category" Name="AutomataUI" NeedsToBeDirectParent="true" />
               <Choice Kind="ProcessAppFlag" Name="TriggerTransition" />
