@@ -843,11 +843,6 @@
             <ControlPoint Id="UUuusV4DxgAPk9JxcgbkIF" Bounds="1063,511" />
             <ControlPoint Id="OZr6JGVIkl2PzFTOuu68ei" Bounds="899,512" />
           </Canvas>
-          <!--
-
-    ************************  ************************
-
--->
           <ProcessDefinition Id="SazbUorTZNiLZaGaJSsbsl">
             <Fragment Id="VSKgAOho13OP7Tew8YSPRz" Patch="NFPcrknaio0LNn4PPEoFVj" Enabled="true" />
             <Fragment Id="LNPxPXpUBpGODzS1vwJG7S" Patch="PSvX6eU1pT3NmLxCLmLmmS" Enabled="true" />
@@ -901,7 +896,7 @@
             <Pin Id="GFf657tQtWXPH8uvTQSQUO" Name="ActiveState" Kind="OutputPin" />
             <Pin Id="LSMgq2bGKP7MNALqLYB0d8" Name="Automata" Kind="OutputPin" />
           </Node>
-          <Pad Id="Q7ZpratzWsLMP564uXDh6M" Comment="Show" Bounds="239,323,35,38" ShowValueBox="true" isIOBox="true" Value="True">
+          <Pad Id="Q7ZpratzWsLMP564uXDh6M" Comment="Show" Bounds="239,312,35,38" ShowValueBox="true" isIOBox="true" Value="True">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
               <CategoryReference Kind="Category" Name="Primitive" />
@@ -949,7 +944,7 @@
           </Pad>
           <Pad Id="KtlmipjBOjILpnUT9PfuFn" Comment="Elapsed State Time" Bounds="204,719,59,24" ShowValueBox="true" isIOBox="true" />
           <Pad Id="DTzjOKEfVYYM14uIhyIqlN" Comment="Active" Bounds="113,718,35,35" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="VZ4L2VvQwTbO2G8xeVNp5O" Comment="Load" Bounds="128,319,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="VZ4L2VvQwTbO2G8xeVNp5O" Comment="Load" Bounds="128,308,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
               <CategoryReference Kind="Category" Name="Primitive" />
@@ -958,7 +953,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="J87X35JVtCRPNdPHdrfQX1" Comment="Save" Bounds="17,319,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="J87X35JVtCRPNdPHdrfQX1" Comment="Save" Bounds="17,308,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
               <CategoryReference Kind="Category" Name="Primitive" />
@@ -1036,5 +1031,5 @@
     </Node>
   </Patch>
   <PlatformDependency Id="QDoMUGsGlDiLw81LusakQs" Location="System.Windows.Forms" />
-  <ProjectDependency Id="JhHfglfWmnfMTtBPV5XgNp" Location="./csharp/AutomataUI/AutomataUI.csproj" />
+  <ProjectDependency Id="GDY9lYA5NZVQAQeNF9jyrp" Location="./src/AutomataUI/AutomataUI.csproj" />
 </Document>
