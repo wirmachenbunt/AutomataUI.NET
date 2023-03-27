@@ -22,7 +22,7 @@ jobs:
       uses: nuget/setup-nuget@v1
 
     - name: Publish VL Nuget
-      uses: vvvv/PublishVLNuget@1.0.29
+      uses: vvvv/PublishVLNuget@1.0.41
       with:
         csproj: src\AutomataUI\AutomataUI.csproj
         nuspec: deployment\VL.AutomataUI.nuspec 

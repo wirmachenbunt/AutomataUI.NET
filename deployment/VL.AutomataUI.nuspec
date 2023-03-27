@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>VL.AutomataUI</id>
-    <version>0.0.6</version>
+    <version>0.0.7</version>
     <title>VL.AutomataUI</title>
     <authors>wirmachenbunt</authors>
     <owners>wirmachenbunt</owners>
@@ -21,6 +21,7 @@
   </metadata>
   <files>
     <file src="..\*.vl" target="" exclude="" />
+    <file src="..\lib\AutomataUI.dll" target="lib\" exclude="" />
 	<file src="nugeticon.png" target="icon\" />
   </files>
 </package>
