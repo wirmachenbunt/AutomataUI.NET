@@ -16,8 +16,10 @@
   <dependencies>
     <group targetFramework="net6.0">
       <dependency id="SkiaSharp" version="2.88.1"/>
-      <dependency id="SkiaSharp.Views" version="2.88.1"/>
       <dependency id="SkiaTextRenderer" version="2.0.0"/>
+    </group>
+    <group targetFramework="net481">
+      <dependency id="SkiaSharp.Views" version="2.88.1"/>
     </group>
   </dependencies>
   </metadata>
