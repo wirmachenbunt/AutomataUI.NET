@@ -135,6 +135,7 @@ DocProject/Help/html
 
 # Click-Once directory
 publish/
+lib/
 
 # Publish Web Output
 *.[Pp]ublish.xml
@@ -257,3 +258,5 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/lib/net6.0-windows/AutomataUI.deps.json
+/lib/net6.0-windows/AutomataUI.dll

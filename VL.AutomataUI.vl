@@ -16,7 +16,7 @@
         <Patch Id="QkUTGived6NM4mSyWmVP65">
           <Canvas Id="LUXBKKuMGURNa89gvfAkJF" CanvasType="Group">
             <Node Bounds="36,108,79,26" Id="QQ6Nop5eNMwM3pambd8IlK">
-              <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.csproj">
+              <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.dll">
                 <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                 <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
                 <CategoryReference Kind="AssemblyCategory" Name="AutomataWindow" />
@@ -88,7 +88,7 @@
                   <Pin Id="PSnMDbm2TD1MiZRd3VgXDF" Name="Down Edge" Kind="OutputPin" />
                 </Node>
                 <Node Bounds="65,521,81,26" Id="VXOExeVAQ2hPt6ax5CuZD5">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataWindow" />
@@ -99,7 +99,7 @@
                   <Pin Id="QRBiL1m5mg9MVJnbapknR1" Name="Automata Data" Kind="OutputPin" />
                 </Node>
                 <Node Bounds="167,591,73,26" Id="Chv6CkXbjIzL6rabkTGav9">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataModel" />
@@ -110,7 +110,7 @@
                   <Pin Id="CJ6HvRV7TOAPpg9CeDujHS" Name="Active State" Kind="OutputPin" />
                 </Node>
                 <Node Bounds="198,659,52,26" Id="GNPn95Tt21zLXVRAWibblE">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.UIelement" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.UIelement" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
                     <CategoryReference Kind="AssemblyCategory" Name="UIelement" />
@@ -123,7 +123,7 @@
                 <Slot Id="S6SsmSf57ECONcE7kf6fk4" Name="Automata Data" />
                 <Pad Id="BsnfZOu3WXxQZVQqLMy3rR" SlotId="S6SsmSf57ECONcE7kf6fk4" Bounds="144,690" />
                 <Node Bounds="252,589,93,26" Id="ME6rOxAEKmsNIqYrxIodw8">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataModel" />
                     <Choice Kind="OperationCallFlag" Name="UpdateAutomata" />
@@ -132,7 +132,7 @@
                   <Pin Id="EukOXV39d2fPRGUTpzB0jf" Name="Output" Kind="StateOutputPin" />
                 </Node>
                 <Node Bounds="380,572,95,26" Id="FEKCZ77sZoCOn5VQ7EMq2R">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataModel" />
@@ -206,7 +206,7 @@
                 <Patch Id="FFit5boR8hCLzbDmmTdj7n" Name="Create" ManuallySortedPins="true" />
                 <Patch Id="A7TDq86yWWRNt0PpQ3ahOn" Name="Then" ManuallySortedPins="true" />
                 <Node Bounds="265,1620,79,26" Id="SFNbWusiHucPjSnRNADw68">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataWindow" />
@@ -297,7 +297,7 @@
                 <Patch Id="QpiLb3KAVMSOA5sKW50eqJ" Name="Create" ManuallySortedPins="true" />
                 <Patch Id="Fv2vl2W4jVAMDA598P6KjP" Name="Then" ManuallySortedPins="true" />
                 <Node Bounds="731,1617,81,26" Id="EnCQZW61wU7OCgNC6CMJve">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataWindow" />
@@ -308,7 +308,7 @@
                   <Pin Id="Vb4w4BWDUobQO4q0soLnkw" Name="Automata Data" Kind="OutputPin" />
                 </Node>
                 <Node Bounds="806,1725,87,26" Id="ByxqNmzN1AuPF4vYtExQAR">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataModel" />
@@ -463,7 +463,7 @@
                 <Patch Id="TPCWZqscBN2OLsjwyuYGLg" Name="Create" ManuallySortedPins="true" />
                 <Patch Id="AfEJmz9VKWAPDdRF9UJ3nJ" Name="Then" ManuallySortedPins="true" />
                 <Node Bounds="499,467,81,26" Id="VvKMQGC9rlpNmIM867UJoL">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataWindow" />
@@ -474,7 +474,7 @@
                   <Pin Id="CFA6O4GfNyIPzP0usxrDeu" Name="Automata Data" Kind="OutputPin" />
                 </Node>
                 <Node Bounds="576,511,73,26" Id="I7z7M7Dh7APOS3lJT4cQOE">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataModel" />
@@ -485,7 +485,7 @@
                   <Pin Id="MFaTi49HjhhLdKrNTM4VIb" Name="Active State" Kind="OutputPin" />
                 </Node>
                 <Node Bounds="644,565,52,26" Id="HF7TCB4xqoSMKMFcNUqSzZ">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.UIelement" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.UIelement" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
                     <CategoryReference Kind="AssemblyCategory" Name="UIelement" />
@@ -533,7 +533,7 @@
           <Patch Id="JcVR1P75M7GNwVQhOzS6Z0" Name="Create" />
           <Patch Id="N2nCTCGTMTuMdT73n5iUQM" Name="Update">
             <Pin Id="FxZFHzQ3ovWLQwHnTz910B" Name="Automata" Kind="InputPin">
-              <p:TypeAnnotation LastCategoryFullName="AutomataUI" LastDependency="AutomataUI.csproj">
+              <p:TypeAnnotation LastCategoryFullName="AutomataUI" LastDependency="AutomataUI.dll">
                 <Choice Kind="TypeFlag" Name="AutomataWindow" />
               </p:TypeAnnotation>
             </Pin>
@@ -588,7 +588,7 @@
                 <Patch Id="KrrXabBH2g9MqLm4bXxCXN" Name="Create" ManuallySortedPins="true" />
                 <Patch Id="B9gPIdCWAlANW34MakK1HV" Name="Then" ManuallySortedPins="true" />
                 <Node Bounds="566,505,81,26" Id="Mfgu0h2zHreMjHWuQoL2Zs">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataWindow" />
@@ -599,7 +599,7 @@
                   <Pin Id="HGXZsedi2tFNg4ZgOtUouh" Name="Automata Data" Kind="OutputPin" />
                 </Node>
                 <Node Bounds="643,549,73,26" Id="Fm2DDQpcrbbLyabYJjcq0X">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataModel" />
@@ -619,7 +619,7 @@
                   <Pin Id="Kx9bYXWk0O2MNIlBMoWqGW" Name="Result" Kind="OutputPin" />
                 </Node>
                 <Node Bounds="711,593,52,26" Id="I7uLirf8xYFMwWtJ981GXV">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.UIelement" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.UIelement" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="UIelement" />
                     <Choice Kind="OperationCallFlag" Name="Name" />
@@ -629,7 +629,7 @@
                   <Pin Id="RokjQwWmdRGN7h2TajhFan" Name="Name" Kind="OutputPin" />
                 </Node>
                 <Node Bounds="909,616,96,26" Id="JWqTyUifBO8NoWJtUKjlzy">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <Choice Kind="OperationCallFlag" Name="elapsedStateTime" />
                   </p:NodeReference>
@@ -672,7 +672,7 @@
           <Patch Id="N4ybTI3LoNlLjRyrUNbbXV" Name="Create" />
           <Patch Id="Le4uvQgbcYeOhTRWyksyAD" Name="Update">
             <Pin Id="BAdYcr4x7DDMhDxN5TLKUQ" Name="Automata" Kind="InputPin">
-              <p:TypeAnnotation LastCategoryFullName="AutomataUI" LastDependency="AutomataUI.csproj">
+              <p:TypeAnnotation LastCategoryFullName="AutomataUI" LastDependency="AutomataUI.dll">
                 <Choice Kind="TypeFlag" Name="AutomataWindow" />
               </p:TypeAnnotation>
             </Pin>
@@ -723,7 +723,7 @@
                 <Patch Id="Qxbj8C1ahMhPnsVPLHuMoT" Name="Create" ManuallySortedPins="true" />
                 <Patch Id="JEzgPxcSSAzP4sLDA6yRlY" Name="Then" ManuallySortedPins="true" />
                 <Node Bounds="622,419,81,26" Id="P5BlbPRO3F5MZfCnqHZAeu">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataWindow" />
@@ -734,7 +734,7 @@
                   <Pin Id="AxMp8xWRA17PjfTcQftCP3" Name="Automata Data" Kind="OutputPin" />
                 </Node>
                 <Node Bounds="756,481,120,26" Id="RtIk17i6zyvQPQ2xxIesou">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataModel" />
@@ -766,7 +766,7 @@
           <Patch Id="EN7BsgHt3P8PO92EFktIDV" Name="Create" />
           <Patch Id="PGCQgf4FRKfOVsigxd47s4" Name="Update">
             <Pin Id="NOFTOWr0jWUPL2oVS24kSA" Name="Automata" Kind="InputPin">
-              <p:TypeAnnotation LastCategoryFullName="AutomataUI" LastDependency="AutomataUI.csproj">
+              <p:TypeAnnotation LastCategoryFullName="AutomataUI" LastDependency="AutomataUI.dll">
                 <Choice Kind="TypeFlag" Name="AutomataWindow" />
               </p:TypeAnnotation>
             </Pin>
@@ -809,7 +809,7 @@
                 <Patch Id="SaYOqgtnGpsNWV5VZjNeAM" Name="Create" ManuallySortedPins="true" />
                 <Patch Id="JUbI8hMIADyNa8hCZxHrQd" Name="Then" ManuallySortedPins="true" />
                 <Node Bounds="677,698,81,26" Id="KGKEB6JXxr7Nf6NoDZzy2p">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataWindow" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataUI" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataWindow" />
@@ -820,7 +820,7 @@
                   <Pin Id="TZpAcJ2xtP5Lqo2EAMm8Po" Name="Automata Data" Kind="OutputPin" />
                 </Node>
                 <Node Bounds="809,767,95,26" Id="GPfFFEF0PZOLxEtongg4EX">
-                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.csproj">
+                  <p:NodeReference LastCategoryFullName="AutomataUI.AutomataModel" LastDependency="AutomataUI.dll">
                     <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                     <CategoryReference Kind="AssemblyCategory" Name="AutomataModel" NeedsToBeDirectParent="true" />
                     <Choice Kind="OperationCallFlag" Name="TriggerTransition" />
@@ -862,7 +862,7 @@
           <Patch Id="NFPcrknaio0LNn4PPEoFVj" Name="Create" />
           <Patch Id="PSvX6eU1pT3NmLxCLmLmmS" Name="Update">
             <Pin Id="SNU7xm6bSuYNhlQpHnxuOQ" Name="Automata" Kind="InputPin">
-              <p:TypeAnnotation LastCategoryFullName="AutomataUI" LastDependency="AutomataUI.csproj">
+              <p:TypeAnnotation LastCategoryFullName="AutomataUI" LastDependency="AutomataUI.dll">
                 <Choice Kind="TypeFlag" Name="AutomataWindow" />
               </p:TypeAnnotation>
             </Pin>
@@ -937,7 +937,7 @@
             <Pin Id="JiPntMtpmggPx79nNqIvc9" Name="Active" Kind="OutputPin" />
             <Pin Id="O0F3eOQ9wA3QCfVpiTfS07" Name="Elapsed State Time" Kind="OutputPin" />
           </Node>
-          <Pad Id="AHpwkQG5TWRQCz3L8ew8a5" Comment="StateName" Bounds="161,602,74,18" ShowValueBox="true" isIOBox="true" Value="Scene01">
+          <Pad Id="AHpwkQG5TWRQCz3L8ew8a5" Comment="StateName" Bounds="191,623,74,18" ShowValueBox="true" isIOBox="true" Value="Scene01">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -962,7 +962,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Node Bounds="838,631,135,19" Id="J165UKAOnosLwsVP1VBHt4">
+          <Node Bounds="808,622,135,19" Id="J165UKAOnosLwsVP1VBHt4">
             <p:NodeReference LastCategoryFullName="VVVV.AutomataUI" LastDependency="VL.AutomataUI.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="GetElapsedTransitionTime" />
@@ -970,7 +970,7 @@
             <Pin Id="LRvARh7AU2PPsKu5h7Cwwv" Name="Automata" Kind="InputPin" />
             <Pin Id="UKxTGeFN2RsORxpny9FcRN" Name="Elapsed Transition Time" Kind="OutputPin" />
           </Node>
-          <Pad Id="BYpCZAnILXdPPdOmK0RKQi" Comment="Elapsed Transition Time" Bounds="840,680,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="BYpCZAnILXdPPdOmK0RKQi" Comment="Elapsed Transition Time" Bounds="810,671,35,15" ShowValueBox="true" isIOBox="true" />
           <Node Bounds="518,693,95,19" Id="KAOOvh3YXGrLnbuOLB91Z3">
             <p:NodeReference LastCategoryFullName="VVVV.AutomataUI" LastDependency="VL.AutomataUI.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -981,7 +981,7 @@
             <Pin Id="DHdM6IjHlh4OJxLeprf1OZ" Name="Transition" Kind="InputPin" />
             <Pin Id="UyVKE6zHFnQQWE1KCUOE3e" Name="Trigger" Kind="InputPin" />
           </Node>
-          <Pad Id="JVhqtK9k20jPygfbwuuc1G" Comment="Trigger" Bounds="606,591,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="JVhqtK9k20jPygfbwuuc1G" Comment="Trigger" Bounds="638,645,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
               <CategoryReference Kind="Category" Name="Primitive" />
@@ -990,12 +990,12 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="NKB9Lf2gglSN6kc13LJbuK" Comment="Transition Name IN" Bounds="565,653,63,15" ShowValueBox="true" isIOBox="true" Value="ToEmpty">
+          <Pad Id="NKB9Lf2gglSN6kc13LJbuK" Comment="Transition Name IN" Bounds="564,622,63,15" ShowValueBox="true" isIOBox="true" Value="ToEmpty">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
           </Pad>
-          <Overlay Id="T5mQYVHkywwPNDBTc4O08z" Name="Get Data" Bounds="817,536,282,264">
+          <Overlay Id="T5mQYVHkywwPNDBTc4O08z" Name="Get Data" Bounds="787,527,282,264">
             <p:ColorIndex p:Type="Int32">3</p:ColorIndex>
           </Overlay>
           <Overlay Id="UjzeT591SJROs7RNMOqgKN" Name="Trigger Event" Bounds="477,526,297,264">
@@ -1031,5 +1031,5 @@
     </Node>
   </Patch>
   <PlatformDependency Id="QDoMUGsGlDiLw81LusakQs" Location="System.Windows.Forms" />
-  <ProjectDependency Id="Trc9toaIvzZPhGfTvn5c3b" Location="./src/AutomataUI/AutomataUI.csproj" />
+  <PlatformDependency Id="PgDlpmPQTGfLLUVZCMzAiv" Location="./lib/net6.0-windows/AutomataUI.dll" />
 </Document>
