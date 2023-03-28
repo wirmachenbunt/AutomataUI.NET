@@ -22,7 +22,6 @@
   <files>
     <file src="..\*.vl" target="" exclude="" />
     <file src="..\lib\**" target="lib\" exclude="" />
-    <file src="..\runtimes\**" target="runtimes\" exclude="" />
 	  <file src="nugeticon.png" target="icon\" />
   </files>
 </package>
