@@ -12,12 +12,64 @@
 	<BaseOutputPath>..\lib</BaseOutputPath>
   <OutputPath>..\..\lib</OutputPath>
   <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  <PackageId>VL.AutomataUI</PackageId>
+  <Title>VL.AutomataUI</Title>
+  <Company>wirmachenbunt</Company>
+  <Description>s simple statemachine editor</Description>
+  <PackageProjectUrl>https://discourse.vvvv.org/t/vl-automataui/21378</PackageProjectUrl>
+  <PackageIcon>icon.png</PackageIcon>
+  <PackageReadmeFile>README.md</PackageReadmeFile>
+  <RepositoryUrl>https://github.com/wirmachenbunt/AutomataUI.NET</RepositoryUrl>
+  <RepositoryType>git</RepositoryType>
+  <PackageTags>vvvv</PackageTags>
+  <Copyright>2023</Copyright>
+  <IncludeSymbols>True</IncludeSymbols>
+  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Resources\**" />
+    <EmbeddedResource Remove="Resources\**" />
+    <None Remove="Resources\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="SkiaSharp" Version="2.88.1" />
     <PackageReference Include="SkiaSharp.Views" Version="2.88.1" />
     <PackageReference Include="SkiaTextRenderer" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="VL.AutomataUI.vl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

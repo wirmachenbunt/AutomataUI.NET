@@ -95,7 +95,7 @@ namespace AutomataUI
             SKPoint3 TempC;
 
             SKPoint3 tempVector = PolarVVVV(PointA - PointB); //get Polar Values
-            
+           
 
             if (tempVector.Y > 0) // depending which quadrant of rotation
             {
