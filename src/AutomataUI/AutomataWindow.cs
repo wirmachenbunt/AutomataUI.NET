@@ -27,10 +27,26 @@ namespace AutomataUI
         public AutomataModel AutomataData; //contains Automata Structure and Methods
         Dialogs AutomataDialogs; //Winforms Dialogs
 
-
-
         //debug stuff
         public bool loopAsTask = false;
+
+
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+        private const int WS_CAPTION = 0x00C00000;
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                
+                //myCp.Style &= WS_CAPTION;
+
+                return myCp;
+            }
+        }
 
         public AutomataWindow()
         {
@@ -40,23 +56,12 @@ namespace AutomataUI
             // run automataloop as task when in VS
             if (loopAsTask)
             {
-                //automata renderloop
-
-                //Action<AutomataModel> firstAction = AutomataLoop;
-                //firstAction(AutomataData); 
-
-                //Action actionDelegate = new Action(AutomataLoop);
-                //Task task1 = new Task(actionDelegate);
-                //task1.Start();
-
-
-
-
                 Task.Run(() => AutomataLoop(AutomataData));
             }
-
-
         }
+
+      
+
 
         public void InitializeAutomata()
         {
@@ -99,7 +104,7 @@ namespace AutomataUI
             //note! USING JUST AUTOSCALEMODE WILL NOT SOLVE ISSUE. MUST USE BOTH!
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F); //IMPORTANT
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;   //IMPORTANT
-            this.ControlBox = false;
+            this.ControlBox = true;
             ResumeLayout(false);
         }
 

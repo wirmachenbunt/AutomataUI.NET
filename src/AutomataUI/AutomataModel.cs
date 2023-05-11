@@ -203,9 +203,6 @@ namespace AutomataUI
                 }
             }
 
-
-
-
         }
 
         public void TriggerTransition(String transitionNameIN)
