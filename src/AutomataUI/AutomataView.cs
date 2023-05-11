@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace AutomataUI
@@ -67,7 +68,6 @@ namespace AutomataUI
             Debug.WriteLine("redraw UI");
             this.skiaView.Invalidate();
         }
-
         public void SetupPaints()
         {
 
@@ -153,13 +153,13 @@ namespace AutomataUI
                     if (item.Name == "Init")
                     {
                         canvas.DrawCircle(item.Bounds.MidX, item.Bounds.MidY, 50, stateInitPaint);
-                        DrawStateText(canvas, item.Name, SKColors.Black, new SKPoint(item.Bounds.MidX, item.Bounds.MidY));
+                        DrawText(canvas, item.Name, SKColors.Black, new SKPoint(item.Bounds.MidX, item.Bounds.MidY));
                     }
                     //draw states
                     else
                     {
                         canvas.DrawCircle(item.Bounds.MidX, item.Bounds.MidY, 50, stateDefaultPaint);
-                        DrawStateText(canvas, item.Name, SKColors.White, new SKPoint(item.Bounds.MidX, item.Bounds.MidY));
+                        DrawText(canvas, item.Name, SKColors.White, new SKPoint(item.Bounds.MidX, item.Bounds.MidY));
                     }
                 }
             }
@@ -189,7 +189,7 @@ namespace AutomataUI
             //debug mouse method
             //canvas.DrawCircle(Tools.ToWorldSpace(mousePos, worldOffset, worldScale), 10, stateDefaultPaint);
         }
-        private void DrawStateText(SKCanvas canvas, string name, SKColor textColor, SKPoint pos)
+        private void DrawText(SKCanvas canvas, string name, SKColor textColor, SKPoint pos)
         {
             TextRendererSk.DrawText(canvas,
                                                 name,
@@ -201,18 +201,7 @@ namespace AutomataUI
                                                 SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
 
         }
-        private void DrawTransitionText(SKCanvas canvas, string name, SKColor textColor, SKPoint pos)
-        {
-            TextRendererSk.DrawText(canvas,
-                                                        name,
-                                                        font,
-                                                        SKRect.Create(pos.X - 40, pos.Y - 40, 80, 80),
-                                                        textColor,
-                                                        SkiaTextRenderer.TextFormatFlags.WordBreak |
-                                                        SkiaTextRenderer.TextFormatFlags.VerticalCenter |
-                                                        SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
-
-        }
+       
         private void DrawTransitions(SKCanvas canvas)
         {
             if (AutomataData != null)
@@ -253,12 +242,10 @@ namespace AutomataUI
 
                     SKPoint center = Tools.CenterPoints(edgepoints.A, edgepoints.B);
 
-                    SKPath linePath = new SKPath();
-                    linePath.MoveTo(center.X - 60, center.Y + 5);
-                    linePath.LineTo(center.X + 60, center.Y + 5);
-
-                    SKSize s = TextRendererSk.MeasureText(transition.Name, font);
-
+                    SKSize s = TextRendererSk.MeasureText(transition.Name, font,80, SkiaTextRenderer.TextFormatFlags.WordBreak |
+                                                SkiaTextRenderer.TextFormatFlags.VerticalCenter |
+                                                SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
+                    
                     SKRect textBounds = new SKRect(center.X - s.Width / 2, center.Y - s.Height / 2, center.X + s.Width / 2, center.Y + s.Height / 2);
 
                     ////////////////add bounds to transition
@@ -266,11 +253,9 @@ namespace AutomataUI
                     ////////////////add bounds to transition
 
                     
-                    canvas.DrawRect(center.X - s.Width / 2, center.Y - s.Height / 2, s.Width, s.Height, stateDefaultPaint);
-
-                    //i have to draw onto a path to avoid jitter...weirdo
-                    canvas.DrawTextOnPath(transition.Name, linePath, 0, 0, textWhitePaint);
-
+                    canvas.DrawRect(textBounds, stateDefaultPaint);
+                 
+                    DrawText(canvas, transition.Name, SKColors.White, new SKPoint(textBounds.MidX, textBounds.MidY));
                 }
             }
 
