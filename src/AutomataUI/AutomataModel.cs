@@ -16,6 +16,12 @@ namespace AutomataUI
 {
     public class AutomataModel
     {
+        //////UI settings
+        public SKPoint worldOffset;
+        public float worldScale = 1;
+        //////UI settings
+
+
         public List<State> states { get; set; }
         public List<Transition> transitions { get; set; }
 
@@ -33,6 +39,11 @@ namespace AutomataUI
         //redraw events to bubble up to AutomataView
         public delegate void RedrawEventHandler();
         public event RedrawEventHandler? Redraw;
+
+        //bubble up, data has changed, used for undo and saving
+        public delegate void AutomataDataChangedHandler();
+        public event AutomataDataChangedHandler? DataChanged;
+
 
         public World world;
         public AutomataModel()
@@ -144,6 +155,9 @@ namespace AutomataUI
 
             elapsedStateTime = loadedData.elapsedStateTime;
             elapsedTransitionTime = loadedData.elapsedTransitionTime;
+
+            worldOffset = loadedData.worldOffset;
+            worldScale = loadedData.worldScale;
 
             states.Clear();
             transitions.Clear();

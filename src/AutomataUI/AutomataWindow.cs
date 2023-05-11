@@ -30,20 +30,15 @@ namespace AutomataUI
         //debug stuff
         public bool loopAsTask = false;
 
-
+        // disable Close button
         private const int CP_NOCLOSE_BUTTON = 0x200;
         private const int WS_CAPTION = 0x00C00000;
-
         protected override CreateParams CreateParams
         {
             get
             {
-                CreateParams myCp = base.CreateParams;
-                
+                CreateParams myCp = base.CreateParams;               
                 myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
-                
-                //myCp.Style &= WS_CAPTION;
-
                 return myCp;
             }
         }

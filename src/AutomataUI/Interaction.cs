@@ -38,7 +38,7 @@ namespace AutomataUI
 
         private void DoMouseUp(object sender, MouseEventArgs e)
         {
-            selectedItem = null;
+            selectedItem = null;       
         }
 
         private void DoDoubleClick(object sender, MouseEventArgs e)
@@ -53,7 +53,7 @@ namespace AutomataUI
             {
                 if (Dialogs.Dialog(ref stateName, ref frames, "Add State") == DialogResult.OK)
                 {
-                    AutomataData.AddState(stateName, frames, Tools.ToWorldSpace(e.Location.ToSKPoint(), AutomataView.worldOffset, AutomataView.worldScale));
+                    AutomataData.AddState(stateName, frames, Tools.ToWorldSpace(e.Location.ToSKPoint(), AutomataData.worldOffset, AutomataData.worldScale));
                     AutomataView.skiaView.Invalidate();
                 }
             }
@@ -224,7 +224,7 @@ namespace AutomataUI
         private Object HitTest(MouseEventArgs e)
         {
             //transform mouse to world space for hit testing
-            SKPoint worldMousePos = Tools.ToWorldSpace(e.Location.ToSKPoint(), AutomataView.worldOffset, AutomataView.worldScale);
+            SKPoint worldMousePos = Tools.ToWorldSpace(e.Location.ToSKPoint(), AutomataData.worldOffset, AutomataData.worldScale);
 
 
             //who wants to be hit tested
@@ -263,9 +263,9 @@ namespace AutomataUI
         {
             // drag position      
             if (e.Button == MouseButtons.Right && selectedItem is World)
-            {            
-                AutomataView.worldOffset.X += (mouseDelta.X) / AutomataView.worldScale;
-                AutomataView.worldOffset.Y += (mouseDelta.Y) / AutomataView.worldScale;
+            {
+                AutomataData.worldOffset.X += (mouseDelta.X) / AutomataData.worldScale;
+                AutomataData.worldOffset.Y += (mouseDelta.Y) / AutomataData.worldScale;
                 AutomataView.skiaView.Invalidate();
             }
 
@@ -277,34 +277,34 @@ namespace AutomataUI
                 var state = (State)selectedState;
 
                 state.Bounds = new SKRect(
-                    state.Bounds.Left + mouseDelta.X / AutomataView.worldScale,
-                    state.Bounds.Top + mouseDelta.Y / AutomataView.worldScale,
-                    state.Bounds.Right + mouseDelta.X / AutomataView.worldScale,
-                    state.Bounds.Bottom + mouseDelta.Y / AutomataView.worldScale);
+                    state.Bounds.Left + mouseDelta.X / AutomataData.worldScale,
+                    state.Bounds.Top + mouseDelta.Y / AutomataData.worldScale,
+                    state.Bounds.Right + mouseDelta.X / AutomataData.worldScale,
+                    state.Bounds.Bottom + mouseDelta.Y / AutomataData.worldScale);
 
                 AutomataView.skiaView.Invalidate();
             }
         }
         public void ZoomWorld(MouseEventArgs e)
         {
-            float worldScalePre = AutomataView.worldScale;
+            float worldScalePre = AutomataData.worldScale;
             //Console.WriteLine(AutomataView.worldScale);
 
-            if (e.Delta > 0 && AutomataView.worldScale < 2.2f)
+            if (e.Delta > 0 && AutomataData.worldScale < 2.2f)
             {
-                AutomataView.worldScale *= 1.08f;
+                AutomataData.worldScale *= 1.08f;
             }
 
-            if (e.Delta < 0 && AutomataView.worldScale > 0.1f)
+            if (e.Delta < 0 && AutomataData.worldScale > 0.1f)
             {
-                AutomataView.worldScale *= 0.92f;
+                AutomataData.worldScale *= 0.92f;
             }
 
             SKPoint preZoomPos = new SKPoint(e.X / worldScalePre, e.Y / worldScalePre);
-            SKPoint postZoomPos = new SKPoint(e.X / AutomataView.worldScale, e.Y / AutomataView.worldScale);
+            SKPoint postZoomPos = new SKPoint(e.X / AutomataData.worldScale, e.Y / AutomataData.worldScale);
 
-            AutomataView.worldOffset.X = postZoomPos.X - preZoomPos.X + AutomataView.worldOffset.X;
-            AutomataView.worldOffset.Y = postZoomPos.Y - preZoomPos.Y + AutomataView.worldOffset.Y;
+            AutomataData.worldOffset.X = postZoomPos.X - preZoomPos.X + AutomataData.worldOffset.X;
+            AutomataData.worldOffset.Y = postZoomPos.Y - preZoomPos.Y + AutomataData.worldOffset.Y;
 
             AutomataView.skiaView.Invalidate();
         }

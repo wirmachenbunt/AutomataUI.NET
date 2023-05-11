@@ -18,11 +18,10 @@ namespace AutomataUI
     public class AutomataView
     {
         public AutomataModel AutomataData;
-        //this.ResizeEnd += Window_Resize;
 
         public SkiaSharp.Views.Desktop.SKGLControl skiaView;
-        public SKPoint worldOffset;
-        public float worldScale = 1;
+        //public SKPoint worldOffset;
+        //public float worldScale = 1;
 
         //colors
         SKPaint stateInitPaint;
@@ -46,7 +45,6 @@ namespace AutomataUI
         {
             AutomataData = AutomataDataInput; // reference to parent class data
             AutomataData.Redraw += AutomataDataRedraw;
-
 
             skiaView = new SkiaSharp.Views.Desktop.SKGLControl();
             skiaView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -179,8 +177,8 @@ namespace AutomataUI
             canvas.DrawText("Create/Edit State (DblClick) Create Transition (RClick -> LClick) Force State/Transition (Ctrl + LClick) ", 10, skiaView.Height-10, textHelpPaint);
 
             // scale and translate world aka canvas
-            canvas.Scale(worldScale);
-            canvas.Translate(worldOffset);
+            canvas.Scale(AutomataData.worldScale);
+            canvas.Translate(AutomataData.worldOffset);
 
             DrawTransitions(canvas);
 
@@ -193,18 +191,6 @@ namespace AutomataUI
         }
         private void DrawStateText(SKCanvas canvas, string name, SKColor textColor, SKPoint pos)
         {
-
-            //Antialiased Text
-            //using (var paint = new SKPaint())
-            //{
-            //    paint.TextSize = 64.0f;
-            //    paint.IsAntialias = true;
-            //    paint.Color = new SKColor(0x42, 0x81, 0xA4);
-            //    paint.IsStroke = false;
-
-            //    canvas.DrawText("MegaState Haha", pos.X, pos.Y+4, textWhitePaint);
-            // }
-
             TextRendererSk.DrawText(canvas,
                                                 name,
                                                 font,
@@ -303,7 +289,7 @@ namespace AutomataUI
                 };
 
                 SKPoint start = new SKPoint(startTransitionState.Bounds.MidX, startTransitionState.Bounds.MidY);
-                SKPoint end = Tools.ToWorldSpace(mousePosition, worldOffset, worldScale);
+                SKPoint end = Tools.ToWorldSpace(mousePosition, AutomataData.worldOffset, AutomataData.worldScale);
                 Tools.EdgePoints edgepoints = Tools.GetEdgePoints(start, end, 55, 0);
 
                 if (endTransitionState == null)
@@ -343,28 +329,5 @@ namespace AutomataUI
             path2.Transform(SKMatrix.CreateTranslation(pos.X, pos.Y));
             canvas.DrawPath(path2, pathStroke2);
         }
-
-        //public void DrawActiveState(SKCanvas canvas)
-        //{
-        //    if (AutomataData.activeState != null)
-        //    {
-        //        //canvas.DrawCircle(AutomataData.activeState.Bounds.MidX, AutomataData.activeState.Bounds.MidY, 55, stateActivePaint);
-
-        //        var outerPaint = new SKPaint
-        //        {
-        //            IsAntialias = true,
-        //            Style = SKPaintStyle.Stroke, //stroke so that it traces the outline
-        //            Color = SKColor.Parse("#ffa500"), //make it the color red
-        //            StrokeWidth = 10
-        //        };
-
-
-        //        SKPath skPath = new SKPath();
-        //        skPath.AddArc(AutomataData.activeState.Bounds, 0, 360);
-        //        canvas.DrawPath(skPath, outerPaint);
-
-        //    }
-
-        //}
     }
 }
