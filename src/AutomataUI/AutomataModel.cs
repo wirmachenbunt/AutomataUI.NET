@@ -26,6 +26,7 @@ namespace AutomataUI
 
         public int elapsedTransitionTime;
         public int elapsedStateTime;
+        
 
         public String output = string.Empty; //output what transition or state is currently active
 
@@ -36,23 +37,7 @@ namespace AutomataUI
         public World world;
         public AutomataModel()
         {
-
-            //states = new List<State>();
-            //transitions = new List<Transition>();
-            //AddState("Init", 0, new SKPoint(0, 0)); // add default state
-            //AddState("Start", 0, new SKPoint(500, 50));
-            //AddTransition("Start", 0, states[0], states[1]);
-
-            //activeState = states[0]; //set activestate to init
-            //targetState = states[0]; // set targetstate also to init
-
-            ////UI background aka desktop element
-            //world = new World()
-            //{
-            //    Bounds = new SKRect(-100000, -100000, 100000, 100000),
-            //    Name = "World"
-            //};
-
+            // init things if you like
         }
         public bool TransitionExists(State startState, State endState)
         {
@@ -226,25 +211,28 @@ namespace AutomataUI
         public void TriggerTransition(String transitionNameIN)
         {
 
-            //find transition and set targettransition
-            foreach (var transition in transitions)
+            if (elapsedStateTime >= activeState.Duration) //enable state locked time
             {
-                if (transition.Name == transitionNameIN &&
-                    transition.StartState.ID == activeState.ID &&
-                    elapsedTransitionTime == 0)
+                //find transition and set targettransition
+                foreach (var transition in transitions)
                 {
+                    if (transition.Name == transitionNameIN &&
+                        transition.StartState.ID == activeState.ID &&
+                        elapsedTransitionTime == 0)
+                    {
 
-                    targetState = transition.EndState;
-                    elapsedTransitionTime = transition.Duration;
-                    elapsedStateTime = 0;
+                        targetState = transition.EndState;
+                        elapsedTransitionTime = transition.Duration;
+                        elapsedStateTime = 0;
 
-                    activeTransition = transition;
-                    //redraw UI
-                    if (Redraw != null) Redraw();
-                    break;
+                        activeTransition = transition;
+                        //redraw UI
+                        if (Redraw != null) Redraw();
+                        break;
 
+                    }
                 }
-            }
+            }     
         }
     }
 
