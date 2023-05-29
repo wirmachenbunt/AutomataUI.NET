@@ -201,7 +201,21 @@ namespace AutomataUI
                                                 SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
 
         }
-       
+
+        private void DrawTransitionText(SKCanvas canvas, string name, SKColor textColor, SKRect rect)
+        {
+            TextRendererSk.DrawText(canvas,
+                                                name,
+                                                font,
+                                                rect,
+                                                textColor,
+                                                SkiaTextRenderer.TextFormatFlags.NoClipping |
+                                                SkiaTextRenderer.TextFormatFlags.VerticalCenter |
+                                                SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
+
+        }
+
+
         private void DrawTransitions(SKCanvas canvas)
         {
             if (AutomataData != null)
@@ -242,20 +256,24 @@ namespace AutomataUI
 
                     SKPoint center = Tools.CenterPoints(edgepoints.A, edgepoints.B);
 
-                    SKSize s = TextRendererSk.MeasureText(transition.Name, font,80, SkiaTextRenderer.TextFormatFlags.WordBreak |
+                    SKSize s = TextRendererSk.MeasureText(transition.Name, font,1000, SkiaTextRenderer.TextFormatFlags.Default |
                                                 SkiaTextRenderer.TextFormatFlags.VerticalCenter |
                                                 SkiaTextRenderer.TextFormatFlags.HorizontalCenter);
                     
-                    SKRect textBounds = new SKRect(center.X - s.Width / 2, center.Y - s.Height / 2, center.X + s.Width / 2, center.Y + s.Height / 2);
+                    float offset = 5;
+                    SKRect textBounds = new SKRect(center.X - s.Width / 2-offset, center.Y - s.Height/2-offset, center.X + s.Width / 2+offset, center.Y + s.Height/2+offset);
 
                     ////////////////add bounds to transition
                     transition.Bounds = textBounds;
                     ////////////////add bounds to transition
+                    SKRoundRect textroundbounds = new SKRoundRect(textBounds);
+                    textroundbounds.SetRect(textBounds, 5, 5);
 
-                    
-                    canvas.DrawRect(textBounds, stateDefaultPaint);
+                    canvas.DrawRoundRect(textroundbounds, stateDefaultPaint);
+                    ///canvas.DrawRect(textBounds, stateDefaultPaint);
                  
-                    DrawText(canvas, transition.Name, SKColors.White, new SKPoint(textBounds.MidX, textBounds.MidY));
+                    //DrawText(canvas, transition.Name, SKColors.White, new SKPoint(textBounds.MidX, textBounds.MidY));
+                    DrawTransitionText(canvas, transition.Name, SKColors.White, textBounds);
                 }
             }
 

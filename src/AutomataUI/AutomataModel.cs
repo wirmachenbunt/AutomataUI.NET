@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using static System.TimeZoneInfo;
+using System.Collections;
 
 namespace AutomataUI
 {
@@ -39,11 +40,6 @@ namespace AutomataUI
         //redraw events to bubble up to AutomataView
         public delegate void RedrawEventHandler();
         public event RedrawEventHandler? Redraw;
-
-        //bubble up, data has changed, used for undo and saving
-        public delegate void AutomataDataChangedHandler();
-        public event AutomataDataChangedHandler? DataChanged;
-
 
         public World world;
         public AutomataModel()
@@ -189,8 +185,7 @@ namespace AutomataUI
                 //transition timer
                 if (activeState != targetState && elapsedTransitionTime != 0)
                 {
-                    elapsedTransitionTime -= 1; //counting transition down to 0
-                    //output = activeTransition;
+                    elapsedTransitionTime -= 1; //counting transition down to 0       
                 }
                 else
                 {
@@ -206,7 +201,7 @@ namespace AutomataUI
 
                     if (Redraw != null) Redraw(); //redraw UI
 
-                    Debug.WriteLine("Transition Ends");
+                    // Debug.WriteLine("Transition Ends");
                 }
 
 
@@ -245,6 +240,23 @@ namespace AutomataUI
                 }
             }     
         }
+
+        public void ForceStatebyName(String name)
+        {
+            State foundState = states.First(s => s.Name == name);
+
+            if (foundState != null)
+            {
+                activeState = foundState;
+                targetState = foundState;
+                elapsedStateTime = 0;
+                elapsedTransitionTime = 0;
+                
+                //redraw UI
+                if (Redraw != null) Redraw();
+            }
+        }
+
     }
 
     public abstract class UIelement //all UI Elements should be based upon this to make the hittest work
