@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using static System.TimeZoneInfo;
 using System.Collections;
+using System.Xml.Linq;
 
 namespace AutomataUI
 {
@@ -256,6 +257,47 @@ namespace AutomataUI
                 if (Redraw != null) Redraw();
             }
         }
+
+        // ---------------------------------------------------------------------------------
+        // New method: Calculate transition progress ("distance to state")
+        // This method takes a state identifier (e.g., state name) as a string input.
+        // It returns a float value between 0 and 1:
+        //   - For the target state, progress increases from 0 to 1.
+        //   - For the source (active) state, progress decreases from 1 to 0.
+        //   - For any other state, returns 0.
+        public float GetStateTransitionDistance(string stateName)
+        {
+            // Find the state based on the provided name.
+            // Note: This follows the pattern used in ForceStatebyName.
+            State state = states.First(s => s.Name == stateName);
+
+            // If there is no active transition, the active state is fully active.
+            if (activeTransition == null)
+            {
+                return (state.ID == activeState.ID) ? 1f : 0f;
+            }
+
+            // Calculate progress based on the remaining transition time.
+            float progress = 1f - ((float)elapsedTransitionTime / activeTransition.Duration);
+
+            // If the state is the target state, return the progress (0 to 1).
+            if (state.ID == targetState.ID)
+            {
+                return progress;
+            }
+            // If the state is the source (active) state, return the inverse progress (1 to 0).
+            else if (state.ID == activeState.ID)
+            {
+                return 1f - progress;
+            }
+            // For any other state, return 0 as it is not involved in the active transition.
+            else
+            {
+                return 0f;
+            }
+        }
+        // ---------------------------------------------------------------------------------
+
 
     }
 
